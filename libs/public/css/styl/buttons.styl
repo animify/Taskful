@@ -1,0 +1,62 @@
+.btn
+	height 3rem
+	line-height 3rem
+	padding 0 1.6rem
+	display inline-block
+	overflow hidden
+	border-radius 3px
+	outline 0
+	background-color cprimary
+	color #fff
+	font-size 1rem
+	cursor pointer
+	vertical-align top
+	border 0
+	appearance none
+	text-align center
+	transition all 0.2s ease
+	position relative
+	&:after
+		absolute top left right bottom
+		border-radius 3px
+		content ' '
+	&:hover
+		color #fff
+		text-decoration none
+		background-color lighten(cprimary, 6%)
+		&:after
+			box-shadow: inset 0 -2px darken(cprimary, 12%)
+	i
+		margin-right 7px
+		font-size 0.82rem
+	&-red
+		background-color cred
+		&:hover
+			background-color darken(cred, 6%)
+	&-green
+		background-color cgreen
+		&:hover
+			background-color darken(cgreen, 6%)
+			&:after
+				box-shadow: inset 0 -2px darken(cgreen, 14%)
+	&-default
+		background-color #EFF0F2
+		color #676767
+		&:hover
+			color #676767
+			background-color darken(#EFF0F2, 3%)
+			&:after
+				box-shadow: inset 0 -2px darken(#EFF0F2, 10%)
+	&-outline
+		background-color transparent
+		border 1px solid cprimary
+		color cprimary
+	&-sm
+		font-size 0.8rem
+		height 2.1rem
+		padding 0 1rem
+		line-height 2.23rem
+	&-block
+		display block
+	& + .btn
+		margin-left 20px

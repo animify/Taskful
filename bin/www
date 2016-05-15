@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+var debug = require('debug')('restapi');
+
+var libs = process.cwd() + '/libs/';
+var config = require(libs + 'config');
+var log = require(libs + 'log')(module);
+var app = require(libs + 'app');
+var http = require('http').Server(app);
+var socketio = require('socket.io').listen(http);
+
+global.socketIO = socketio;
+
+app.locals.moment = require('moment');
+
+app.set('port', process.env.PORT || config.get('port') || 3000);
+
+var server = http.listen(app.get('port'), function() {
+	debug('Taskful server listening on port ' + app.get('port'));
+	log.info('Taskful server listening on port ' + app.get('port'));
+});
+
+var socketjs = require(libs + 'sockets/socket.js').connect(app);

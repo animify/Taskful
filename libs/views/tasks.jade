@@ -1,0 +1,62 @@
+extends layout
+
+block content
+	.wrapper
+		.contents.center
+			.content
+				.module-head
+					h1 My tasks
+			#tasks.top-low
+				for task in tasks
+					.task-item(data-task="#{task._id}")
+						.toggle
+						a #{task.name}
+						.task-info
+							p #{moment(task.created_at).fromNow()}
+							if task.creator.avatar
+								.tooltip
+									span #{task.creator.username}
+									img(src="/images/#{task.creator.avatar}")
+							else
+								.tooltip
+									span #{task.creator.username}
+									img(src="/images/default/user.jpg")
+								
+			input#nt(type="text", placeholder="New task")
+	script(src="/socket.io/socket.io.js")
+	script.
+		$('#nt').bind('keypress', function(e){
+			if(e.which == 13) {
+				$.post('/tasks', 'name=' + $('#nt').val(), function(res) {
+					console.log(res)
+					$('#tasks').append('<div data-task="' + res.tasks._id + '" class="task-item new-task"><div class="toggle"></div><a>' + res.tasks.name + '</a><div class="task-info"><p>a few seconds ago</p><div class="tooltip"><span>' + res.tasks.creator.username + '</span><img src="/images/default/user.jpg"></div></div></div>')
+					$('.new-task').slideDown('fast');
+					$('#nt').val('');
+				});
+			}
+		});
+	//- 	$('.exp_invite').click(function(){
+	//- 		$.post('/teams/invite/' + '#{project.teamid}' + '/' + $('#tm').val(), function(data) {
+	//- 			console.log(data);
+	//- 		});
+	//- 	});
+	//- 	var socket = io();
+	//- 	socket.emit('pjoin', {room: '#{project.projectid}'});
+	//- 	$('.exp_assign').click(function(){
+	//- 		$.post('/project/#{project.projectid}/assign/' + $('#assign').val(), function(data) {
+	//- 			console.log(data);
+	//- 			$('#assign').val('');
+	//- 		});
+	//- 	});
+	//- 	$('.exp_addtask').click(function(){
+	//- 		$.post('/tasks/'+ $('#m').val() + '/' + '#{project.projectid}', function(data) {
+	//- 			console.log(data);
+	//- 			$('#m').val('');
+	//- 		});
+	//- 	});
+	//- 
+	//- 	socket.on('new_task', function(res){
+	//- 		var parsedRes = jQuery.parseJSON(res);
+	//- 		$('#tasks').append('<div class="task-item new-task" data-task="'+ parsedRes.id +'"><div class="toggle"></div><a>' + parsedRes.name + '</a><div class="task-info"><p>'+ parsedRes.created +'</p><div class="tooltip"><span>' + parsedRes.username +'</span><img src="../images/'+ parsedRes.avatar +'"</div></div></div>');
+	//- 		$('.new-task').slideDown('fast');
+	//- 	});

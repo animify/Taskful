@@ -1,0 +1,32 @@
+.nav-inner
+	.nav-logo
+		img(src="/images/taskful.png", alt="")
+	.global-search
+		i.ion-ios-search
+		input(type="text", placeholder="Search for anything...", autocomplete="off", spellcheck="false")
+	.nav-right
+		.nav-links
+			a(href="/projects") Projects
+			a(href="/teams") Teams
+			a(href="/tasks") My Tasks
+		.nav-user
+			if (user)
+				.user-i.dropdown-toggle
+					a #{user.username.substr(0,2)}
+				.dropdown.dropdown-right
+					ul
+						li #[a People]
+						li #[a Invites]
+						li #[a(href="/profile") Account settings]
+						li.split
+						li.li-red #[a(href="/logout") Sign out]
+			if (!user)
+				a(href="/login") Login
+				a(href="/register") Register
+//- .nav-bottom
+//- 	.nav-list
+//- 		ul
+//- 			li
+//- 				a Tasks
+//- 			li
+//- 				a Assigned

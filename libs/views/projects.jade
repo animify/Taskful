@@ -1,0 +1,99 @@
+extends layout
+
+block content
+	.wrapper
+		.contents.center
+			.content
+				.module-head
+					h1 Projects	
+					a.btn.inline-head.open-modal(data-modal="mod-new_project")
+						i.ion-plus
+						| New Project
+				ul.list-header
+					li.active Public
+					li Private
+					li Archived
+				.list
+					for project in projects
+						for result in project
+							.list-item
+								.list-status
+									span.project-status.status_green
+								.list-inner
+									a(href="/projects/#{result._id}") #{result.name}
+									//- p.list-contents #[strong #{result.owner.username}] 
+									if (result.team)
+										//- span.bull &bull;
+										p.list-contents #{result.team.name} 
+									p.created_at Created #{moment(result.created_at).fromNow()}
+								.list-right
+									.list-options
+										span.ion-android-more-vertical
+
+block footer
+	.modal-overlay
+		.modal-overlay-inner
+			.view-close.close-modal
+				i.icon.ion-close-round
+			#mod-new_project.modal-outer.modal-med
+				.modal-inner
+					.modal-header
+						h2 New Project
+						p Enter a project name and select a team to assign it to
+					.modal-body
+						.field
+							input#new_project(type="text", placeholder="What will you name this project?")
+						.field
+							.modal-list
+								for team in teams
+									.modal-list_item(data-team="#{team._id}")
+										.text-preview(style="background-color:#{team.color}")
+											span= team.name.substr(0,1)
+										.modal-list_details
+											.modal-list_title
+												p #{team.name}
+												span= team.userlist.length
+													|  members
+										.modal-list_select
+											span Assign
+					.modal-footer.push-footer
+						.modal-btn
+							a.btn.btn-green.exp_newproject Create Project
+	script.
+		var socket = io();
+		//- socket.on('test', function(msg){
+		//- 	console.log('textconsole ' + msg);
+		//- });
+		$('.modal-list_select span').bind('click', function() {
+			if ($(this).hasClass('active')) {
+				$('.modal-list_select span').show();
+				$(this).closest('.modal-list_item').removeClass('selected');
+				$(this).text('Assign');
+				$(this).removeClass('active');
+			} else {
+				
+				$('.modal-list_select span').hide();
+				$(this).show();
+				$(this).closest('.modal-list_item').addClass('selected');
+				$(this).text('Selected');
+				$(this).addClass('active');
+			}
+		});
+
+		$('.exp_newproject').click(function() {
+			var projectname = $('#new_project').val();
+			var projecteam = $('.modal-list_item.selected').data('team');
+			console.log(projecteam);
+			$.post('/projects', 'name=' + projectname + '&team=' + projecteam, function(data) {
+				JSON.stringify(data);
+				if (data) {
+					$('#new_project').val('');
+					closeModalOverlay();
+					$('.list').append('<div class="list-item new-li"><div class="list-status"><span class="project-status status_green"></span></div><div class="list-inner"><a href="/projects/' + data._id + '">' + data.name + '</a><p>Created a few seconds ago by <strong>' + data.owner.username + '</strong></p></div><div class="list-right"><div class="list-options"><span class="ion-android-more-vertical"></span></div></div></div>');
+					$('.new-li').slideDown();
+				}
+			}).error(function(data) {
+				console.log(data);
+			});
+		});
+	

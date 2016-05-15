@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	.content
+		.module-head
+			h1 #{task}
+						
+block footer
+	.modal-overlay
+		.modal-overlay-inner
+			#mod-invite.modal-outer.modal-med
+				.view-close
+					i.icon.ion-close-round
+				.modal-inner
+					.modal-header
+						h2 Invite a member
+						p Enter the email of the member you want to add to 
+					.modal-body
+						input#tm(type="text")
+					.modal-footer
+						a.btn.exp_invite Invite member

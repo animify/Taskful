@@ -1,0 +1,61 @@
+extends layout
+
+block content
+	.wrapper
+		.contents.center
+			.content
+				.module-head
+					h1 #{team.name}
+					//- h1 #{team}
+					a.btn.inline-head.open-modal(data-modal="mod-invite") Invite to team
+				if (team.userlist)
+					if (team.userlist.length > 0)
+						for member in team.userlist
+							p= member
+					else 
+						.empty_content
+							h2 No users in this team
+						//- #members
+						//- for member in team.userlist
+						//- 	.task-item(data-task="#{task.taskid}")
+						//- 		.toggle
+						//- 		a #{task.taskname}
+						//- 		.task-info
+						//- 			p #{moment(task.created_at).fromNow()}
+						//- 			if task.creator.avatar
+						//- 				.tooltip
+						//- 					span #{task.creator.username}
+						//- 					img(src="../images/#{task.creator.avatar}")
+						//- 			else
+						//- 				.tooltip
+						//- 					span #{task.creator.username}
+						//- 					img(src="../images/default/user.jpg")
+						
+block footer
+	.modal-overlay
+		.modal-overlay-inner
+			.view-close.close-modal
+				i.icon.ion-close-round
+			#mod-invite.modal-outer.modal-med
+				.modal-inner
+					.modal-header
+						h2 Invite a member
+						p Invite a new user by email
+					.modal-body
+						input#tm(type="text", placeholder="mark.johnson@something.com")
+					.modal-footer
+						a.btn.btn-block.exp_invite Invite member
+	script(src="/socket.io/socket.io.js")
+	script.
+		$('.exp_invite').click(function(){
+			$.post('/teams/invite', 'team=#{team._id}&email=' + $('#tm').val(), function(data) {
+				console.log(data);
+			});
+		});
+		var socket = io();
+		socket.emit('tjoin', {room: '#{team.teamid}'});
+		$('.exp_addtask').click(function(){
+			$.post('/tasks/'+ $('#m').val() + '/' + '#{team.teamid}', function(data) {
+				$('#m').val('');
+			});
+		});

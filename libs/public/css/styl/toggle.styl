@@ -1,0 +1,25 @@
+.toggle
+	transition box-shadow 0.4s cubic-bezier(0, 0.9, 0.5, 1)
+	box-shadow inset 0 0 0 1px #DAE2E7
+	width 21px
+	height 21px
+	z-index 200
+	cursor pointer
+	background-color #fff
+	&.rounded
+		border-radius 50%
+	&.task-inline
+		display inline-block
+		vertical-align top
+		margin-right 6px
+	&:after
+		width 100%
+		height 100%
+		display block
+		transition all 0.3s cubic-bezier(0, 0.9, 0.5, 1)
+		background url(../images/tick.png) center center no-repeat
+		background-size 100%
+		content ' '
+	&.selected
+		box-shadow inset 0 0 0 20px cgreen
+		opacity 1 !important

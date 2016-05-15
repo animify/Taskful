@@ -1,0 +1,30 @@
+.tooltip
+	display inline-block
+	position relative
+	cursor pointer
+	&:hover:before
+		border solid
+		border-color #333 transparent
+		border-color rgba(#333,.92) transparent
+		border-width 6px 6px 0 6px
+		absolute top left 50%
+		transform:translateX(-50%)
+		content ""
+		z-index 99
+	&:hover > span
+		display inline-block
+		transform:translateX(-50%)
+		text-align center
+		absolute top -25px left 50%
+	& > span
+		font-size 0.8em
+		line-height 1rem
+		font-weight 600
+		background-color #333
+		background-color rgba(#333,.95)
+		border-radius 2px
+		color #fff
+		content attr(title)
+		padding .35rem .8rem
+		z-index 98
+		display none

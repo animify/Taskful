@@ -1,0 +1,47 @@
+doctype html
+html(lang="en")
+	head
+		title= title
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		script(src='https://code.jquery.com/jquery-2.2.2.min.js')
+	body
+	.container
+		h1 Register Page
+		p.lead Say something worthwhile here. 
+		br
+		.form-group
+				input.form-name(type='text', name="username", placeholder='Enter Username')
+		.form-group
+				input.form-fullname(type='text', name="fullname", placeholder='Enter fullname')
+		.form-group
+				input.form-email(type='text', name="email", placeholder='Enter email')
+		.form-group
+			input.form-password(type='password', name="password", placeholder='Password')
+		.form-group
+			input.form-repassword(type='password', name="password", placeholder='Password')
+		a.btn.btn-submit Submit
+		a(href='/')
+			button.btn.btn-primary(type="button") Cancel
+		br
+		h4= info
+script.
+	$('.btn-submit').click(function() {
+		var data = {};
+		data.username = $('.form-name').val();
+		data.fullname = $('.form-fullname').val();
+		data.email = $('.form-email').val();
+		data.password = $('.form-password').val();
+		data.repassword = $('.form-repassword').val();
+		$.ajax({
+			url: "/register",
+			type: "POST",
+			contentType: 'application/json',
+			data: JSON.stringify(data),
+			success: function(data) {
+				JSON.stringify(data);
+				console.log(data);
+				if (data.status == "OK")
+					window.location.replace("/profile");
+			}
+		})
+	});

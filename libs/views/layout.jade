@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+	block head
+		head
+			title= title
+			script(src='http://code.jquery.com/jquery.js')
+			script(src='https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js')
+			script(src='https://use.typekit.net/mck6onh.js')
+			link(rel="stylesheet", type="text/css", href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css")
+			link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Lato:400,300,700,900")
+			link(rel="stylesheet", type="text/css", href="../css/global.css")
+			link(rel="stylesheet", type="text/css", href="../fonts/font.css")
+			script.
+				try{Typekit.load({ async: true });}catch(e){}
+body
+	nav.top
+		include ./header.jade
+
+	block content
+			
+	footer
+		script(src="/js/app.js")
+		script(src="/socket.io/socket.io.js")
+		block footer
+	

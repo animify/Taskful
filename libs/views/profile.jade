@@ -1,0 +1,35 @@
+extends layout
+
+block content
+	.wrapper
+		.contents.center
+			.content
+				.block
+					ul.block-left
+						li.active Account
+						li Password
+						li Billing
+						li Email Notifications
+						li Security
+					.block-divider
+					.block-right
+						h2 Account Settings
+						p Change your basic account settings
+						if (user)
+							.form-control
+								.field
+									label(for="i-username") Username
+									input.is--disabled#i-username(type="text", value="#{user.username}")
+								.field
+									label(for="i-name") Name
+									input#i-name(type="text", value="#{user.fullname}")
+								.field
+									label(for="i-u") User ID
+									input#i-u(type="text", value="#{user.id}")
+								.field
+									label(for="i-email") Email
+									input#i-email(type="text", value="#{user.email}")
+								.field
+									.btn Save Preferences
+
+	script(src='http://code.jquery.com/jquery.js')

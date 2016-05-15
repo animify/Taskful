@@ -1,0 +1,115 @@
+nav {
+  min-width: 1220px;
+  background-color: #fff;
+  border-bottom: 1px solid #eaedf5;
+  position: relative;
+}
+.global-search {
+  min-width: 320px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+.global-search i {
+  color: cgr;
+  absolute: left 23px top 9px;
+  font-size: 1.1rem;
+}
+.global-search input {
+  width: 100%;
+  padding: 8px 15px 8px 45px;
+  border: 0;
+  border-radius: 0;
+  height: auto;
+  font-size: 1rem;
+  border-left: 1px solid #e1e5ed;
+  outline: 0;
+placeholder()
+}
+.global-search input:focus {
+  border-color: #e1e5ed;
+}
+.top {
+  fixed: top left;
+  z-index: 2000;
+}
+.user-i {
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  font-weight: 600;
+  line-height: 41px;
+  text-align: center;
+  background-color: #0adeab;
+  cursor: pointer;
+  font-size: 1rem;
+  relative: top;
+}
+.user-i a {
+  color: #fff;
+}
+.sub-nav {
+  fixed: top 65px left 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 1000;
+}
+.sub-nav-inner h1 {
+  margin: 0;
+  font-weight: 600;
+  padding: 10px 30px 11px 30px;
+  font-size: 1rem;
+  letter-spacing: -0.4px;
+}
+.nav-inner {
+  padding: 12px 33px;
+}
+.nav-inner .nav-right {
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+}
+.nav-inner .nav-right > * {
+  display: inline-block;
+  vertical-align: top;
+}
+.nav-inner .nav-workspace {
+  display: inline-block;
+  vertical-align: top;
+}
+.nav-inner .nav-workspace .workspace {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0;
+  color: #fff;
+}
+.nav-inner .nav-logo {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 26px;
+  max-height: 34px;
+}
+.nav-inner .nav-logo img {
+  max-height: 34px;
+}
+.nav-inner .nav-links {
+  line-height: 41px;
+  margin-right: 36px;
+  display: inline-block;
+  vertical-align: top;
+}
+.nav-inner .nav-links a {
+  color: pbluelight;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 400;
+}
+.nav-inner .nav-links a + a {
+  margin-left: 39px;
+}
+.nav-inner .nav-links a.active {
+  color: cprimary;
+}
+.nav-inner .nav-links a:hover {
+  color: cprimary;
+}

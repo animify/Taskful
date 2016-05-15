@@ -1,0 +1,95 @@
+extends layout
+
+block content
+	nav.sub-nav
+		.sub-nav-inner
+			.sub-title
+				h1 #{project.name}
+	.taskBody-view
+		.taskBody-view_inner
+			.taskBody-view_innerpadding
+				.taskBody-view_contain.taskBody-view_tasks
+					.taskBody-view_options
+						.taskBody-view_options_inner
+							.taskBody-view_options_left
+								a.btn.btn-green.btn-sm New... #[i.ion-chevron-down]
+							.taskBody-view_options_right
+								a View: Tasks by date of creation #[i.ion-chevron-down]
+					#tasks
+						.tasks-list
+							for task in tasks
+								.task-item(data-task="#{task._id}")
+									.toggle.rounded
+									a #{task.name}
+									.task-info
+										p #{moment(task.created_at).fromNow()}
+										if task.creator.avatar
+											.tooltip
+												span #{task.creator.username}
+												img(src="/images/#{task.creator.avatar}")
+										else
+											.tooltip
+												span #{task.creator.username}
+												img(src="/images/default/user.jpg")
+						input#nt(type="text", placeholder="Create a new task")
+				.taskBody-view_contain.taskBody-view_task
+					.tasks-preview
+						.tasks-preview-inner
+							.tasks-preview-inner_title
+								.toggle.rounded
+								h1 Marketing team lesgo
+								.tasks-preview-inner_title_options
+									i.ion-android-more-vertical
+							.tasks-preview-inner_description
+								p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+						.tasks-preview-inner_comment
+							.user-i
+								a #{user.username.substr(0,2)}
+							
+							.comment-editable
+								.comment-editable_inner
+									.input-sm(contenteditable="true", placeholder="Write a comment...")
+									.comment-editable_footer
+										.comment-editable_left
+											a.attach-files
+												i.ion-android-attach
+											a.mention
+												i.ion-at
+										.comment-editable_right
+											a.send-comment
+												i.ion-android-send
+						
+	
+block footer
+	.modal-overlay
+		.view-close
+			i.icon.ion-close-round
+		.modal-overlay-inner
+			#mod-assign.modal-outer.modal-med
+				.modal-inner
+					.modal-header
+						h2 Assign to team
+						p Select the team you want to assign #{project.name} to
+					.modal-body
+						input#assign(type="text")
+					.modal-footer
+						a.btn.exp_assign Assign to team
+	script(src="/socket.io/socket.io.js")
+	script.
+		var socket = io();
+		socket.on('connect', function(socket) {
+			console.log('Socket connection');
+		});
+		socket.emit('pjoin', {room: '#{project._id}'});
+		socket.on('new_task', function(res){
+			console.log(res.creator)
+			$('.tasks-list').append('<div data-task="' + res._id + '" class="task-item new-task"><div class="toggle rounded"></div><a>' + res.name + '</a><div class="task-info"><p>a few seconds ago</p><div class="tooltip"><span>' + res.creator.username + '</span><img src="/images/default/user.jpg"></div></div></div>')
+			$('.new-task').slideDown('fast');
+		});
+		$('#nt').bind('keypress', function(e){
+			if(e.which == 13) {
+				$.post('/tasks', 'name=' + $('#nt').val(), function(data) {
+					$('#nt').val('');
+				});
+			}
+		});

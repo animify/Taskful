@@ -1,0 +1,23 @@
+{
+		"port": 80,
+		"security": {
+				"tokenLife" : 3600
+		},
+		"mongoose": {
+				"uri": "mongodb://localhost:27017/test"
+		},
+		"default": {
+				"api": {
+						"version" : "v1"
+				},
+				"user": {
+						"username": "a",
+						"password": "b"
+				},
+				"client": {
+						"name": "Client V1",
+						"clientId": "Client Test",
+						"clientSecret": "abc123"
+				}
+		}
+}

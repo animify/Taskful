@@ -1,0 +1,12 @@
+.project-status {
+  width: 11px;
+  height: 11px;
+  border-radius: 100%;
+  content: "";
+  display: block;
+  overflow: hidden;
+  relative: top 15px left;
+}
+.status_green {
+  background-color: cgreen;
+}

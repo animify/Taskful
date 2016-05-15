@@ -1,0 +1,57 @@
+extends layout
+
+block content
+	.wrapper
+		.contents.center
+			.content
+				.module-head
+					h1 Teams
+					a.btn.inline-head.open-modal(data-modal="mod-new_project")
+						i.ion-plus
+						| New Team
+				.list-blocks
+					for result in teams
+						.list-block
+							.text-preview(style="background-color:#{result.color}")
+								span= result.name.substr(0,1)
+							.list-block-body
+								a(href="/teams/#{result._id}") #{result.name}
+								//- i.icon.ion-chevron-down
+								p= result.userlist.length
+									|  members
+								//- if result.creator._id == user.id
+								//- 	p Owner
+								//- else
+								//- 	p Member
+						
+
+block footer
+	.modal-overlay
+		.modal-overlay-inner
+			.view-close.close-modal
+				i.icon.ion-close-round
+			#mod-new_team.modal-outer.modal-med
+				.modal-inner
+					.modal-header
+						h2 New Team
+						p Everything you need to get your organisation working together can be managed from within a team.
+					.modal-body
+						.field
+							input#new_team(type="text", placeholder="Enter the name of the team")
+					.modal-footer
+						.modal-btn
+							a.btn.exp_newteam Create Team
+	script.
+		$('.exp_newteam').click(function() {
+			var teamname = $('#new_team').val();
+			$.post('/teams', 'name=' + teamname, function(data) {
+				$('#new_team').val('');
+				closeModalOverlay();
+				$('.list-blocks').append('<div class="list-item new-li"><a href="/teams/' + data._id + '">' + data.name + '</a><p>Owner</p></div>');
+				$('.new-li').slideDown();
+			}).error(function(err) {
+				console.log(err);
+				alert('error');
+			});
+		});
+	
