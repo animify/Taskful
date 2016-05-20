@@ -48,7 +48,7 @@ exports.createNew = function(req, res, callback) {
 
 exports.findAll = function(req, res, callback) {
 	Team.find({$or:[{'creator':req.user._id}, {'userlist': { $in : [req.user._id]}}]})
-	.populate('creator', '_id username')
+	.populate({ path: 'creator'})
 	.lean()
 	.exec(function (err, teams) {
 		if (!err) {
@@ -62,13 +62,13 @@ exports.findAll = function(req, res, callback) {
 }
 
 exports.findById = function(req, res, callback) {
+	var populateQuery = [{path:'creator', select:'_id username fullname email'}, {path:'userlist', model:'User', select: '_id username fullname email'}];
 	Team.findOne({'_id': req.params.id , $or:[{'creator':req.user._id}, {'userlist': { $in : [req.user._id]}}]})
-	.populate('creator', '_id username')
+	.populate(populateQuery)
 	.exec(function (err, team) {
 		if(!team) {
 			return callback('404', 'Team not found');
 		}
-
 		if (!err) {
 			return callback(null, team);
 		} else {

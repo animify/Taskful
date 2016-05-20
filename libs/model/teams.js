@@ -27,7 +27,10 @@ var Team = new Schema({
 			type: Date,
 			default: Date.now
 		},
-		userlist: Array
+		userlist: {
+			type: Array,
+			ref: 'User'
+		}
 });
 
 Team.pre('save', function(next) {

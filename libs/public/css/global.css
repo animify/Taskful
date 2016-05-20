@@ -50,6 +50,9 @@ a {
   text-decoration: none;
   color: #2ab3f7;
 }
+.bg-primary {
+  background-color: #2ab3f7;
+}
 .form-control {
   *zoom: 1;
   float: left;
@@ -958,6 +961,13 @@ nav {
   display: inline-block;
   vertical-align: top;
 }
+.list-inner .text-preview {
+  display: inline-block;
+  vertical-align: top;
+}
+.list-inner .darken-p {
+  color: #414d5d;
+}
 .list-right {
   display: inline-block;
   vertical-align: top;
@@ -1001,8 +1011,9 @@ nav {
   border-top: 1px solid #e5e9f0;
 }
 .list-item a {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.1rem;
+  line-height: 1rem;
   color: #414d5d;
 }
 .list-item a:hover {

@@ -7,29 +7,28 @@ block content
 				.module-head
 					h1 #{team.name}
 					//- h1 #{team}
-					a.btn.inline-head.open-modal(data-modal="mod-invite") Invite to team
-				if (team.userlist)
-					if (team.userlist.length > 0)
-						for member in team.userlist
-							p= member
-					else 
-						.empty_content
-							h2 No users in this team
-						//- #members
-						//- for member in team.userlist
-						//- 	.task-item(data-task="#{task.taskid}")
-						//- 		.toggle
-						//- 		a #{task.taskname}
-						//- 		.task-info
-						//- 			p #{moment(task.created_at).fromNow()}
-						//- 			if task.creator.avatar
-						//- 				.tooltip
-						//- 					span #{task.creator.username}
-						//- 					img(src="../images/#{task.creator.avatar}")
-						//- 			else
-						//- 				.tooltip
-						//- 					span #{task.creator.username}
-						//- 					img(src="../images/default/user.jpg")
+					a.btn.btn-green.inline-head.open-modal(data-modal="mod-invite") Invite New Members
+					ul.list-header
+						li.active Members
+						li Projects
+						li Files
+					if (team.userlist)
+						if (team.userlist.length > 0)
+							.list
+								for member in team.userlist
+									.list-item
+										.list-status
+											.text-preview.bg-primary
+												span= member.username.substr(0,2)
+										.list-inner
+											a= member.fullname
+											p #[span.darken-p @#{member.username}]  &bull;  #{member.email}
+										.list-right
+											.list-options
+												span.ion-android-more-vertical
+						else 
+							.empty_content
+								h2 No users in this team
 						
 block footer
 	.modal-overlay
