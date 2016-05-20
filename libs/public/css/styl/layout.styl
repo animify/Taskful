@@ -1,11 +1,12 @@
 .content
-	padding-top 52px
+	padding 52px 0
+	span(1/1)
 .block
 	span(1/1)
 	position relative
 	&-right
 		min-height 500px
-		padding 28px 0 0 272px
+		padding 7px 0 0 272px
 		display block
 		vertical-align top
 		span(1/1)
@@ -19,26 +20,26 @@
 		height 100%
 		width 1px
 		background-color #ededed
-		absolute left 229px top
+		absolute left 229px top -5px
 	ul.block-left
 		absolute left top
-		padding 28px 0 0 0
+		padding 12px 0 0 0
 		margin 0
 		font-size 0
 		list-style none
 		min-width 230px
 		z-index 900
 		li
-			padding 6px 0
+			padding 5px 0
 			cursor pointer
 			display block
-			font-size .95rem
-			color #a2abba
+			font-size 1rem
+			color cgr
 			&.active
 				color cprimary
 				border-right 1px solid cprimary
-			&:hover
-				color cprimary
+			&:hover:not(.active)
+				color cgrdark
 
 .module-head
 	h1
@@ -67,6 +68,7 @@
 	background-color #fff
 	position relative
 	cursor text
+	height 34px
 	&.selected
 		&:before
 			height 1px
@@ -140,9 +142,11 @@
 #nt
 	border-radius 0px
 	border 0
-	border-bottom 1px solid #e1e5ed
+	border-bottom 1px solid lightgrey
 	height 2.6rem
 	line-height 2.6rem
+	font-size 0.8575rem
+	font-weight 400
 
 .list
 	span(1/1)
@@ -222,7 +226,7 @@
 				line-height 2.4rem
 	&-item
 		span(1/1)
-		padding 18px 8px
+		padding 17px 8px 19px 8px
 		border-radius 3px
 		background-color #fff
 		box-shadow 0 1px 1px 0 rgba(41,55,69,.05)
@@ -234,6 +238,7 @@
 			font-weight 500
 			font-size 1.1rem
 			color cgrey
+			line-height 1rem
 			&:hover
 				color cprimary
 		p
@@ -258,7 +263,7 @@
 	&_inner
 		span(1/1)
 		height calc(100% - 110px)
-		margin-top 110px
+		margin-top 120px
 		min-width 1220px
 		max-width 1600px
 		center(1600px, 30px)

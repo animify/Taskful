@@ -35,7 +35,7 @@ body {
   text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
   background-color: #fff;
   color: #444;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   margin: 0;
 }
@@ -245,6 +245,12 @@ nav {
   border-bottom: 1px solid #eaedf5;
   position: relative;
 }
+.CodeMirror,
+.CodeMirror-scroll {
+  height: 100%;
+  width: 100%;
+  margin-top: 30px;
+}
 .global-search {
   min-width: 320px;
   display: inline-block;
@@ -322,6 +328,16 @@ nav {
 .user-i a {
   color: #fff;
 }
+.sub-title {
+  display: inline-block;
+  vertical-align: top;
+}
+.sub-options {
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+  padding: 11px 0;
+}
 .sub-nav {
   position: fixed;
   top: 65px;
@@ -329,12 +345,13 @@ nav {
   width: 100%;
   background-color: #fff;
   z-index: 1000;
+  padding: 0 30px;
 }
 .sub-nav-inner h1 {
   margin: 0;
   font-weight: 600;
-  padding: 10px 30px 11px 30px;
-  font-size: 1rem;
+  padding: 15px 0 18px 0;
+  font-size: 1.3rem;
   letter-spacing: -0.4px;
 }
 .nav-inner {
@@ -408,11 +425,11 @@ nav {
   -moz-appearance: none;
   appearance: none;
   text-align: center;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  transition: all 0.1s ease;
   position: relative;
 }
 .btn:after {
@@ -467,15 +484,20 @@ nav {
   box-shadow: inset 0 -2px #d4d7dc;
 }
 .btn-outline {
-  background-color: transparent;
-  border: 1px solid #2ab3f7;
-  color: #2ab3f7;
+  background-color: #fff;
+  -webkit-box-shadow: inset 0 0 0 1px #e0e6ed;
+  box-shadow: inset 0 0 0 1px #e0e6ed;
+  color: #323a45;
+}
+.btn-outline:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .btn-sm {
-  font-size: 0.8rem;
-  height: 2.1rem;
-  padding: 0 1rem;
-  line-height: 2.23rem;
+  font-size: 0.94rem;
+  height: 2.62rem;
+  padding: 0 1.5rem;
+  line-height: 2.68rem;
 }
 .btn-block {
   display: block;
@@ -576,7 +598,22 @@ nav {
   filter: none !important;
 }
 .content {
-  padding-top: 52px;
+  padding: 52px 0;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.content:before,
+.content:after {
+  content: '';
+  display: table;
+}
+.content:after {
+  clear: both;
 }
 .block {
   *zoom: 1;
@@ -598,7 +635,7 @@ nav {
 }
 .block-right {
   min-height: 500px;
-  padding: 28px 0 0 272px;
+  padding: 7px 0 0 272px;
   display: block;
   vertical-align: top;
   *zoom: 1;
@@ -631,13 +668,13 @@ nav {
   background-color: #ededed;
   position: absolute;
   left: 229px;
-  top: 0;
+  top: -5px;
 }
 .block ul.block-left {
   position: absolute;
   left: 0;
   top: 0;
-  padding: 28px 0 0 0;
+  padding: 12px 0 0 0;
   margin: 0;
   font-size: 0;
   list-style: none;
@@ -645,18 +682,18 @@ nav {
   z-index: 900;
 }
 .block ul.block-left li {
-  padding: 6px 0;
+  padding: 5px 0;
   cursor: pointer;
   display: block;
-  font-size: 0.95rem;
-  color: #a2abba;
+  font-size: 1rem;
+  color: #8492a6;
 }
 .block ul.block-left li.active {
   color: #2ab3f7;
   border-right: 1px solid #2ab3f7;
 }
-.block ul.block-left li:hover {
-  color: #2ab3f7;
+.block ul.block-left li:hover:not(.active) {
+  color: #3b4350;
 }
 .module-head h1 {
   font-size: 2.42rem;
@@ -692,6 +729,7 @@ nav {
   background-color: #fff;
   position: relative;
   cursor: text;
+  height: 34px;
 }
 .task-item:before,
 .task-item:after {
@@ -801,9 +839,11 @@ nav {
   -webkit-border-radius: 0px;
   border-radius: 0px;
   border: 0;
-  border-bottom: 1px solid #e1e5ed;
+  border-bottom: 1px solid #f1f1f1;
   height: 2.6rem;
   line-height: 2.6rem;
+  font-size: 0.8575rem;
+  font-weight: 400;
 }
 .list {
   *zoom: 1;
@@ -979,7 +1019,7 @@ nav {
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
-  padding: 18px 8px;
+  padding: 17px 8px 19px 8px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   background-color: #fff;
@@ -1004,6 +1044,7 @@ nav {
   font-weight: 500;
   font-size: 1.1rem;
   color: #414d5d;
+  line-height: 1rem;
 }
 .list-item a:hover {
   color: #2ab3f7;
@@ -1054,7 +1095,7 @@ nav {
   margin-left: 0%;
   margin-right: 0%;
   height: calc(100% - 110px);
-  margin-top: 110px;
+  margin-top: 120px;
   min-width: 1220px;
   max-width: 1600px;
   *zoom: 1;
