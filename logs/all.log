@@ -6802,3 +6802,298 @@
 {"level":"info","message":"Connection to socket.io","timestamp":"2016-05-15T21:45:43.211Z"}
 {"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-15T21:45:57.697Z"}
 {"level":"info","message":"Connection to socket.io","timestamp":"2016-05-15T21:45:57.698Z"}
+{"level":"info","message":"Taskful server listening on port 3000","timestamp":"2016-05-19T17:53:40.828Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2016-05-19T17:53:40.856Z"}
+{"username":"Aotik","fullname":"Stefan Mansson","email":"st.mansson@icloud.com","password":"Stefan00","repassword":"Stefan00","level":"info","message":"","timestamp":"2016-05-19T17:54:06.780Z"}
+{"level":"info","message":"New user - Aotik:$2a$10$THD84rYndiLDcS7f1yT2suxCCYPi91MeOtHy8oN6gvMBCrAPKR.eW","timestamp":"2016-05-19T17:54:07.062Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-19T17:54:39.197Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-19T17:54:39.200Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-19T17:54:58.521Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-19T17:54:58.522Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-19T17:55:15.576Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-19T17:55:15.576Z"}
+{"level":"info","message":"New team created with id: 573dfe0a2b5df05c2ddaa4e7","timestamp":"2016-05-19T17:55:22.672Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-19T17:55:38.004Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-19T17:55:38.004Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-19T17:55:45.589Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-19T17:55:45.590Z"}
+{"level":"info","message":"New project created with id: 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-19T17:55:54.522Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-19T17:55:59.835Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-19T17:55:59.836Z"}
+{"level":"info","message":"New task created with id: 573dfe352b5df05c2ddaa4e9 in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-19T17:56:05.205Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-19T17:56:18.517Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-19T17:56:18.518Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-19T17:56:24.600Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-19T17:56:24.600Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-19T17:56:26.605Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-19T17:56:26.605Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-19T17:56:43.104Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-19T17:56:43.105Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T17:55:41.647Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T17:55:41.648Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:15:18.382Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:15:18.383Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:15:20.224Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:15:20.225Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:17:56.282Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:17:56.283Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:28:38.523Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:28:38.524Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:28:42.382Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:28:42.384Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:29:56.290Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:29:56.290Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:29:57.895Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:29:57.897Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:30:03.999Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:30:04.000Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:31:25.491Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:31:25.492Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:36:27.479Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:36:27.480Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:36:53.754Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:36:53.755Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:36:54.900Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:36:54.901Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:37:22.284Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:37:22.285Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:37:23.103Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:37:23.103Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:37:26.742Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:37:26.742Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:37:33.573Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:37:33.575Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:37:34.777Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:37:34.778Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:37:49.988Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:37:49.989Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:38:34.243Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:38:34.245Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:38:50.047Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:38:50.048Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:39:45.715Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:39:45.716Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:40:15.249Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:40:15.250Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:40:18.197Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:40:18.198Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:40:48.974Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:40:48.976Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:53:29.773Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:53:29.776Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:53:31.496Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:53:31.496Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:57:24.915Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:57:24.916Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:57:30.512Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:57:30.514Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:57:36.662Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:57:36.663Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:58:04.590Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:58:04.590Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T18:58:16.229Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T18:58:16.230Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:00:46.960Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:00:46.961Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:00:48.317Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:00:48.318Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:02:48.284Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:02:48.285Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:03:24.492Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:03:24.493Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:03:26.094Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:03:26.095Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:04:12.778Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:04:12.781Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:06:53.479Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:06:53.480Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:06:57.928Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:06:57.928Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:08:27.282Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:08:27.282Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:08:38.506Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:08:38.507Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:08:46.703Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:08:46.703Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:08:53.944Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:08:53.945Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:09:07.868Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:09:07.869Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:09:15.016Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:09:15.017Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:09:27.828Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:09:27.829Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:09:32.724Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:09:32.725Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:09:33.745Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:09:33.746Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:09:38.320Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:09:38.322Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:09:39.354Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:09:39.359Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:09:44.753Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:09:44.754Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:09:49.186Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:09:49.187Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:10:01.893Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:10:01.894Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:10:12.776Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:10:12.777Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:10:15.072Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:10:15.073Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:10:16.067Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:10:16.074Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:10:21.995Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:10:21.996Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:10:29.669Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:10:29.669Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:11:07.701Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:11:07.701Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:11:53.797Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:11:53.798Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:12:20.838Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:12:20.839Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:12:45.705Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:12:45.706Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:13:59.633Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:13:59.634Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:14:11.239Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:14:11.239Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:14:14.440Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:14:14.440Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:14:51.940Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:14:51.941Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:15:02.760Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:15:02.760Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:15:08.643Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:15:08.644Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:15:25.404Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:15:25.404Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:15:26.545Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:15:26.546Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:15:31.397Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:15:31.397Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:16:02.484Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:16:02.484Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:16:13.235Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:16:13.235Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:16:14.403Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:16:14.404Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:16:22.147Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:16:22.147Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:16:44.073Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:16:44.073Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:18:20.903Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:18:20.904Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:18:42.938Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:18:42.939Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:19:18.089Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:19:18.095Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:19:26.403Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:19:26.404Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:23:28.847Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:23:28.857Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:25:07.584Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:25:07.587Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:25:29.240Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:25:29.240Z"}
+{"level":"info","message":"New task created with id: 573f65672b5df05c2ddaa4ea in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:28:39.658Z"}
+{"level":"info","message":"New task created with id: 573f656c2b5df05c2ddaa4eb in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:28:44.454Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:29:56.650Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:29:56.651Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:31:22.670Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:31:22.670Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:31:29.064Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:31:29.065Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:31:36.740Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:31:36.741Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:31:41.794Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:31:41.795Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:32:11.608Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:32:11.609Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:32:14.934Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:32:14.935Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:32:32.596Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:32:32.596Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:42:14.198Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:42:14.199Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:42:23.996Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:42:23.997Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:43:09.475Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:43:09.476Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:43:10.956Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:43:10.956Z"}
+{"level":"info","message":"New task created with id: 573f68f82b5df05c2ddaa4ec in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:52.093Z"}
+{"level":"info","message":"New task created with id: 573f68f82b5df05c2ddaa4ed in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:52.583Z"}
+{"level":"info","message":"New task created with id: 573f68f92b5df05c2ddaa4ee in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:53.013Z"}
+{"level":"info","message":"New task created with id: 573f68f92b5df05c2ddaa4ef in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:53.536Z"}
+{"level":"info","message":"New task created with id: 573f68fa2b5df05c2ddaa4f0 in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:54.035Z"}
+{"level":"info","message":"New task created with id: 573f68fa2b5df05c2ddaa4f1 in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:54.538Z"}
+{"level":"info","message":"New task created with id: 573f68fb2b5df05c2ddaa4f2 in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:55.152Z"}
+{"level":"info","message":"New task created with id: 573f68fb2b5df05c2ddaa4f3 in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:55.619Z"}
+{"level":"info","message":"New task created with id: 573f68fc2b5df05c2ddaa4f4 in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:56.506Z"}
+{"level":"info","message":"New task created with id: 573f68fd2b5df05c2ddaa4f5 in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:57.582Z"}
+{"level":"info","message":"New task created with id: 573f68fe2b5df05c2ddaa4f6 in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:58.119Z"}
+{"level":"info","message":"New task created with id: 573f68fe2b5df05c2ddaa4f7 in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:58.631Z"}
+{"level":"info","message":"New task created with id: 573f68ff2b5df05c2ddaa4f8 in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:59.121Z"}
+{"level":"info","message":"New task created with id: 573f68ff2b5df05c2ddaa4f9 in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:43:59.583Z"}
+{"level":"info","message":"New task created with id: 573f69002b5df05c2ddaa4fa in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:44:00.021Z"}
+{"level":"info","message":"New task created with id: 573f69012b5df05c2ddaa4fb in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:44:01.096Z"}
+{"level":"info","message":"New task created with id: 573f69032b5df05c2ddaa4fc in project 573dfe2a2b5df05c2ddaa4e8","timestamp":"2016-05-20T19:44:03.040Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:46:51.771Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:46:51.772Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:46:53.103Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:46:53.104Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:48:09.361Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:48:09.363Z"}
+{"level":"info","message":"Taskful server listening on port 3000","timestamp":"2016-05-20T19:59:44.893Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2016-05-20T19:59:44.921Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T19:59:45.568Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T19:59:45.573Z"}
+{"level":"info","message":"Taskful server listening on port 3000","timestamp":"2016-05-20T20:00:47.593Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2016-05-20T20:00:47.624Z"}
+{"level":"info","message":"Taskful server listening on port 3000","timestamp":"2016-05-20T20:00:59.513Z"}
+{"level":"info","message":"Connected to MongoDB","timestamp":"2016-05-20T20:00:59.542Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:01:59.785Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:01:59.797Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:03:01.050Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:03:01.052Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:04:09.122Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:04:09.124Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:04:53.567Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:04:53.568Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:04:55.778Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:04:55.779Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:06:18.924Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:06:18.925Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:06:22.217Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:06:22.218Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:06:24.679Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:06:24.680Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:06:26.275Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:06:26.276Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:06:54.822Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:06:54.823Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:06:56.160Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:06:56.161Z"}
+{"username":"444444","fullname":"444444","email":"44@gg.cm","password":"444444","repassword":"444444","level":"info","message":"","timestamp":"2016-05-20T20:07:55.928Z"}
+{"level":"info","message":"New user - 444444:$2a$10$eu2TSKdaMWiCgsi8oXXbS.RDLofOki1VSOyKvLc842C/r0GNUskd2","timestamp":"2016-05-20T20:07:56.210Z"}
+{"level":"error","message":"GET 500 /Users/Aotik/Documents/Taskful/libs/views/project.jade:34\n    32| \t\t\t\t\t\t\t\t\t.task-info\n    33| \t\t\t\t\t\t\t\t\t\tp #{moment(task.created_at).fromNow()}\n  > 34| \t\t\t\t\t\t\t\t\t\tif task.creator.avatar\n    35| \t\t\t\t\t\t\t\t\t\t\t.tooltip\n    36| \t\t\t\t\t\t\t\t\t\t\t\tspan #{task.creator.username}\n    37| \t\t\t\t\t\t\t\t\t\t\t\timg(src=\"/images/#{task.creator.avatar}\")\n\nCannot read property 'avatar' of undefined","timestamp":"2016-05-20T20:08:01.373Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:08:01.719Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:08:01.719Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:08:09.858Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:08:09.859Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:08:23.776Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:08:23.783Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:08:28.794Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:08:28.794Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:08:30.605Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:08:30.606Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:08:50.588Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:08:50.589Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:08:52.739Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:08:52.740Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:08:55.049Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:08:55.050Z"}
+{"level":"info","message":"Aunthenticated with socket.io","timestamp":"2016-05-20T20:08:57.134Z"}
+{"level":"info","message":"Connection to socket.io","timestamp":"2016-05-20T20:08:57.135Z"}

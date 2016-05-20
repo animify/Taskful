@@ -31,17 +31,25 @@ module.exports.connect = function(server, io, sessionStore) {
 		if(error)
 			accept(new Error(message));
 	}
-
+	var body = "'sup";
 	io.on('connection', function (socket) {
 
-		log.info('Connection to socket.io');
-		console.log(socket.request.user._id);
+		socket.emit('refresh', {body: body});
 
-		serverEmitter.once('join_project', function (data) {
-			// socket.room = 'project_' + data;
-			// socket.join(socket.room);
-			// console.log('Joined ' + socket.room);
+		socket.on('refresh', function (body_) {
+			console.log('new body');
+			body = body_;
 		});
+
+		socket.on('change', function (op) {
+			console.log(op);
+			if (op.origin == '+input' || op.origin == 'paste' || op.origin == '+delete') {
+					socket.broadcast.emit('change', op);
+			};
+		});
+
+		log.info('Connection to socket.io');
+
 		socket.on('pjoin', function (data) {
 			socket.room = 'project_' + data.room;
 			socket.join(socket.room);

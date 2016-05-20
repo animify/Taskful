@@ -14,7 +14,7 @@
 	border 0
 	appearance none
 	text-align center
-	transition all 0.2s ease
+	transition all 0.1s ease
 	position relative
 	&:after
 		absolute top left right bottom
@@ -48,14 +48,16 @@
 			&:after
 				box-shadow: inset 0 -2px darken(#EFF0F2, 10%)
 	&-outline
-		background-color transparent
-		border 1px solid cprimary
-		color cprimary
+		background-color #fff
+		box-shadow inset 0 0 0 1px ggrey
+		color darken(cgr, 60%)
+		&:hover
+			box-shadow none
 	&-sm
-		font-size 0.8rem
-		height 2.1rem
-		padding 0 1rem
-		line-height 2.23rem
+		font-size 0.94rem
+		height 2.62rem
+		padding 0 1.5rem
+		line-height 2.68rem
 	&-block
 		display block
 	& + .btn
