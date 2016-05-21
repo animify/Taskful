@@ -12,7 +12,7 @@ var Task = require(libs + 'model/tasks');
 var taskController = require(libs + 'controllers/tasks');
 
 var io = global.socketIO;
-
+console.log(io)
 router.get('/', function(req, res) {
 	req.session.viewingProject = null;
 	taskController.findAll(req, res, function(err, ret) {

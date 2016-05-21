@@ -31,7 +31,6 @@ var authcontroller = require(libs + 'auth/auth');
 var oauth2 = require('./auth/oauth2');
 
 
-
 app.set('port', process.env.PORT || config.get('port') || 3000);
 
 var server = http.listen(app.get('port'), function() {
@@ -42,6 +41,7 @@ var server = http.listen(app.get('port'), function() {
 reload(server, app, 300, true)
 
 app.locals.moment = require('moment');
+global.socketIO = socketio;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', __dirname + '/views');
@@ -49,17 +49,6 @@ app.set('view engine', 'jade');
 app.set('view options', { layout: false });
 
 var sessionStore = new MongoStore({ mongooseConnection: db.connection });
-
-global.socketIO = socketio;
-
-
-var users = require('./routes/users');
-var tasks = require('./routes/tasks');
-var teams = require('./routes/teams');
-var projects = require('./routes/projects');
-var apiTasks = require('./routes/api_tasks');
-var apiTeams = require('./routes/api_teams');
-var apiProjects = require('./routes/api_projects');
 
 var eSession = session({
 		key: 'connect.sid',
@@ -73,6 +62,8 @@ app.use(eSession);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
+
+
 socketjs.connect(server, socketio, sessionStore, eSession);
 
 passport.serializeUser(User.serializeUser());
@@ -100,6 +91,14 @@ app.use(validator({
 	}
 }));
 
+var users = require('./routes/users');
+var tasks = require('./routes/tasks');
+var teams = require('./routes/teams');
+var projects = require('./routes/projects');
+var apiTasks = require('./routes/api_tasks');
+var apiTeams = require('./routes/api_teams');
+var apiProjects = require('./routes/api_projects');
+
 app.get('/login', function(req, res) {
 	res.render('login');
 });
@@ -117,6 +116,7 @@ app.post('/login',
 		failureRedirect: '/profile'
 	})
 );
+
 
 // app.use('/', api);
 // app.use('/api', api);
@@ -148,5 +148,6 @@ app.use(function(err, req, res, next){
 		});
 		return;
 });
+
 
 module.exports = app;

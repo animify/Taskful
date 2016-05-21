@@ -128,3 +128,11 @@ exports.findById = function(req, res, callback) {
 		}
 	});
 };
+
+// exports.saveOnType = function(taskid, taskbody, callback) {
+// 	Task.findOneAndUpdate({'_id': taskid}, { $set: { content: taskbody }}, function (err, task) {
+// 		if (err) return console.log(err);
+// 		console.log(task)
+// 	});
+//
+// };

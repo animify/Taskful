@@ -1291,6 +1291,7 @@ nav {
   margin-right: 0%;
   overflow-x: hidden !important;
   overflow-y: auto !important;
+  font-family: "Fakt", sans-serif;
 }
 .CodeMirror-scroll:before,
 .CodeMirror-scroll:after {

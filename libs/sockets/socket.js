@@ -2,15 +2,16 @@ var libs = process.cwd() + '/libs/';
 var log = require(libs + 'log')(module);
 var events = require('events');
 var cookieParser = require('cookie-parser');
-var serverEmitter = new events.EventEmitter();
+
 var teamController = require(libs + 'controllers/teams');
+var taskController = require(libs + 'controllers/tasks');
+
 var passport = require('passport');
 var passportSocketIo = require('passport.socketio');
 var sharedsession = require("express-socket.io-session");
 
-module.exports.serverEmitter = serverEmitter;
-
 module.exports.connect = function(server, io, sessionStore, eSession) {
+
 	io.use(sharedsession(eSession));
 	io.use(passportSocketIo.authorize({
 			passport:     passport,
@@ -33,12 +34,23 @@ module.exports.connect = function(server, io, sessionStore, eSession) {
 			accept(new Error(message));
 	}
 
+	function saveOnType(taskid, taskbody) {
+		// taskController.saveOnType(taskid, taskbody, function(err, ret) {
+		// 	log.info(ret);
+		// });
+	}
 	var body = [];
 	io.on('connection', function (socket) {
 		log.info('Connection to socket.io');
-
+		var timerSave = 0;
 		socket.on('refresh', function (body_) {
 			body[body_.task] = body_.body;
+			if (timerSave) {
+				clearTimeout(timerSave);
+			}
+			timerSave = setTimeout(function() {
+				saveOnType(body_.task, body_.body)
+			}, 400)
 		});
 
 		socket.on('change', function (data) {
