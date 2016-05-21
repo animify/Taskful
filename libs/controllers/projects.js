@@ -128,14 +128,11 @@ exports.findAll = function(req, res, callback) {
 		}, function(err, result) {
 			var teamP = result.findAllInTeams;
 			var selfP = result.findAllSelf;
-			// var jsonProjects =
 			return callback(null, teamProjects)
 		});
 
 	};
-
 	findData(req, res, callback);
-
 }
 
 exports.findById = function(req, res, callback) {
@@ -180,9 +177,7 @@ exports.findByIdExtended = function(req, res, callback) {
 		if (!db_project)
 			return callback('404', 'Project not found');
 		else {
-			console.log(db_project.owner._id, req.user._id)
 			if (db_project.owner._id.toString().trim() === req.user._id.toString().trim()) {
-				console.log('now here')
 				getTasks(db_project);
 			} else if (db_project.team) {
 				validate.isMember(db_project.team._id, req.user._id, function (err, done) {
@@ -195,7 +190,6 @@ exports.findByIdExtended = function(req, res, callback) {
 			} else {
 				return callback('404', 'Project not found');
 			}
-
 		}
 	});
 };

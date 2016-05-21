@@ -3,7 +3,8 @@ var Task = require('../model/tasks');
 var validate = require('./validate');
 var mongoose = require('mongoose');
 var log = require(libs + 'log')(module);
-var socketjs = require(libs + 'sockets/socket.js');
+var Story = require('../model/stories');
+
 var io = global.socketIO;
 
 exports.createNew = function(req, res, hasProject, callback) {
@@ -49,8 +50,21 @@ exports.createNew = function(req, res, hasProject, callback) {
 				if (!err) {
 					log.info('New task created with id: %s in project', _id, hasProject);
 					task.populate('creator', 'username fullname', function(err) {
-						if (!err)
-						 resolve(task);
+						if (!err) {
+							var newid = mongoose.Types.ObjectId();
+
+							var story = new Story({
+								_id: newid,
+								target: task._id,
+								stories : {
+									text: 'created this task',
+									type: 'init',
+									creator: req.user.userId
+								}
+							});
+							story.save();
+							resolve(task);
+						}
 
 						reject(new Error('Internal error'));
 					});
@@ -69,6 +83,7 @@ exports.createNew = function(req, res, hasProject, callback) {
 		saveTask(req)
 		.then((task) => {
 			io.sockets.in("project_" + req.body.project).emit('new_task', task);
+			log.info(task._id)
 			return callback(null, task);
 		})
 		.catch((err) => {
@@ -127,4 +142,11 @@ exports.findById = function(req, res, callback) {
 			return callback('500', 'Server error');
 		}
 	});
+};
+
+exports.saveOnType = function(taskid, taskbody, callback) {
+	Task.findOneAndUpdate({'_id': taskid}, { $set: { content: taskbody }}, function (err, task) {
+		if (err) return console.log(err);
+	});
+
 };
