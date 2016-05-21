@@ -11,9 +11,12 @@
 .story_created:before {
   font-family: 'Ionicons';
   content: '\f400';
-  absolute: left -33px top 5px;
+  absolute: left -33px top 4px;
   color: #bebebe;
   z-index: 20;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 1px 0 0 0;
 }
 .story-inner {
   word-break: break-all;
@@ -35,8 +38,11 @@
   padding: 7px 0;
 }
 .story_comment-avatar {
-  absolute: left -42px top 15px;
+  absolute: left -42px top 7px;
   z-index: 20;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 8px 0 0 0;
 }
 .story_comment h6 {
   margin: 0 0 0 0;

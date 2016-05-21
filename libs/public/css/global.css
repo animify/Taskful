@@ -1589,9 +1589,13 @@ nav {
   content: '\f400';
   position: absolute;
   left: -33px;
-  top: 5px;
+  top: 4px;
   color: #d9d9d9;
   z-index: 20;
+  background-color: #fff;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  padding: 1px 0 0 0;
 }
 .story-inner {
   word-break: break-all;
@@ -1632,8 +1636,12 @@ nav {
 .story_comment-avatar {
   position: absolute;
   left: -42px;
-  top: 15px;
+  top: 7px;
   z-index: 20;
+  background-color: #fff;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  padding: 8px 0 0 0;
 }
 .story_comment h6 {
   margin: 0 0 0 0;
