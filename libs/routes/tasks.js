@@ -9,10 +9,11 @@ var authcontroller = require(libs + 'auth/auth');
 var db = require(libs + 'db/mongoose');
 var mongoose = require('mongoose');
 var Task = require(libs + 'model/tasks');
+var Story = require(libs + 'model/stories');
 var taskController = require(libs + 'controllers/tasks');
+var storyController = require(libs + 'controllers/stories');
 
 var io = global.socketIO;
-console.log(io)
 router.get('/', function(req, res) {
 	req.session.viewingProject = null;
 	taskController.findAll(req, res, function(err, ret) {
@@ -24,9 +25,6 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	console.log('reachedtasks')
-	console.log('proj', req.session.viewingProject)
-
 	var hasProject = null;
 
 	if (req.session.viewingProject) {
@@ -48,7 +46,22 @@ router.get('/:id', function(req, res) {
 			res.statusCode = err;
 			return res.json({ error: err, message: task });
 		}
-		res.json({ status: 'OK', task : task });
+		Story.find({'target': task._id})
+		.populate('stories.creator', '_id username fullname')
+		.exec(function (err, stories) {
+			console.log(stories)
+			res.json({ status: 'OK', task : task, stories : stories });
+		});
+	});
+});
+
+router.post('/:id/stories', function(req, res) {
+	storyController.create('comment', req, res, function(err, story) {
+		if (err) {
+			res.statusCode = err;
+			return res.json({ error: err, message: story });
+		}
+		res.json({ status: 'OK', story : story });
 	});
 });
 

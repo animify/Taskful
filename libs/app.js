@@ -4,6 +4,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var socketio = require('socket.io').listen(http);
+global.socketIO = socketio;
 var socketjs = require(libs + 'sockets/socket.js');
 var path = require('path');
 var passport = require('passport');
@@ -41,7 +42,6 @@ var server = http.listen(app.get('port'), function() {
 reload(server, app, 300, true)
 
 app.locals.moment = require('moment');
-global.socketIO = socketio;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', __dirname + '/views');

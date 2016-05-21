@@ -320,7 +320,13 @@ nav {
   cursor: pointer;
   font-size: 1rem;
   position: relative;
-  top: 0;
+  top: -4px;
+}
+.user-i_sm {
+  width: 31px;
+  height: 31px;
+  line-height: 31px;
+  font-size: 0.8rem;
 }
 .user-i a {
   color: #fff;
@@ -352,7 +358,7 @@ nav {
   letter-spacing: -0.4px;
 }
 .nav-inner {
-  padding: 12px 33px;
+  padding: 15px 30px;
 }
 .nav-inner .nav-right {
   display: inline-block;
@@ -383,7 +389,7 @@ nav {
   max-height: 34px;
 }
 .nav-inner .nav-links {
-  line-height: 41px;
+  line-height: 34px;
   margin-right: 36px;
   display: inline-block;
   vertical-align: top;
@@ -721,12 +727,11 @@ nav {
   margin-left: 0%;
   margin-right: 0%;
   border-bottom: 1px solid #f1f1f1;
-  padding: 0 7px;
+  padding: 2px 7px;
   line-height: 2rem;
   background-color: #fff;
   position: relative;
   cursor: text;
-  height: 34px;
 }
 .task-item:before,
 .task-item:after {
@@ -749,7 +754,7 @@ nav {
   left: 0;
 }
 .task-item a {
-  font-size: 0.8575rem;
+  font-size: 0.96rem;
   font-weight: 400;
   margin: 0;
   color: #414d5d;
@@ -1270,7 +1275,7 @@ nav {
   margin-left: 0%;
   margin-right: 0%;
   border-bottom: 1px solid #f1f1f1;
-  padding: 14px 0 20px 40px;
+  padding: 7px 0 20px 40px;
   height: auto !important;
 }
 .CodeMirror:before,
@@ -1362,13 +1367,13 @@ nav {
   vertical-align: top;
 }
 .tasks-preview-inner_title .toggle {
-  height: 1.6rem;
-  width: 1.6rem;
-  margin-top: 5px;
-  margin-right: 13px;
+  height: 1.74rem;
+  width: 1.74rem;
+  margin-top: 6px;
+  margin-right: 14px;
 }
 .tasks-preview-inner_title h1 {
-  font-size: 1.4rem;
+  font-size: 1.48rem;
   font-weight: 600;
   margin: 0;
 }
@@ -1377,6 +1382,10 @@ nav {
 }
 .tasks-preview-inner_title_options i {
   font-size: 1.6rem;
+  cursor: pointer;
+}
+.tasks-preview-inner_title_options i:hover {
+  color: #2ab3f7;
 }
 .tasks-preview-inner_description {
   *zoom: 1;
@@ -1477,6 +1486,7 @@ nav {
   word-break: break-all;
   max-height: 100%;
   height: 100%;
+  white-space: pre-line;
 }
 .comment-editable .input-sm:empty:before {
   content: attr(placeholder);
@@ -1534,6 +1544,108 @@ nav {
 .comment-editable_right .send-comment i {
   color: #8492a6;
 }
+.stories {
+  padding: 17px 0 10px 40px;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.stories:before,
+.stories:after {
+  content: '';
+  display: table;
+}
+.stories:after {
+  clear: both;
+}
+.story {
+  padding: 3px 0;
+  position: relative;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.story:before,
+.story:after {
+  content: '';
+  display: table;
+}
+.story:after {
+  clear: both;
+}
+.story_new {
+  display: none;
+}
+.story_created:before {
+  font-family: 'Ionicons';
+  content: '\f400';
+  position: absolute;
+  left: -33px;
+  top: 5px;
+  color: #d9d9d9;
+  z-index: 20;
+}
+.story-inner {
+  word-break: break-all;
+}
+.story-inner:before {
+  position: absolute;
+  left: -27px;
+  top: 0;
+  z-index: 1;
+  height: 100%;
+  width: 1px;
+  background-color: #e5e5e5;
+  content: ' ';
+}
+.story p {
+  font-size: 0.83rem;
+  color: #616d7e;
+}
+.story_comment {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  position: relative;
+  padding: 7px 0;
+}
+.story_comment:before,
+.story_comment:after {
+  content: '';
+  display: table;
+}
+.story_comment:after {
+  clear: both;
+}
+.story_comment-avatar {
+  position: absolute;
+  left: -42px;
+  top: 15px;
+  z-index: 20;
+}
+.story_comment h6 {
+  margin: 0 0 0 0;
+  font-weight: 600;
+  color: #414d5d;
+  font-size: 1rem;
+}
+.story_comment p {
+  color: #616d7e;
+  font-size: 0.93rem;
+  white-space: pre-wrap;
+}
 .project-status {
   width: 11px;
   height: 11px;
@@ -1555,12 +1667,13 @@ nav {
   display: none;
   position: absolute;
   left: 0;
-  margin-top: 6px;
+  margin-top: 2px;
   background-color: #fff;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   border: 1px solid #eaedf5;
   padding: 10px 0;
+  z-index: 900;
   -webkit-box-shadow: 0 1px 2px 0 rgba(41,55,69,0.1);
   box-shadow: 0 1px 2px 0 rgba(41,55,69,0.1);
 }

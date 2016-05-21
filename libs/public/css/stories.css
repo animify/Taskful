@@ -1,0 +1,51 @@
+.stories {
+  padding: 17px 0 10px 40px;
+}
+.story {
+  padding: 3px 0;
+  position: relative;
+}
+.story_new {
+  display: none;
+}
+.story_created:before {
+  font-family: 'Ionicons';
+  content: '\f400';
+  absolute: left -33px top 5px;
+  color: #bebebe;
+  z-index: 20;
+}
+.story-inner {
+  word-break: break-all;
+}
+.story-inner:before {
+  absolute: left -27px top 0;
+  z-index: 1;
+  height: 100%;
+  width: 1px;
+  background-color: #c8c8c8;
+  content: ' ';
+}
+.story p {
+  font-size: 0.83rem;
+  color: pbluelight;
+}
+.story_comment {
+  position: relative;
+  padding: 7px 0;
+}
+.story_comment-avatar {
+  absolute: left -42px top 15px;
+  z-index: 20;
+}
+.story_comment h6 {
+  margin: 0 0 0 0;
+  font-weight: 600;
+  color: cgrey;
+  font-size: 1rem;
+}
+.story_comment p {
+  color: pbluelight;
+  font-size: 0.93rem;
+  white-space: pre-wrap;
+}

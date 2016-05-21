@@ -1,11 +1,9 @@
 extends layout
 
 block head
-	link(rel="stylesheet", type="text/css", href="http://codemirror.net/lib/codemirror.css")
-	link(rel="stylesheet", type="text/css", href="http://codemirror.net/theme/ambiance.css")
+	link(rel="stylesheet", type="text/css", href="../css/code.css")
 	script(src='http://codemirror.net/lib/codemirror.js')
-	script(src='http://codemirror.net/addon/mode/overlay.js')
-	script(src='http://codemirror.net/mode/gfm/gfm.js')
+	script(src='https://codemirror.net/addon/display/placeholder.js')
 
 block content
 	nav.sub-nav
@@ -47,16 +45,26 @@ block content
 								.toggle.rounded
 								h1 Marketing team lesgo
 								.tasks-preview-inner_title_options
-									i.ion-android-more-vertical
-							textarea#project_area.tasks-preview-inner_description
-								
+									i.ion-android-more-vertical.dropdown-toggle
+									.dropdown.dropdown-right
+										ul
+											li #[a Tags]
+											li #[a Print]
+											li #[a Copy task URL]
+											li.split
+											li.li-red #[a Delete task]
+							textarea#project_area.tasks-preview-inner_description(placeholder="Nothing in here yet!")
+							.stories
+								.story.story_created
+									.story-inner
+										p #{user.username} created this task
 						.tasks-preview-inner_comment
 							.user-i
 								a #{user.username.substr(0,2)}
 							
 							.comment-editable
 								.comment-editable_inner
-									.input-sm(contenteditable="true", placeholder="Write a comment...")
+									.input-sm.comment-content(contenteditable="true", placeholder="Write a comment...")
 									.comment-editable_footer
 										.comment-editable_left
 											a.attach-files
@@ -67,7 +75,6 @@ block content
 											a.send-comment
 												i.ion-android-send
 						
-	
 block footer
 	.modal-overlay
 		.view-close
@@ -82,34 +89,43 @@ block footer
 						input#assign(type="text")
 					.modal-footer
 						a.btn.exp_assign Assign to team
-	script(src="/socket.io/socket.io.js")
 	script.
 		var editor = CodeMirror.fromTextArea(document.getElementById("project_area"), {
 			lineWrapping: true
 		});
+		
 		var socket = io();
+		socket.emit('pjoin', {room: '#{project._id}'});
 		
 		socket.on('connect', function(socket) {
 			console.log('Socket connection');
-		});
-		
-		socket.on('refresh', function (data) {
-			console.log(data);
+		})
+		.on('refresh', function (data) {
 			var _getid = $('.tasks-preview-inner').data('selectedid');
 			var _retid = data.task;
-			console.log(_getid, _retid)
-			if (_getid == _retid)
+			if (_getid == _retid) {
 				editor.setValue(data.body);
-		});
-		
-		socket.on('change', function (data) {
+				editor.refresh();
+			}
+		})
+		.on('new_story', function (data) {
+			var _getid = $('.tasks-preview-inner').data('selectedid');
+			var _retid = data.task;
+			if (_getid == _retid) {
+				readStory(data.story.stories[data.story.stories.length - 1]);
+			}
+		})
+		.on('change', function (data) {
 			console.log('data', data);
 			var _getid = $('.tasks-preview-inner').data('selectedid');
 			var _retid = data.task;
 			console.log('get', _getid, _retid)
 			if (_getid == _retid)
 				editor.replaceRange(data.change.text, data.change.from, data.change.to);
-
+		})
+		.on('new_task', function(res){
+			$('.tasks-list').append('<div data-task="' + res._id + '" class="task-item new-task"><div class="toggle rounded"></div><a>' + res.name + '</a><div class="task-info"><p>a few seconds ago</p><div class="tooltip"><span>' + res.creator.username + '</span><img src="/images/default/user.jpg"></div></div></div>')
+			$('.new-task').slideDown('fast');
 		});
 		
 		editor.on('change', function (i, op) {
@@ -119,13 +135,17 @@ block footer
 			socket.emit('refresh', { body :editor.getValue(), task: _getid});
 		});
 		
-		socket.emit('pjoin', {room: '#{project._id}'});
-		
-		socket.on('new_task', function(res){
-			$('.tasks-list').append('<div data-task="' + res._id + '" class="task-item new-task"><div class="toggle rounded"></div><a>' + res.name + '</a><div class="task-info"><p>a few seconds ago</p><div class="tooltip"><span>' + res.creator.username + '</span><img src="/images/default/user.jpg"></div></div></div>')
-			$('.new-task').slideDown('fast');
+		$('.send-comment').bind('click', function(e){
+			var _getid = $('.tasks-preview-inner').data('selectedid');
+			$.post('/tasks/' + _getid + '/stories', 'text=' + $('.comment-content').text(), function(data) {
+				console.log(data);
+			})
+			.done(function() {
+				$('.comment-content').text('');
+				$('.tasks-preview-inner').scrollTop(1E10);
+				animateCommentClose();
+			});
 		});
-		
 		
 		$('#nt').bind('keypress', function(e){
 			if(e.which == 13) {
@@ -133,10 +153,4 @@ block footer
 					$('#nt').val('');
 				});
 			}
-		});
-		
-		$(function() {
-			var _first = $('.task-item:first');
-			_first.click();
-			console.log(_first)
 		});
