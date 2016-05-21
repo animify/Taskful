@@ -248,12 +248,6 @@ nav {
   border-bottom: 1px solid #eaedf5;
   position: relative;
 }
-.CodeMirror,
-.CodeMirror-scroll {
-  height: 100%;
-  width: 100%;
-  margin-top: 30px;
-}
 .global-search {
   min-width: 320px;
   display: inline-block;
@@ -1267,6 +1261,45 @@ nav {
 .taskBody-view_task:last-child {
   margin-right: 0%;
 }
+.CodeMirror {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 14px 0 20px 40px;
+  height: auto !important;
+}
+.CodeMirror:before,
+.CodeMirror:after {
+  content: '';
+  display: table;
+}
+.CodeMirror:after {
+  clear: both;
+}
+.CodeMirror-scroll {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+.CodeMirror-scroll:before,
+.CodeMirror-scroll:after {
+  content: '';
+  display: table;
+}
+.CodeMirror-scroll:after {
+  clear: both;
+}
 .tasks-preview {
   *zoom: 1;
   float: left;
@@ -1293,8 +1326,8 @@ nav {
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
-  height: 100%;
-  padding: 35px 30px 200px 30px;
+  height: calc(100% - 55px);
+  padding: 35px 30px 55px 30px;
   overflow-y: auto;
   overflow-x: visible;
 }

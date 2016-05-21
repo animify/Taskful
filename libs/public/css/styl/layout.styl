@@ -315,13 +315,25 @@
 	&_task
 		col(2/5)
 
+.CodeMirror
+	span(1/1)
+	border-bottom 1px solid lightgrey
+	padding 14px 0 20px 40px
+	height auto !important
+
+.CodeMirror-scroll
+	span(1/1)
+	overflow-x hidden !important
+	overflow-y auto !important
+
+
 .tasks-preview
 	span(1/1)
 	height 100%
 	&-inner
 		span(1/1)
-		height 100%
-		padding 35px 30px 200px 30px
+		height calc(100% - 55px)
+		padding 35px 30px 55px 30px
 		overflow-y auto
 		overflow-x visible
 		&_title

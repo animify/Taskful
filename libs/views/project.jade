@@ -85,35 +85,58 @@ block footer
 	script(src="/socket.io/socket.io.js")
 	script.
 		var editor = CodeMirror.fromTextArea(document.getElementById("project_area"), {
-			lineNumbers: true
+			lineWrapping: true
 		});
 		var socket = io();
+		
 		socket.on('connect', function(socket) {
 			console.log('Socket connection');
 		});
+		
 		socket.on('refresh', function (data) {
 			console.log(data);
-			editor.setValue(data.body);
+			var _getid = $('.tasks-preview-inner').data('selectedid');
+			var _retid = data.task;
+			console.log(_getid, _retid)
+			if (_getid == _retid)
+				editor.setValue(data.body);
 		});
+		
 		socket.on('change', function (data) {
-			console.log(data);
-			editor.replaceRange(data.text, data.from, data.to);
+			console.log('data', data);
+			var _getid = $('.tasks-preview-inner').data('selectedid');
+			var _retid = data.task;
+			console.log('get', _getid, _retid)
+			if (_getid == _retid)
+				editor.replaceRange(data.change.text, data.change.from, data.change.to);
+
 		});
+		
 		editor.on('change', function (i, op) {
 			console.log(op);
-			socket.emit('change', op);
-			socket.emit('refresh', editor.getValue());
+			var _getid = $('.tasks-preview-inner').data('selectedid');
+			socket.emit('change', { change: op, task: _getid});
+			socket.emit('refresh', { body :editor.getValue(), task: _getid});
 		});
+		
 		socket.emit('pjoin', {room: '#{project._id}'});
+		
 		socket.on('new_task', function(res){
-			console.log(res.creator)
 			$('.tasks-list').append('<div data-task="' + res._id + '" class="task-item new-task"><div class="toggle rounded"></div><a>' + res.name + '</a><div class="task-info"><p>a few seconds ago</p><div class="tooltip"><span>' + res.creator.username + '</span><img src="/images/default/user.jpg"></div></div></div>')
 			$('.new-task').slideDown('fast');
 		});
+		
+		
 		$('#nt').bind('keypress', function(e){
 			if(e.which == 13) {
 				$.post('/tasks', 'name=' + $('#nt').val(), function(data) {
 					$('#nt').val('');
 				});
 			}
+		});
+		
+		$(function() {
+			var _first = $('.task-item:first');
+			_first.click();
+			console.log(_first)
 		});

@@ -6,11 +6,12 @@ var serverEmitter = new events.EventEmitter();
 var teamController = require(libs + 'controllers/teams');
 var passport = require('passport');
 var passportSocketIo = require('passport.socketio');
+var sharedsession = require("express-socket.io-session");
 
 module.exports.serverEmitter = serverEmitter;
 
-module.exports.connect = function(server, io, sessionStore) {
-
+module.exports.connect = function(server, io, sessionStore, eSession) {
+	io.use(sharedsession(eSession));
 	io.use(passportSocketIo.authorize({
 			passport:     passport,
 			cookieParser: cookieParser,
@@ -31,36 +32,30 @@ module.exports.connect = function(server, io, sessionStore) {
 		if(error)
 			accept(new Error(message));
 	}
-	var body = "'sup";
-	io.on('connection', function (socket) {
 
-		socket.emit('refresh', {body: body});
+	var body = [];
+	io.on('connection', function (socket) {
+		log.info('Connection to socket.io');
 
 		socket.on('refresh', function (body_) {
-			console.log('new body');
-			body = body_;
+			body[body_.task] = body_.body;
 		});
 
-		socket.on('change', function (op) {
-			console.log(op);
-			if (op.origin == '+input' || op.origin == 'paste' || op.origin == '+delete') {
-					socket.broadcast.emit('change', op);
+		socket.on('change', function (data) {
+			if (data.change.origin == '+input' || data.change.origin == 'paste' || data.change.origin == '+delete') {
+					socket.broadcast.to('project_' + socket.handshake.session.viewingProject).emit('change', {change : data.change, task: data.task});
 			};
 		});
-
-		log.info('Connection to socket.io');
 
 		socket.on('pjoin', function (data) {
 			socket.room = 'project_' + data.room;
 			socket.join(socket.room);
-			console.log('joined ' + socket.room);
 		});
+
 		serverEmitter.once('join_team', function (data) {
 			socket.room = 'team_' + data;
 			socket.join(socket.room);
-			console.log('Joined team ' + socket.room);
 		});
-
 
 	});
 }

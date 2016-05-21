@@ -13,6 +13,7 @@ $(function() {
 	$('.comment-editable').bind("click", function(e){
 		e.stopPropagation();
 		$(this).addClass('expanded');
+		$('.tasks-preview-inner').css({ 'height': 'calc(100% - 186px)' });
 		$(this).animate({
 			height: '165px'
 		}, 100);
@@ -32,6 +33,7 @@ $(function() {
 	$('html, .dropdown li').bind("click", function(){
 		$('.dropdown').hide();
 		$('.comment-editable').removeClass('expanded');
+		$('.tasks-preview-inner').css({ 'height': 'calc(100% - 55px)' });
 		$('.comment-editable').animate({
 			height: '35px'
 		}, 100);
@@ -51,7 +53,8 @@ $(function() {
 		$('.tasks-list .task-item').removeClass('selected');
 		$.get('/tasks/' + _this.data('task'), function(data) {
 			$('.tasks-preview-inner_title h1').text(data.task.name);
-			$('.tasks-preview-inner_description p').html(data.task.content);
+			$('.tasks-preview-inner').data('selectedid', data.task._id);
+			data.task.content !== null ? editor.setValue(data.task.content) : editor.setValue("");
 			_this.addClass('selected');
 			console.log(data);
 		}).error(function(err) {
