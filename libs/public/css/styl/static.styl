@@ -1,0 +1,76 @@
+@import 'jeet'
+@import 'nib'
+
+@import 'variables.styl'
+@import 'ui.styl'
+@import 'buttons.styl'
+
+.view
+	span(1/1)
+	height 100%
+	&-left
+		col(3/7)
+		height 100%
+		overflow auto
+		position relative
+		&_inner
+			width 70%
+			align(both)
+			h3
+				font-size 1.98rem
+				font-weight 600
+				margin 0 0 3px 0
+			p
+				color pbluelight
+				font-size 1.1rem
+				margin-bottom 26px
+			.btn
+				display block
+	&-right
+		col(4/7)
+		height 100%
+		position relative
+		background-color cprimary
+
+.no-account
+	absolute top 25px right 25px
+	border-radius 3px
+	p
+		margin 0
+		color #fff
+		font-size 1rem !important
+		a
+			position relative
+			color #fff !important
+			margin-left 3px
+			&::after
+				content ' '
+				width 100%
+				absolute top 23px left
+				border-bottom 2px dotted #fff
+
+.submit-login
+	margin-top 19px !important
+	span(1/1)
+
+.tc-text
+	width 67%
+	display block
+	text-align center
+	margin 0 auto
+	absolute bottom 25px left right
+	color lighten(cprimary, 80%)
+	a
+		color #fff !important
+
+@media screen and (max-width: 1200px)
+	.view-left
+		col(1/2)
+	.view-right
+		col(1/2)
+
+@media screen and (max-width: 900px)
+	.view-left
+		col(1/1)
+	.view-right
+		display none

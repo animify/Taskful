@@ -9,8 +9,14 @@ var log = require(libs + 'log')(module);
 var authController = require(libs + 'auth/auth');
 var db = require(libs + 'db/mongoose');
 
-router.get('/profile', function(req, res) {
-	res.render('profile', { user : req.user });
+
+router.get('/logout', function(req, res) {
+		req.logout();
+		res.redirect('/');
+});
+
+router.get('/login', function(req, res) {
+	res.render('login');
 });
 
 router.get('/register', function(req, res) {

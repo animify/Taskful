@@ -1,16 +1,43 @@
 doctype html
 html(lang="en")
 	head
-		title= title
+		title Swash | Login
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		script(src='https://code.jquery.com/jquery-2.2.2.min.js')
+		link(rel="stylesheet", type="text/css", href="../css/static.css")
+		link(rel="stylesheet", type="text/css", href="../fonts/font.css")
 	body
-		.container
-			h1 Login Page
-			br
-			form(role='form', action="/login",method="post", style='max-width: 300px;')
-				.form-group
-						input.form-control(type='text', name="username", placeholder='Enter Username')
-				.form-group
-					input.form-control(type='password', name="password", placeholder='Password')
-				button.btn.btn-default(type='submit') Submit
+		.view
+			.view-left
+				.view-left_inner
+					h3 Hello! Welcome back.
+					p Sign in to your account here:
+					.field
+						input.form-name(type='text', name="username", placeholder="Username")
+					.field
+						input.form-password(type='password', name="password", placeholder="Password (min. 6 characters)")
+					.field.submit-login
+						a.btn.btn-submit Sign in
+			.view-right
+				.no-account
+					p Don't have an account? #[a(href="/register") Sign up for Swash]
+				small.tc-text By logging in to Swash and using the platform, you are agreeing to our #[a Terms of Service] and #[a Privacy Policy].
+
+script.
+	$('.btn-submit').click(function() {
+		var data = {};
+		data.username = $('.form-name').val();
+		data.password = $('.form-password').val();
+		$.ajax({
+			url: "/login",
+			type: "POST",
+			contentType: 'application/json',
+			data: JSON.stringify(data),
+			success: function(data) {
+				JSON.stringify(data);
+				console.log(data);
+				if (data.status == "OK")
+					window.location.replace("/profile");
+			}
+		})
+	});

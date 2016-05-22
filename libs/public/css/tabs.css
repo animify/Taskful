@@ -1,0 +1,6 @@
+.tab-selection {
+  display: none;
+}
+.tab-selection-active {
+  display: block;
+}

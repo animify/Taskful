@@ -26,6 +26,7 @@ exports.createNew = function(req, res, callback) {
 			}
 		}
 	});
+	req.body.team == 'undefined' ? req.body.team = undefined : req.body.team = req.body.team;
 
 	var errors = req.validationErrors();
 	if (errors) {
@@ -62,8 +63,9 @@ exports.createNew = function(req, res, callback) {
 			}
 		});
 	};
-
-		if (req.body.team) {
+		if (req.body.team === undefined) {
+			saveProject(null, true);
+		} else {
 			validate.isMember(req.body.team, req.user._id, function (err, done) {
 				if (err) {
 					saveProject('403', 'Not the owner or member of this team');
@@ -71,8 +73,6 @@ exports.createNew = function(req, res, callback) {
 					saveProject(null, true);
 				}
 			});
-		} else {
-			saveProject(null, true);
 		}
 
 };
@@ -113,7 +113,7 @@ exports.findAll = function(req, res, callback) {
 				});
 			},
 			findAllSelf: function(cb) {
-				Project.find({'owner': req.user._id, 'team':''})
+				Project.find({'owner': req.user._id, 'team': undefined})
 				.populate('owner', '_id username')
 				.exec(function (err, projects) {
 					if (!err) {
@@ -157,11 +157,32 @@ exports.findById = function(req, res, callback) {
 	});
 };
 
-exports.findByIdExtended = function(req, res, callback) {
+exports.findByIdExtended = function(_filter, req, res, callback) {
 	var projectstasks = [];
-	var getTasks = function(db_project) {
-		Tasks.find({'project':req.params.id})
-		.populate('creator')
+	var getTasks = function(db_project, _filter) {
+		switch(_filter) {
+			case 'open':
+				var taskQuery = {'project': req.params.id, 'status': false, 'archived' : false};
+				queryTasks(db_project, taskQuery);
+			break;
+			case 'archived':
+				var taskQuery = {'project': req.params.id, 'archived' : true};
+				queryTasks(db_project, taskQuery);
+			break;
+			case 'completed':
+				var taskQuery = {'project': req.params.id, 'archived' : false, 'status': true};
+				queryTasks(db_project, taskQuery);
+			break;
+			default:
+				var taskQuery = {'project': req.params.id, 'status': false, 'archived' : false};
+				queryTasks(db_project, taskQuery);
+		}
+
+	}
+
+	var queryTasks = function(db_project, query) {
+		Tasks.find(query)
+		.populate('creator', '_id fullname username')
 		.exec(function(err, db_tasks) {
 			projectstasks.push(db_project);
 			projectstasks.push(db_tasks);
@@ -178,13 +199,13 @@ exports.findByIdExtended = function(req, res, callback) {
 			return callback('404', 'Project not found');
 		else {
 			if (db_project.owner._id.toString().trim() === req.user._id.toString().trim()) {
-				getTasks(db_project);
+				getTasks(db_project, _filter);
 			} else if (db_project.team) {
 				validate.isMember(db_project.team._id, req.user._id, function (err, done) {
 					if (err) {
 						return callback('500', 'Server error');
 					} else {
-						getTasks(db_project);
+						getTasks(db_project, _filter);
 					}
 				});
 			} else {

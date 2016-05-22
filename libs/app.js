@@ -99,27 +99,17 @@ var apiTasks = require('./routes/api_tasks');
 var apiTeams = require('./routes/api_teams');
 var apiProjects = require('./routes/api_projects');
 
-app.get('/login', function(req, res) {
-	res.render('login');
-});
 
 app.use('/', users);
 
-app.get('/logout', function(req, res) {
-		req.logout();
-		res.redirect('/');
+app.get('/profile', authcontroller.isAuthenticatedLocal, function(req, res) {
+	res.render('profile', { user : req.user });
 });
 
-app.post('/login',
-	passport.authenticate('local', {
-		successRedirect: '/profile',
-		failureRedirect: '/profile'
-	})
-);
+app.post('/login', passport.authenticate('local'), function(req, res) {
+	return res.json({status:"OK"})
+});
 
-
-// app.use('/', api);
-// app.use('/api', api);
 app.use('/api/users', users);
 app.use('/teams', authcontroller.isAuthenticatedLocal, teams);
 app.use('/projects', authcontroller.isAuthenticatedLocal, projects);

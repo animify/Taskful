@@ -55,6 +55,16 @@ router.get('/:id', function(req, res) {
 	});
 });
 
+router.post('/:id/archive', function(req, res) {
+	taskController.archive(req, res, function(err, task) {
+		if (err) {
+			res.statusCode = err;
+			return res.json({ error: err, message: task });
+		}
+		res.json({ status: 'OK', message : task });
+	});
+});
+
 router.post('/:id/stories', function(req, res) {
 	storyController.create('comment', req, res, function(err, story) {
 		if (err) {

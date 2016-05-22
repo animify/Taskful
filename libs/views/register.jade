@@ -1,29 +1,31 @@
 doctype html
 html(lang="en")
 	head
-		title= title
+		title Swash | Login
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		script(src='https://code.jquery.com/jquery-2.2.2.min.js')
+		link(rel="stylesheet", type="text/css", href="../css/static.css")
+		link(rel="stylesheet", type="text/css", href="../fonts/font.css")
 	body
-	.container
-		h1 Register Page
-		p.lead Say something worthwhile here. 
-		br
-		.form-group
-				input.form-name(type='text', name="username", placeholder='Enter Username')
-		.form-group
-				input.form-fullname(type='text', name="fullname", placeholder='Enter fullname')
-		.form-group
-				input.form-email(type='text', name="email", placeholder='Enter email')
-		.form-group
-			input.form-password(type='password', name="password", placeholder='Password')
-		.form-group
-			input.form-repassword(type='password', name="password", placeholder='Password')
-		a.btn.btn-submit Submit
-		a(href='/')
-			button.btn.btn-primary(type="button") Cancel
-		br
-		h4= info
+		.view
+			.view-left
+				.view-left_inner
+					h3 Sign up for Swash
+					p Get started. It's only free.
+					.field
+						input.form-fullname(type='text', name="fullname", placeholder="Full name")
+					.field
+						input.form-name(type='text', name="username", placeholder="Username")
+					.field
+						input.form-email(type='text', name="email", , placeholder="Email address")
+					.field
+						input.form-password(type='password', name="password", placeholder="Password (min. 6 characters)", autocomplete="new-password")
+					.field.submit-login
+						a.btn.btn-submit Create your free account
+			.view-right
+				.no-account
+					p Already have an account? #[a(href="/login") Sign in]
+				small.tc-text By proceeding to create your account and use Swash, you are agreeing to our #[a Terms of Service] and #[a Privacy Policy].
 script.
 	$('.btn-submit').click(function() {
 		var data = {};
@@ -31,7 +33,7 @@ script.
 		data.fullname = $('.form-fullname').val();
 		data.email = $('.form-email').val();
 		data.password = $('.form-password').val();
-		data.repassword = $('.form-repassword').val();
+		data.repassword = $('.form-password').val();
 		$.ajax({
 			url: "/register",
 			type: "POST",

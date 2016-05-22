@@ -32,6 +32,10 @@ var Task = new Schema({
 			type: Boolean,
 			default: false
 		},
+		archived: {
+			type: Boolean,
+			default: false
+		},
 		creator: {
 			type: String,
 			ref: 'User'
