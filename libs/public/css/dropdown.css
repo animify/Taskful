@@ -11,6 +11,10 @@
   z-index: 900;
   box-shadow: 0 1px 2px 0 rgba(41,55,69,0.1);
 }
+.dropdown-project {
+  left: auto;
+  margin-left: -208px;
+}
 .dropdown-right {
   right: 25px;
   left: auto;
@@ -34,6 +38,9 @@
 }
 .dropdown ul li a:hover {
   color: cprimary;
+}
+.dropdown ul li.li-yellow a:hover {
+  color: cyellow;
 }
 .dropdown ul li.li-red a:hover {
   color: cred;

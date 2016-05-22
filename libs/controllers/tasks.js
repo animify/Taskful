@@ -7,6 +7,35 @@ var Story = require('../model/stories');
 
 var io = global.socketIO;
 
+const findTask = function findTask(req) {
+	return new Promise((resolve, reject) => {
+		Task.findOne({'_id': req.params.id})
+		.populate([{path:'creator', select:'_id username fullname'}, {path: 'project', select:'name team status'}])
+		.exec(function (err, task) {
+			if(!task) {
+				reject(new Error('Task not found'));
+			}
+
+			if (!err) {
+				if (req.user._id.toString().trim() == task.creator._id.toString().trim()) {
+					resolve(task);
+				} else {
+					validate.isMember(task.project.team, req.user._id, function (err, done) {
+						if (err) {
+							reject(new Error('Validation error'));
+						} else {
+							resolve(task);
+						}
+					});
+				}
+			} else {
+				log.error('Internal error(%d): %s',res.statusCode,err.message);
+				reject(new Error('Server error'));
+			}
+		});
+	});
+}
+
 exports.createNew = function(req, res, hasProject, callback) {
 	req.sanitizeBody();
 	req.checkBody({
@@ -52,7 +81,6 @@ exports.createNew = function(req, res, hasProject, callback) {
 					task.populate('creator', 'username fullname', function(err) {
 						if (!err) {
 							var newid = mongoose.Types.ObjectId();
-
 							var story = new Story({
 								_id: newid,
 								target: task._id,
@@ -117,36 +145,34 @@ exports.findAll = function(req, res, callback) {
 }
 
 exports.findById = function(req, res, callback) {
-	Task.findOne({'_id': req.params.id})
-	.populate([{path:'creator', select:'_id username'}, {path: 'project', select:'name team status'}])
-	.exec(function (err, task) {
-
-		if(!task) {
-			return callback('404', 'Task not found');
-		}
-
-		if (!err) {
-			if (req.user._id.toString().trim() == task.creator._id.toString().trim()) {
-				return callback(null, task);
-			} else {
-				validate.isMember(task.project.team, req.user._id, function (err, done) {
-					if (err) {
-						return callback('500', 'Validation error');
-					} else {
-						return callback(null, task);
-					}
-				});
-			}
-		} else {
-			log.error('Internal error(%d): %s',res.statusCode,err.message);
-			return callback('500', 'Server error');
-		}
+	findTask(req)
+	.then((task) => {
+		return callback(null, task);
+	})
+	.catch((err) => {
+		return callback('500', 'Internal error');
 	});
+};
+
+exports.archive = function(req, res, callback) {
+	findTask(req)
+	.then((task) => {
+		Task.update({ '_id' : task._id}, {$set: { 'archived' : true}},  {new: true}, function(err, updated) {
+			if (!err)
+				return callback(null, 'Task has been archived');
+
+			return callback('404', 'Task could not be updated');
+		});
+	})
+	.catch((err) => {
+		console.log(err)
+		return callback('500', 'Internal error');
+	});
+
 };
 
 exports.saveOnType = function(taskid, taskbody, callback) {
 	Task.findOneAndUpdate({'_id': taskid}, { $set: { content: taskbody }}, function (err, task) {
 		if (err) return console.log(err);
 	});
-
 };

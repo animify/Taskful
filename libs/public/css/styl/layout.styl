@@ -11,8 +11,8 @@
 		vertical-align top
 		span(1/1)
 		h2
-			font-size 1.9rem
-			margin 0 0 6px 0
+			font-size 1.93rem
+			margin 0 0 3px 0
 			font-weight normal
 		p
 			color cgr
@@ -218,26 +218,6 @@
 			vertical-align top
 		.darken-p
 			color cgrey
-	&-right
-		display inline-block
-		vertical-align top
-		float right
-		& .list-options
-			span
-				font-size 1.3rem
-				relative top 1px right 20px
-				color cgr
-				line-height 2.4rem
-	&-item
-		span(1/1)
-		padding 17px 8px 19px 8px
-		border-radius 3px
-		background-color #fff
-		box-shadow 0 1px 1px 0 rgba(41,55,69,.05)
-		.created_at
-			display none
-		& + .list-item
-			border-top 1px solid #E5E9F0
 		a
 			font-weight 600
 			font-size 1.1rem
@@ -254,6 +234,30 @@
 				font-weight 600
 				&.created_at
 					display none
+	&-right
+		display inline-block
+		vertical-align top
+		float right
+		& .list-options
+			span
+				font-size 1.3rem
+				relative top 1px right 20px
+				color cgr
+				line-height 2.4rem
+				cursor pointer
+				&:hover
+					color cprimary
+	&-item
+		span(1/1)
+		padding 17px 8px 19px 8px
+		border-radius 3px
+		background-color #fff
+		box-shadow 0 1px 1px 0 rgba(41,55,69,.05)
+		.created_at
+			display none
+		& + .list-item
+			border-top 1px solid #E5E9F0
+
 		&:hover
 			p.list-contents
 				display none
@@ -298,11 +302,23 @@
 			font-size 0.7175rem
 			margin-left 6px
 			margin-right 0
+		&_left
+			line-height 2.1rem
+			a
+				font-weight 600
+				cursor pointer
+				position relative
+				&:after
+					width 100%
+					content ' '
+					absolute top 23px
+					left 0
+					border-bottom 2px dotted cprimary
 		&_right
 			float right
-			line-height 2rem
+			line-height 2.1rem
 			a
-				font-size 0.85rem
+				font-size 0.96rem
 				color pbluelight
 		&_inner
 			padding 12px 20px
@@ -360,6 +376,7 @@
 			span(1/1)
 			padding 14px 0 20px 40px
 			border-bottom 1px solid lightgrey
+			display none
 			p
 				font-size 0.88rem
 				line-height 20px

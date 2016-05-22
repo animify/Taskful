@@ -21,14 +21,22 @@ block content
 									span.project-status.status_green
 								.list-inner
 									a(href="/projects/#{result._id}") #{result.name}
-									//- p.list-contents #[strong #{result.owner.username}] 
 									if (result.team)
-										//- span.bull &bull;
 										p.list-contents #{result.team.name} 
+									else 
+										p.list-contents.color-yellow Not assigned to a team
 									p.created_at Created #{moment(result.created_at).fromNow()}
 								.list-right
 									.list-options
-										span.ion-android-more-vertical
+										span.ion-android-more-vertical.dropdown-toggle
+										.dropdown.dropdown-project
+											ul
+												li #[a Assign to team]
+												li #[a Make private]
+												li #[a Change status]
+												li #[a Copy project URL]
+												li.split
+												li.li-red #[a Delete project]
 
 block footer
 	.modal-overlay
@@ -44,45 +52,32 @@ block footer
 						.field
 							input#new_project(type="text", placeholder="What will you name this project?")
 						.field
-							.modal-list
-								for team in teams
-									.modal-list_item(data-team="#{team._id}")
-										.text-preview(style="background-color:#{team.color}")
-											span= team.name.substr(0,1)
-										.modal-list_details
-											.modal-list_title
+							.select-dropdown(tabindex="0")
+								p.selected_item(placeholder="Select the team to assign the project to")
+								ul.select-dropdown_items
+									for team in teams
+										li.select-dropdown_item(data-team="#{team._id}")
+											.text-preview(style="background-color:#{team.color}")
+												span= team.name.substr(0,1)
+											.select-dropdown_item-text
 												p #{team.name}
-												span= team.userlist.length
-													|  members
-										.modal-list_select
-											span Assign
+									
 					.modal-footer.push-footer
 						.modal-btn
 							a.btn.btn-green.exp_newproject Create Project
 	script.
 		var socket = io();
-		//- socket.on('test', function(msg){
-		//- 	console.log('textconsole ' + msg);
-		//- });
-		$('.modal-list_select span').bind('click', function() {
-			if ($(this).hasClass('active')) {
-				$('.modal-list_select span').show();
-				$(this).closest('.modal-list_item').removeClass('selected');
-				$(this).text('Assign');
-				$(this).removeClass('active');
-			} else {
-				
-				$('.modal-list_select span').hide();
-				$(this).show();
-				$(this).closest('.modal-list_item').addClass('selected');
-				$(this).text('Selected');
-				$(this).addClass('active');
-			}
+		$('.select-dropdown_item').bind('click', function() {
+			var _this = $(this);
+			var _thisID = _this.data('team');
+			$('.selected_item').data('team', _thisID);
+			$('.selected_item').text(_this.find('p').text());
+			
 		});
 
 		$('.exp_newproject').click(function() {
 			var projectname = $('#new_project').val();
-			var projecteam = $('.modal-list_item.selected').data('team');
+			var projecteam = $('.selected_item').data('team');
 			console.log(projecteam);
 			$.post('/projects', 'name=' + projectname + '&team=' + projecteam, function(data) {
 				JSON.stringify(data);

@@ -10,6 +10,14 @@ $(function() {
 		}
 	});
 
+	$('.tabs-selection li').bind("click", function(e){
+		var _this = $(this);
+		$('.tabs-selection li').removeClass('active');
+		_this.addClass('active');
+		$('.tab-selection').hide();
+		$('.tab-selection_' + _this.data('tab')).show();
+	});
+
 	$('.comment-editable').bind("click", function(e){
 		e.stopPropagation();
 		animateCommentOpen($(this));
@@ -80,6 +88,14 @@ function readStory(story) {
 	}
 
 	$('.story_new').slideDown('fast');
+}
+
+function emptyTasksList() {
+		$('.tasks-list').empty();
+}
+
+function genTask(task) {
+	$('.tasks-list').append('<div data-task="' + task._id + '" class="task-item"><div class="toggle rounded"></div><a>' + task.name + '</a><div class="task-info"><p>7 minutes ago</p><div class="tooltip"><span>' + task.creator.username + '</span><img src="/images/default/user.jpg"></div></div></div>');
 }
 
 function animateCommentOpen(_this) {

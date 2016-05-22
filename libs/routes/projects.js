@@ -38,7 +38,7 @@ router.post('/', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-	projectController.findByIdExtended(req, res, function(err, ret) {
+	projectController.findByIdExtended('open', req, res, function(err, ret) {
 		if (err) {
 			res.redirect('/projects');
 		}
@@ -49,6 +49,30 @@ router.get('/:id', function(req, res) {
 
 		res.render('project', { user : req.user, project : db_project, tasks: db_tasks });
 	});
+});
+
+router.get('/:id/:filter', function(req, res) {
+	var _filter = req.params.filter;
+
+	if (!~['archived','open', 'completed'].indexOf(_filter))
+		return res.json({
+			error: 'Invalid tasks filter'
+		});
+
+	projectController.findByIdExtended(_filter, req, res, function(err, ret) {
+		if (err) {
+			return res.json({
+				error: 'Error retrieving tasks'
+			});
+		}
+
+		var db_project = ret[0];
+		var db_tasks = ret[1];
+
+		res.json({ status: 'OK', tasks : db_tasks });
+
+	});
+
 });
 
 router.put('/:id', passport.authenticate('bearer', { session: false }), function (req, res){

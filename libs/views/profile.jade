@@ -5,31 +5,49 @@ block content
 		.contents.center
 			.content
 				.block
-					ul.block-left
-						li.active Account
-						li Password
-						li Billing
-						li Email Notifications
-						li Security
+					ul.tabs-selection.block-left
+						li.active(data-tab="account") Account
+						li(data-tab="password") Password
+						li(data-tab="billing") Billing
+						li(data-tab="integrations") Integrations
+						li(data-tab="email") Email Notifications
+						li(data-tab="security") Security
 					.block-divider
 					.block-right
-						h2 Account Settings
-						p Change your basic account settings
-						if (user)
-							.form-control
-								.field
-									label(for="i-username") Username
-									input.is--disabled#i-username(type="text", value="#{user.username}")
-								.field
-									label(for="i-name") Name
-									input#i-name(type="text", value="#{user.fullname}")
-								.field
-									label(for="i-u") User ID
-									input#i-u(type="text", value="#{user.id}")
-								.field
-									label(for="i-email") Email
-									input#i-email(type="text", value="#{user.email}")
-								.field
-									.btn Save preferences
+						.tab-selection.tab-selection_account.tab-selection-active
+							h2 Account settings
+							p Change your basic account settings
+							if (user)
+								.form-control
+									.field
+										label(for="i-username") Username
+										input.is--disabled#i-username(type="text", value="#{user.username}")
+									.field
+										label(for="i-name") Name
+										input#i-name(type="text", value="#{user.fullname}")
+									.field
+										label(for="i-u") User ID
+										input#i-u(type="text", value="#{user.id}")
+									.field
+										label(for="i-email") Email
+										input#i-email(type="text", value="#{user.email}")
+									.field
+										.btn Save preferences
+						.tab-selection.tab-selection_password
+							h2 Password
+							p Edit or add authentication methods to your account
+						.tab-selection.tab-selection_billing
+							h2 Billing
+							p Manage your account billing
+						.tab-selection.tab-selection_integrations
+							h2 Integrations
+							p Add & manage 3rd party integrations
+						.tab-selection.tab-selection_email
+							h2 Email notifications
+							p Change your basic account settings
+						.tab-selection.tab-selection_security
+							h2 Security
+							p Monitor the activity of your account
+										
 
 	script(src='http://code.jquery.com/jquery.js')
