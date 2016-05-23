@@ -1,0 +1,21 @@
+{
+	"restartable": "rs",
+	"ignore": [
+		".git",
+		".gitattributes",
+		".gitignore",
+		"logs/",
+		"node_modules/**/node_modules"
+	],
+	"verbose": true,
+	"execMap": {
+		"js": "node --harmony"
+	},
+	"watch": [
+		"libs/"
+	],
+	"env": {
+		"NODE_ENV": "development"
+	},
+	"ext": "js jade json"
+}
