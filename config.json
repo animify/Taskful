@@ -4,7 +4,7 @@
 				"tokenLife" : 3600
 		},
 		"mongoose": {
-				"uri": "mongodb://localhost:27017/test"
+				"uri": "mongodb://localhost:27017/swash_db-go"
 		},
 		"default": {
 				"api": {

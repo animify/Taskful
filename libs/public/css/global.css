@@ -676,12 +676,12 @@ nav {
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   text-align: center;
-  position: absolute;
-  top: -25px;
-  left: 50%;
+  position: fixed;
+  margin-top: -26px;
+  margin-left: 11px;
 }
 .tooltip > span {
-  font-size: 0.8em;
+  font-size: 0.875em;
   line-height: 1rem;
   font-weight: 600;
   background-color: #333;
@@ -866,7 +866,7 @@ nav {
   margin-left: 0%;
   margin-right: 0%;
   border-bottom: 1px solid #f1f1f1;
-  padding: 2px 7px;
+  padding: 2px 17px;
   line-height: 2rem;
   background-color: #fff;
   position: relative;
@@ -927,7 +927,9 @@ nav {
 }
 .task-item .toggle {
   margin-right: 11px;
-  margin-top: 6px;
+  margin-top: 4px;
+  width: 24px;
+  height: 24px;
 }
 .task_add > * {
   vertical-align: top;
@@ -963,7 +965,7 @@ nav {
   margin-right: 0%;
   height: 100%;
   overflow-y: auto;
-  padding: 0 20px;
+  padding: 0;
 }
 #tasks:before,
 #tasks:after {
