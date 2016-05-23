@@ -168,7 +168,38 @@ exports.archive = function(req, res, callback) {
 		console.log(err)
 		return callback('500', 'Internal error');
 	});
+};
 
+exports.complete = function(req, res, callback) {
+	findTask(req)
+	.then((task) => {
+		Task.update({ '_id' : task._id}, {$set: { 'status' : true}},  {new: true}, function(err, updated) {
+			if (!err)
+				return callback(null, 'Task is now complete');
+
+			return callback('404', 'Task could not be updated');
+		});
+	})
+	.catch((err) => {
+		console.log(err)
+		return callback('500', 'Internal error');
+	});
+};
+
+exports.uncomplete = function(req, res, callback) {
+	findTask(req)
+	.then((task) => {
+		Task.update({ '_id' : task._id}, {$set: { 'status' : false}},  {new: true}, function(err, updated) {
+			if (!err)
+				return callback(null, 'Task is now open');
+
+			return callback('404', 'Task could not be updated');
+		});
+	})
+	.catch((err) => {
+		console.log(err)
+		return callback('500', 'Internal error');
+	});
 };
 
 exports.saveOnType = function(taskid, taskbody, callback) {

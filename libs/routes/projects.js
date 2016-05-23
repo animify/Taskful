@@ -22,6 +22,7 @@ router.get('/', function(req, res) {
 			if (err) {
 				return res.render('teams', { user : req.user, teams : ret, error : err });
 			}
+
 			res.render('projects', { user : req.user, projects : ret, teams : teams });
 		});
 	});

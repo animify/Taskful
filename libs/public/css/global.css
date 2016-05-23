@@ -1776,6 +1776,11 @@ nav {
   font-size: 0.83rem;
   color: #616d7e;
 }
+.story p span {
+  margin-left: 4px;
+  font-size: 0.76rem;
+  color: #949ead;
+}
 .story_comment {
   *zoom: 1;
   float: left;
