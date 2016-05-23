@@ -22,11 +22,11 @@ block content
 								a.open-modal.color-primary(data-modal="tasks-select") Open tasks
 							.taskBody-view_options_right
 								a View by: Date of creation #[i.ion-chevron-down]
-					#tasks
+					#tasks.status_open
 						.tasks-list
 							for task in tasks
 								.task-item(data-task="#{task._id}")
-									.toggle.rounded
+									.rounded(class="#{task.status ? 'toggle selected' : 'toggle'}" )
 									a #{task.name}
 									.task-info
 										p #{moment(task.created_at).fromNow()}
@@ -96,6 +96,7 @@ block footer
 					h3 Archived tasks
 		
 	script.
+		var taskElement = '';
 		var editor = CodeMirror.fromTextArea(document.getElementById("project_area"), {
 			lineWrapping: true
 		});
@@ -122,10 +123,8 @@ block footer
 			}
 		})
 		.on('change', function (data) {
-			console.log('data', data);
 			var _getid = $('.tasks-preview-inner').data('selectedid');
 			var _retid = data.task;
-			console.log('get', _getid, _retid)
 			if (_getid == _retid)
 				editor.replaceRange(data.change.text, data.change.from, data.change.to);
 		})
@@ -135,20 +134,66 @@ block footer
 		});
 		
 		editor.on('change', function (i, op) {
-			console.log(op);
 			var _getid = $('.tasks-preview-inner').data('selectedid');
 			socket.emit('change', { change: op, task: _getid});
 			socket.emit('refresh', { body :editor.getValue(), task: _getid});
 		});
 		
 		$('.archive-task').bind('click', function(e){
-			console.log('got')
 			var _getid = $('.tasks-preview-inner').data('selectedid');
-			console.log(_getid)
 			$.post('/tasks/' + _getid + '/archive', function(data) {
 				$('[data-task=' + _getid + ']').slideUp('fast', function() {
 					$(this).remove();
 				});
+			});
+		});
+		
+		$('.tasks-list').on("click", ".toggle", function(e){
+			e.stopPropagation();
+			var _this = $(this);
+			var _getid = _this.closest('.task-item').data('task');
+			if (_this.hasClass('selected')) {
+				var _action = 'open';
+				$('[data-selectedid=' + _getid + ']').find('.toggle').removeClass('selected');
+			} else {
+				var _action = 'complete';
+				$('[data-selectedid=' + _getid + ']').find('.toggle').addClass('selected');
+			}
+			
+			$.post('/tasks/' + _getid + '/' + _action, function(data) {
+				if (!$('#tasks').hasClass('status_archived')) { 
+					$('[data-task=' + _getid + ']').slideUp('fast', function() {
+						$(this).remove();
+					});
+				}
+			});
+			$(this).toggleClass('selected');
+		});
+		
+		$('.tasks-preview-inner_title').on("click", ".toggle", function(e){
+			var _this = $(this);
+			var _getid = _this.closest('.tasks-preview-inner').data('selectedid');
+			if ($('[data-task=' + _getid + ']').length)
+				taskElement = $('[data-task=' + _getid + ']').outerHTML();
+			if (_this.hasClass('selected')) {
+				var _action = 'open';
+				$('[data-task=' + _getid + ']').find('.toggle').removeClass('selected');
+			} else {
+				var _action = 'complete';
+				$('[data-task=' + _getid + ']').find('.toggle').addClass('selected');
+			}
+			
+			$.post('/tasks/' + _getid + '/' + _action, function(data) {
+				if (!$('#tasks').hasClass('status_archived')) { 
+					$('[data-task=' + _getid + ']').slideUp('fast', function() {	
+						$(this).remove();
+					});
+					if (_action == 'open') {
+						$('.status_open .tasks-list').append(taskElement);
+					} else if (_action == 'complete') {
+						$('.status_completed .tasks-list').append(taskElement);
+					}
+				}
 			});
 		});
 		
@@ -183,18 +228,22 @@ block footer
 			})
 			.done(function() {
 				var _that = $('.taskBody-view_options_left .open-modal');
+				$('#tasks').removeClass();
 				switch(_thisFilter) {
 					case 'open':
 						_that.text('Open tasks');
 						_that.attr('class', 'open-modal color-primary');
+						$('#tasks').addClass('status_open');
 					break;
 					case 'archived':
 						_that.text('Archived tasks');
 						_that.attr('class', 'open-modal color-yellow');
+						$('#tasks').addClass('status_archived');
 					break;
 					case 'completed':
 						_that.text('Completed tasks');
 						_that.attr('class', 'open-modal color-green');
+						$('#tasks').addClass('status_completed');
 					break;
 				}
 				var _first = $('.task-item:first');

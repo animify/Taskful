@@ -10,14 +10,18 @@ block content
 						i.ion-plus
 						| New team
 				.list-blocks
-					for result in teams
-						.list-block
-							.text-preview(style="background-color:#{result.color}")
-								span= result.name.substr(0,1)
-							.list-block-body
-								a(href="/teams/#{result._id}") #{result.name}
-								p= result.userlist.length
-									|  members
+					if (teams.length)
+						for result in teams
+							.list-block
+								.text-preview(style="background-color:#{result.color}")
+									span= result.name.substr(0,1)
+								.list-block-body
+									a(href="/teams/#{result._id}") #{result.name}
+									p= result.userlist.length
+										|  members
+					else
+						.empty_content
+							h2 You have no teams
 
 block footer
 	.modal-overlay

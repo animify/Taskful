@@ -5,6 +5,8 @@
 		".gitattributes",
 		".gitignore",
 		"logs/",
+		"libs/views",
+		"libs/public",
 		"node_modules/**/node_modules"
 	],
 	"verbose": true,
@@ -17,5 +19,5 @@
 	"env": {
 		"NODE_ENV": "development"
 	},
-	"ext": "js jade json"
+	"ext": "js json"
 }

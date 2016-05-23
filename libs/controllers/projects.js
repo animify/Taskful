@@ -128,6 +128,7 @@ exports.findAll = function(req, res, callback) {
 		}, function(err, result) {
 			var teamP = result.findAllInTeams;
 			var selfP = result.findAllSelf;
+			console.log(teamProjects)
 			return callback(null, teamProjects)
 		});
 

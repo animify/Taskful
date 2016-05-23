@@ -14,29 +14,33 @@ block content
 					li Private
 					li Archived
 				.list
-					for project in projects
-						for result in project
-							.list-item
-								.list-status
-									span.project-status.status_green
-								.list-inner
-									a(href="/projects/#{result._id}") #{result.name}
-									if (result.team)
-										p.list-contents #{result.team.name} 
-									else 
-										p.list-contents.color-yellow Not assigned to a team
-									p.created_at Created #{moment(result.created_at).fromNow()}
-								.list-right
-									.list-options
-										span.ion-android-more-vertical.dropdown-toggle
-										.dropdown.dropdown-project
-											ul
-												li #[a Assign to team]
-												li #[a Make private]
-												li #[a Change status]
-												li #[a Copy project URL]
-												li.split
-												li.li-red #[a Delete project]
+					if (projects.length)
+						for project in projects
+							for result in project
+								.list-item
+									.list-status
+										span.project-status.status_green
+									.list-inner
+										a(href="/projects/#{result._id}") #{result.name}
+										if (result.team)
+											p.list-contents #{result.team.name} 
+										else 
+											p.list-contents.color-yellow Not assigned to a team
+										p.created_at Created #{moment(result.created_at).fromNow()}
+									.list-right
+										.list-options
+											span.ion-android-more-vertical.dropdown-toggle
+											.dropdown.dropdown-project
+												ul
+													li #[a Assign to team]
+													li #[a Make private]
+													li #[a Change status]
+													li #[a Copy project URL]
+													li.split
+													li.li-red #[a Delete project]
+					else
+						.empty_content
+							h2 You have no projects
 
 block footer
 	.modal-overlay
@@ -72,9 +76,7 @@ block footer
 			var _thisID = _this.data('team');
 			$('.selected_item').data('team', _thisID);
 			$('.selected_item').text(_this.find('p').text());
-			
 		});
-
 		$('.exp_newproject').click(function() {
 			var projectname = $('#new_project').val();
 			var projecteam = $('.selected_item').data('team');

@@ -55,14 +55,40 @@ router.get('/:id', function(req, res) {
 	});
 });
 
-router.post('/:id/archive', function(req, res) {
-	taskController.archive(req, res, function(err, task) {
-		if (err) {
-			res.statusCode = err;
-			return res.json({ error: err, message: task });
-		}
-		res.json({ status: 'OK', message : task });
-	});
+router.post('/:id/:action', function(req, res) {
+	switch(req.params.action) {
+		case 'archive':
+			taskController.archive(req, res, function(err, task) {
+				if (err) {
+					res.statusCode = err;
+					return res.json({ error: err, message: task });
+				}
+				res.json({ status: 'OK', message : task });
+			});
+		break;
+		case 'complete':
+			taskController.complete(req, res, function(err, task) {
+				if (err) {
+					res.statusCode = err;
+					return res.json({ error: err, message: task });
+				}
+				res.json({ status: 'OK', message : task });
+			});
+		break;
+		case 'open':
+			taskController.uncomplete(req, res, function(err, task) {
+				if (err) {
+					res.statusCode = err;
+					return res.json({ error: err, message: task });
+				}
+				res.json({ status: 'OK', message : task });
+			});
+		break;
+		default:
+			return res.json({ error: '401', message: 'Forbidden action' });
+	}
+
+
 });
 
 router.post('/:id/stories', function(req, res) {
