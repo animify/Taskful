@@ -11,6 +11,7 @@ var passport = require('passport');
 var reload = require('reload');
 var EventEmitter = require('events').EventEmitter;
 var emitter= new EventEmitter();
+var helmet = require('helmet');
 
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -58,6 +59,8 @@ var eSession = session({
 		saveUninitialized: true
 });
 
+app.use(helmet());
+app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }))
 app.use(eSession);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());

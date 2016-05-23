@@ -17,10 +17,12 @@
   display: inline-block;
   transform: translateX(-50%);
   text-align: center;
-  absolute: top -25px left 50%;
+  position: fixed;
+  margin-top: -26px;
+  margin-left: 11px;
 }
 .tooltip > span {
-  font-size: 0.8em;
+  font-size: 0.875em;
   line-height: 1rem;
   font-weight: 600;
   background-color: #333;
