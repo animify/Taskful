@@ -32,7 +32,7 @@ block content
 											span.ion-android-more-vertical.dropdown-toggle
 											.dropdown.dropdown-project
 												ul
-													li #[a Assign to team]
+													li #[a.open-modal(data-modal="assign-project") Assign to team]
 													li #[a Make private]
 													li #[a Change status]
 													li #[a Copy project URL]
@@ -50,7 +50,7 @@ block footer
 			#mod-new_project.modal-outer.modal-med
 				.modal-inner
 					.modal-header
-						h2 New Project
+						h2 New project
 						p Enter a project name and select a team to assign it to
 					.modal-body
 						.field
@@ -65,10 +65,33 @@ block footer
 												span= team.name.substr(0,1)
 											.select-dropdown_item-text
 												p #{team.name}
-									
 					.modal-footer.push-footer
 						.modal-btn
 							a.btn.btn-green.exp_newproject Create Project
+			#assign-project.modal-outer.modal-med
+				.modal-inner
+					.modal-header
+						h2 Assign project
+						p Assign or unassign this project
+					.modal-body
+						.field
+							.select-dropdown(tabindex="0")
+								p.selected_item(placeholder="Select the team to assign the project to")
+								ul.select-dropdown_items
+									li.select-dropdown_item(data-team="unassign")
+										.text-preview(style="background-color:#F8B700")
+											span #[i.ion-person]
+										.select-dropdown_item-text
+											p Keep project personal (Assign no team)
+									for team in teams
+										li.select-dropdown_item(data-team="#{team._id}")
+											.text-preview(style="background-color:#{team.color}")
+												span= team.name.substr(0,1)
+											.select-dropdown_item-text
+												p #{team.name}
+					.modal-footer.push-footer
+						.modal-btn
+							a.btn.btn-green.exp_asproject Assign Project
 	script.
 		var socket = io();
 		$('.select-dropdown_item').bind('click', function() {

@@ -15,7 +15,7 @@
 					a #{user.username.substr(0,2)}
 				.dropdown.dropdown-right
 					ul
-						li #[a People]
+						li #[a(href="/people") People]
 						li #[a Invites]
 						li #[a(href="/profile") Account settings]
 						li.split
@@ -23,10 +23,3 @@
 			if (!user)
 				a(href="/login") Login
 				a(href="/register") Register
-//- .nav-bottom
-//- 	.nav-list
-//- 		ul
-//- 			li
-//- 				a Tasks
-//- 			li
-//- 				a Assigned

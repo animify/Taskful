@@ -1,0 +1,82 @@
+extends layout
+
+block content
+	.wrapper
+		.contents.center
+			.content
+				.module-head
+					h1 People	
+					a.btn.inline-head.open-modal(data-modal="new_invite")
+						i.ion-plus
+						| Add a person
+				ul.list-header.layer-select
+					li.active(data-layer="friends") Friends
+					li(data-layer="requests") Requests
+					li(data-layer="pending") Pending
+				.layer.layer_friends.layer-active
+				.layer.layer_requests
+					if (people.requests != 0)
+						.list
+							for request in people.requests
+								.list-item
+									.list-status
+										.text-preview.bg-primary
+											span= request.inviter.username.substr(0,2)
+									.list-inner
+										a= request.inviter.fullname
+										p #[span.darken-p @#{request.inviter.username}]  &bull;  #{request.inviter.email}
+									.list-right
+										.list-options
+											a Accept
+											a Decline
+					else 
+						.empty_content
+							h2 You don't have any requests just yet!
+				.layer.layer_pending
+					if (people.pending != 0)
+						.list
+							for pending in people.pending
+								.list-item
+									.list-status
+										.text-preview.bg-primary
+											span= pending.invitee.username.substr(0,2)
+									.list-inner
+										a= pending.invitee.fullname
+										p #[span.darken-p @#{pending.invitee.username}]  &bull;  #{pending.invitee.email}
+									.list-right
+										.list-options
+											p Request sent #{moment(pending.created_at).fromNow()}
+					else 
+						.empty_content
+							h2 You haven't added anyone!
+		
+
+block footer
+	.modal-overlay
+		.modal-overlay-inner
+			.view-close.close-modal
+				i.icon.ion-close-round
+			#new_invite.modal-outer.modal-med
+				.modal-inner
+					.modal-header
+						h2 Add a person
+						p Invite a person to your People list
+					.modal-body
+						.field
+							input#person_email(type="text", placeholder="Who do you wish to invite?")
+					.modal-footer.push-footer
+						.modal-btn
+							a.btn.btn-green.exp_newinvite Send an invite
+
+	script.
+		$('.exp_newinvite').click(function() {
+			$.post('/people/invite', 'email=' + $('#person_email').val(), function(data) {
+				JSON.stringify(data);
+				if (data) {
+					console.log(data);
+				}
+			}).error(function(data) {
+				console.log(data);
+			});
+		});
+	
