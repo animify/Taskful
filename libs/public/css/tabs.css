@@ -4,3 +4,9 @@
 .tab-selection-active {
   display: block;
 }
+.layer {
+  display: none;
+}
+.layer-active {
+  display: block;
+}

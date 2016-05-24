@@ -14,6 +14,14 @@ $(function() {
 		return jQuery('<div />').append(this.eq(0).clone()).html();
 	};
 
+	$('.layer-select li').bind("click", function(e){
+		var _this = $(this);
+		$('.layer-select li').removeClass('active');
+		_this.addClass('active');
+		$('.layer').hide();
+		$('.layer_' + _this.data('layer')).show();
+	});
+
 	$('.tabs-selection li').bind("click", function(e){
 		var _this = $(this);
 		$('.tabs-selection li').removeClass('active');

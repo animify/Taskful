@@ -98,6 +98,7 @@ var users = require('./routes/users');
 var tasks = require('./routes/tasks');
 var teams = require('./routes/teams');
 var projects = require('./routes/projects');
+var people = require('./routes/people');
 var apiTasks = require('./routes/api_tasks');
 var apiTeams = require('./routes/api_teams');
 var apiProjects = require('./routes/api_projects');
@@ -116,6 +117,7 @@ app.post('/login', passport.authenticate('local'), function(req, res) {
 app.use('/api/users', users);
 app.use('/teams', authcontroller.isAuthenticatedLocal, teams);
 app.use('/projects', authcontroller.isAuthenticatedLocal, projects);
+app.use('/people', authcontroller.isAuthenticatedLocal, people);
 app.use('/tasks', authcontroller.isAuthenticatedLocal, tasks);
 app.use('/api/teams', authcontroller.isOauthAuthenticated, apiTeams);
 app.use('/api/tasks', authcontroller.isOauthAuthenticated, apiTasks);

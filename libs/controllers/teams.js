@@ -98,9 +98,6 @@ exports.invite = function(req, res, callback) {
 	} else {
 		User.findOne({'email': req.body.email}, function (err, found){
 			if (found) {
-
-				console.log(found._id);
-				console.log(req.user._id);
 				if (found._id == req.user._id) {
 					return callback('500', 'You are already a member of this team');
 				} else {
