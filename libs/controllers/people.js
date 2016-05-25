@@ -87,3 +87,34 @@ exports.findRequests = function(req, res, callback) {
 		}
 	});
 }
+exports.findFriends = function(req, res, callback) {
+	People.find({$or:[{inviter:req.user._id}, {invitee:req.user._id}], status : 1})
+	.populate('inviter', 'username fullname email')
+	.populate('invitee', 'username fullname email')
+	.exec(function (err, friends) {
+		if (err)
+			return callback('500', 'Server error');
+
+		if (friends.length) {
+			return callback(null, friends);
+		} else {
+			return callback('201', '0');
+		}
+	});
+}
+
+exports.acceptInvite = function(req, res, callback) {
+	People.findOneAndUpdate({_id:req.params.id, invitee:req.user._id}, { $set: {status: 1}}, {new:true})
+	.populate('inviter', 'username fullname email')
+	.populate('invitee', 'username fullname email')
+	.exec(function (err, friend) {
+		if (err)
+			return callback('500', 'Server error');
+
+		if (friend) {
+			return callback(null, friend);
+		} else {
+			return callback('201', '0');
+		}
+	});
+}

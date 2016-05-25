@@ -14,11 +14,26 @@ block content
 					li(data-layer="requests") Requests
 					li(data-layer="pending") Pending
 				.layer.layer_friends.layer-active
+					if (people.friends != 0)
+						.list
+							for friend in people.friends
+								.list-item
+									.list-status
+										.text-preview.bg-primary
+											span= friend.inviter.username.substr(0,2)
+									.list-inner
+										a= friend.inviter.fullname
+										p #[span.darken-p @#{friend.inviter.username}]  &bull;  #{friend.inviter.email}
+									.list-right
+										.list-options
+					else 
+						.empty_content
+							h2 You're alone! No friends here.
 				.layer.layer_requests
 					if (people.requests != 0)
 						.list
 							for request in people.requests
-								.list-item
+								.list-item(data-request="#{request._id}")
 									.list-status
 										.text-preview.bg-primary
 											span= request.inviter.username.substr(0,2)
@@ -26,9 +41,9 @@ block content
 										a= request.inviter.fullname
 										p #[span.darken-p @#{request.inviter.username}]  &bull;  #{request.inviter.email}
 									.list-right
-										.list-options
-											a Accept
-											a Decline
+										.list-options.list-actions
+											a.invite_accept Accept
+											a.invite_decline Decline
 					else 
 						.empty_content
 							h2 You don't have any requests just yet!
@@ -69,6 +84,18 @@ block footer
 							a.btn.btn-green.exp_newinvite Send an invite
 
 	script.
+		$('.layer').on("click", ".invite_accept", function() {
+			var _this = $(this);
+			var thisrequest = _this.closest('.list-item').data('request');
+			$.post('/people/'+thisrequest+'/accept', function(data) {
+				JSON.stringify(data);
+				if (data) {
+					console.log(data);
+				}
+			}).error(function(data) {
+				console.log(data);
+			});
+		});
 		$('.exp_newinvite').click(function() {
 			$.post('/people/invite', 'email=' + $('#person_email').val(), function(data) {
 				JSON.stringify(data);

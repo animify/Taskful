@@ -240,6 +240,7 @@
 		display inline-block
 		vertical-align top
 		float right
+
 		& .list-options
 			span
 				font-size 1.3rem
@@ -249,16 +250,29 @@
 				cursor pointer
 				&:hover
 					color cprimary
+			p
+				color pbluelight
+				margin-top 7px
+				margin-right 12px
+	& .list-actions
+		margin-top 7px
+		margin-right 12px
+		a
+			color pbluelight
+			cursor pointer
+		a + a
+			margin-left 22px
 	&-item
 		span(1/1)
-		padding 17px 8px 19px 8px
+		padding 18px 8px 19px 8px
 		border-radius 3px
 		background-color #fff
 		box-shadow 0 1px 1px 0 rgba(41,55,69,.05)
+		border-top 1px solid transparent
 		.created_at
 			display none
 		& + .list-item
-			border-top 1px solid #E5E9F0
+			border-color #E5E9F0
 
 		&:hover
 			p.list-contents
