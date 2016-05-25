@@ -24,6 +24,11 @@ router.get('/', function(req, res) {
 			peopleController.findRequests(req, res, function(err, ret) {
 				cb(null, ret);
 			});
+		},
+		friends: function(cb){
+			peopleController.findFriends(req, res, function(err, ret) {
+				cb(null, ret);
+			});
 		}
 	}, function(err, people) {
 		JSON.stringify(people);
@@ -35,6 +40,14 @@ router.get('/', function(req, res) {
 
 router.post('/invite', function(req, res) {
 	peopleController.invite(req, res, function(err, ret) {
+		if (err) {
+			return res.status(err).send({ error: err, message: ret });
+		}
+		res.send(ret);
+	});
+});
+router.post('/:id/accept', function(req, res) {
+	peopleController.accept(req, res, function(err, ret) {
 		if (err) {
 			return res.status(err).send({ error: err, message: ret });
 		}
