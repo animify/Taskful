@@ -333,6 +333,12 @@ input[type="password"]:focus,
   padding: 84px 0 40px 0;
   min-width: 1220px;
 }
+.invite_accept:hover {
+  color: #0bcf4e !important;
+}
+.invite_decline:hover {
+  color: #ff004c !important;
+}
 .empty_content {
   *zoom: 1;
   float: left;

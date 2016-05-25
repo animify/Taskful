@@ -100,9 +100,11 @@ exports.findFriends = function(req, res, callback) {
 		} else {
 			return callback('201', '0');
 		}
-	})
-exports.accept = function(req, res, callback) {
-	People.findOneAndUpdate({id:req.params.id, invitee:req.user._id}, { $set: {status: 1}}, {new:true})
+	});
+}
+
+exports.acceptInvite = function(req, res, callback) {
+	People.findOneAndUpdate({_id:req.params.id, invitee:req.user._id}, { $set: {status: 1}}, {new:true})
 	.populate('inviter', 'username fullname email')
 	.populate('invitee', 'username fullname email')
 	.exec(function (err, friend) {
@@ -115,6 +117,4 @@ exports.accept = function(req, res, callback) {
 			return callback('201', '0');
 		}
 	});
-}
-;
 }

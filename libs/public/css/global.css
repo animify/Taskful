@@ -333,6 +333,12 @@ input[type="password"]:focus,
   padding: 84px 0 40px 0;
   min-width: 1220px;
 }
+.invite_accept:hover {
+  color: #0bcf4e !important;
+}
+.invite_decline:hover {
+  color: #ff004c !important;
+}
 .empty_content {
   *zoom: 1;
   float: left;
@@ -1186,6 +1192,22 @@ nav {
 .list-right .list-options span:hover {
   color: #2ab3f7;
 }
+.list-right .list-options p {
+  color: #616d7e;
+  margin-top: 7px;
+  margin-right: 12px;
+}
+.list .list-actions {
+  margin-top: 7px;
+  margin-right: 12px;
+}
+.list .list-actions a {
+  color: #616d7e;
+  cursor: pointer;
+}
+.list .list-actions a + a {
+  margin-left: 22px;
+}
 .list-item {
   *zoom: 1;
   float: left;
@@ -1194,12 +1216,13 @@ nav {
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
-  padding: 17px 8px 19px 8px;
+  padding: 18px 8px 19px 8px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   background-color: #fff;
   -webkit-box-shadow: 0 1px 1px 0 rgba(41,55,69,0.05);
   box-shadow: 0 1px 1px 0 rgba(41,55,69,0.05);
+  border-top: 1px solid transparent;
 }
 .list-item:before,
 .list-item:after {
@@ -1213,7 +1236,7 @@ nav {
   display: none;
 }
 .list-item + .list-item {
-  border-top: 1px solid #e5e9f0;
+  border-color: #e5e9f0;
 }
 .list-item:hover p.list-contents {
   display: none;

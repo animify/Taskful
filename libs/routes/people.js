@@ -47,7 +47,7 @@ router.post('/invite', function(req, res) {
 	});
 });
 router.post('/:id/accept', function(req, res) {
-	peopleController.accept(req, res, function(err, ret) {
+	peopleController.acceptInvite(req, res, function(err, ret) {
 		if (err) {
 			return res.status(err).send({ error: err, message: ret });
 		}
