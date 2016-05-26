@@ -13,11 +13,14 @@
 			if (user)
 				.user-i.dropdown-toggle
 					a #{user.username.substr(0,2)}
-				.dropdown.dropdown-right
+				.dropdown.dropdown-right.dropdown-longer
 					ul
+						li.info_name #[a(href="/profile") #{user.fullname}]
+						li.info_email #{user.email}
+						li.split
 						li #[a(href="/people") People]
 						li #[a Invites]
-						li #[a(href="/profile") Account settings]
+						li #[a(href="/profile") My account]
 						li.split
 						li.li-red #[a(href="/logout") Sign out]
 			if (!user)
