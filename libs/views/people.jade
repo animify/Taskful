@@ -10,10 +10,15 @@ block content
 						i.ion-plus
 						| Add a person
 				ul.list-header.layer-select
-					li.active(data-layer="friends") Friends
-					li(data-layer="requests") Requests
-					li(data-layer="pending") Pending
+					li.active(data-layer="friends") Friends 
+						sup= people.friends == 0 ? '' : people.friends.length + 1
+					li(data-layer="requests") Requests 
+						sup= people.requests == 0 ? '' : people.requests.length
+					li(data-layer="pending") Pending 
+						sup= people.pending == 0 ? '' : people.pending.length
 				.layer.layer_friends.layer-active
+					.list-split
+						h6 Humans
 					if (people.friends != 0)
 						.list
 							for friend in people.friends
@@ -29,6 +34,18 @@ block content
 					else 
 						.empty_content
 							h2 You're alone! No friends here.
+					.list-split
+						h6 Bots
+					.list
+						.list-item
+							.list-status
+								.text-preview.bg-primary
+									span To	
+							.list-inner
+								a	Toby
+								p #[span.darken-p @Toby]  &bull;  Personal assistant
+							.list-right
+								.list-options
 				.layer.layer_requests
 					if (people.requests != 0)
 						.list

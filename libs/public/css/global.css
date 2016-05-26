@@ -83,6 +83,15 @@ label {
   padding: 6px 0;
   display: block;
 }
+sup,
+sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+sub {
+  top: 0.4em;
+}
 input[type="text"],
 input[type="password"],
 .ce-input,
@@ -1207,6 +1216,30 @@ nav {
 }
 .list .list-actions a + a {
   margin-left: 22px;
+}
+.list-split {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  margin: 17px 0 0 0;
+}
+.list-split:before,
+.list-split:after {
+  content: '';
+  display: table;
+}
+.list-split:after {
+  clear: both;
+}
+.list-split h6 {
+  margin: 0;
+  font-size: 1.3rem;
+  padding: 4px 0 0 0;
+  color: #414d5d;
 }
 .list-item {
   *zoom: 1;
