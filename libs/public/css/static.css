@@ -372,6 +372,25 @@ input[type="password"]:focus,
 .empty_content h2 {
   font-weight: 300;
 }
+.is-empty {
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.is-empty_alert {
+  font-size: 1.7rem;
+  margin: 0;
+}
 .group-2 {
   *zoom: 1;
   float: left;

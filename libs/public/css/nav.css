@@ -104,10 +104,12 @@ placeholder()
   display: inline-block;
   vertical-align: top;
   margin-right: 26px;
-  max-height: 34px;
+  height: 30px;
+  margin-top: 4px;
 }
 .nav-inner .nav-logo img {
-  max-height: 34px;
+  margin-top: 4px;
+  max-height: 20px;
 }
 .nav-inner .nav-links {
   line-height: 34px;

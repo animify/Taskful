@@ -41,37 +41,40 @@ block content
 						input#nt(type="text", placeholder="Create a new task")
 				.taskBody-view_contain.taskBody-view_task
 					.tasks-preview
-						.tasks-preview-inner
-							.tasks-preview-inner_title
-								.toggle.rounded
-								h1
-								.tasks-preview-inner_title_options
-									i.ion-android-more-vertical.dropdown-toggle
-									.dropdown.dropdown-right
-										ul
-											li #[a Tags]
-											li #[a Print]
-											li #[a Copy task URL]
-											li.split
-											li.li-yellow.archive-task #[a Archive task]
-							textarea#project_area.tasks-preview-inner_description(placeholder="Nothing in here yet!")
-							.stories
-						.tasks-preview-inner_comment
-							.user-i
-								a #{user.username.substr(0,2)}
-							
-							.comment-editable
-								.comment-editable_inner
-									.input-sm.comment-content(contenteditable="true", placeholder="Write a comment...")
-									.comment-editable_footer
-										.comment-editable_left
-											a.attach-files
-												i.ion-android-attach
-											a.mention
-												i.ion-at
-										.comment-editable_right
-											a.send-comment
-												i.ion-android-send
+						.tasks-outer(class=tasks.length == 0 ?  "inner_hidden" : "")
+							.tasks-preview-inner
+								.tasks-preview-inner_title
+									.toggle.rounded
+									h1
+									.tasks-preview-inner_title_options
+										i.ion-android-more-vertical.dropdown-toggle
+										.dropdown.dropdown-right
+											ul
+												li #[a Tags]
+												li #[a Print]
+												li #[a Copy task URL]
+												li.split
+												li.li-yellow.archive-task #[a Archive task]
+								textarea#project_area.tasks-preview-inner_description(placeholder="Nothing in here yet!")
+								.stories
+							.tasks-preview-inner_comment
+								.user-i
+									a #{user.username.substr(0,2)}
+								
+								.comment-editable
+									.comment-editable_inner
+										.input-sm.comment-content(contenteditable="true", placeholder="Write a comment...")
+										.comment-editable_footer
+											.comment-editable_left
+												a.attach-files
+													i.ion-android-attach
+												a.mention
+													i.ion-at
+											.comment-editable_right
+												a.send-comment
+													i.ion-android-send
+						if (tasks.length == 0)
+							h3.is-empty.is-empty_alert No tasks in here!
 						
 block footer
 	.modal-overlay
@@ -97,10 +100,16 @@ block footer
 		
 	script.
 		var taskElement = '';
-		var editor = CodeMirror.fromTextArea(document.getElementById("project_area"), {
-			lineWrapping: true
-		});
-		
+		if ($('#project_area').length) {
+			var editor = CodeMirror.fromTextArea(document.getElementById("project_area"), {
+				lineWrapping: true
+			});
+			editor.on('change', function (i, op) {
+				var _getid = $('.tasks-preview-inner').data('selectedid');
+				socket.emit('change', { change: op, task: _getid});
+				socket.emit('refresh', { body :editor.getValue(), task: _getid});
+			});
+		}
 		var socket = io();
 		socket.emit('pjoin', {room: '#{project._id}'});
 		
@@ -131,12 +140,6 @@ block footer
 		.on('new_task', function(res){
 			$('.tasks-list').append('<div data-task="' + res._id + '" class="task-item new-task"><div class="toggle rounded"></div><a>' + res.name + '</a><div class="task-info"><p>a few seconds ago</p><div class="tooltip"><span>' + res.creator.username + '</span><img src="/images/default/user.jpg"></div></div></div>')
 			$('.new-task').slideDown('fast');
-		});
-		
-		editor.on('change', function (i, op) {
-			var _getid = $('.tasks-preview-inner').data('selectedid');
-			socket.emit('change', { change: op, task: _getid});
-			socket.emit('refresh', { body :editor.getValue(), task: _getid});
 		});
 		
 		$('.archive-task').bind('click', function(e){

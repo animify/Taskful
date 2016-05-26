@@ -63,6 +63,10 @@ $(function() {
 	});
 
 	$('.tasks-list').on("click", ".task-item:not(.selected)", function(e){
+		if ($('.tasks-outer').is(":hidden")) {
+			$('.tasks-outer').removeClass('inner_hidden');
+			$('h3.is-empty:visible').hide();
+		}
 		_this = $(this);
 		$('.tasks-list .task-item').removeClass('selected');
 		$.get('/tasks/' + _this.data('task'), function(data) {
