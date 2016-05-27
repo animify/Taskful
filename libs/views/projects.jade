@@ -93,7 +93,7 @@ block footer
 						.modal-btn
 							a.btn.btn-green.exp_asproject Assign Project
 	script.
-		var socket = io();
+		var socket = io({secure: true});
 		$('.select-dropdown_item').bind('click', function() {
 			var _this = $(this);
 			var _thisID = _this.data('team');

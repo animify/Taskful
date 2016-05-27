@@ -19,5 +19,8 @@
 						"clientId": "Client Test",
 						"clientSecret": "abc123"
 				}
+		},
+		"stripe": {
+			"key" : "sk_test_VnCZnrr4HdZjjhuH1aT3gJdh"
 		}
 }

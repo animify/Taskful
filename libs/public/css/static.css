@@ -68,10 +68,27 @@ a {
   clear: both;
 }
 .field {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
   width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.field:before,
+.field:after {
+  content: '';
+  display: table;
+}
+.field:after {
+  clear: both;
 }
 .field + .field {
   margin-top: 15px;
+}
+.field.has-btn {
+  margin-top: 22px;
 }
 label {
   font-size: 1rem;
@@ -166,6 +183,9 @@ input[type="password"]:focus,
   height: 2.4rem;
   font-size: 0.88rem;
   line-height: 20px;
+}
+.input_err {
+  border-color: #ff004c !important;
 }
 .select-dropdown .selected_item {
   line-height: 2.9rem;
@@ -355,7 +375,7 @@ input[type="password"]:focus,
   border: 1px solid #f1f1f1;
   text-align: center;
   padding: 60px 20px;
-  margin-top: 32px;
+  margin-top: 12px;
 }
 .empty_content:before,
 .empty_content:after {
@@ -386,6 +406,95 @@ input[type="password"]:focus,
 .is-empty_alert {
   font-size: 1.7rem;
   margin: 0;
+}
+.section {
+  border: 1px #e1e5ed solid;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin-top: 20px;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 25px 30px;
+}
+.section:before,
+.section:after {
+  content: '';
+  display: table;
+}
+.section:after {
+  clear: both;
+}
+.section-head {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  margin-bottom: 23px;
+}
+.section-head:before,
+.section-head:after {
+  content: '';
+  display: table;
+}
+.section-head:after {
+  clear: both;
+}
+.section h3 {
+  font-size: 1.4rem;
+  margin: 3px 0 0 0;
+}
+.input-2 {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.input-2:before,
+.input-2:after {
+  content: '';
+  display: table;
+}
+.input-2:after {
+  clear: both;
+}
+.input-2_contain {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 48.5%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+.input-2_contain:before,
+.input-2_contain:after {
+  content: '';
+  display: table;
+}
+.input-2_contain:after {
+  clear: both;
+}
+.input-2_contain:nth-child(2n) {
+  margin-right: 0%;
+  float: right;
+}
+.input-2_contain:nth-child(2n+1) {
+  clear: both;
+}
+.input-2_contain input {
+  width: 100%;
+  display: block;
 }
 .group-2 {
   *zoom: 1;

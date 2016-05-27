@@ -2,8 +2,8 @@ extends layout
 
 block head
 	link(rel="stylesheet", type="text/css", href="../css/code.css")
-	script(src='http://codemirror.net/lib/codemirror.js')
-	script(src='https://codemirror.net/addon/display/placeholder.js')
+	script(src='//codemirror.net/lib/codemirror.js')
+	script(src='//codemirror.net/addon/display/placeholder.js')
 
 block content
 	nav.sub-nav
@@ -110,7 +110,7 @@ block footer
 				socket.emit('refresh', { body :editor.getValue(), task: _getid});
 			});
 		}
-		var socket = io();
+		var socket = io({secure: true});
 		socket.emit('pjoin', {room: '#{project._id}'});
 		
 		socket.on('connect', function(socket) {

@@ -2,6 +2,7 @@ var express = require('express');
 var passport = require('passport');
 var router = express.Router();
 var User = require('../model/user');
+var mongoose = require('mongoose');
 
 var libs = process.cwd() + '/libs/';
 var log = require(libs + 'log')(module);
@@ -9,6 +10,8 @@ var log = require(libs + 'log')(module);
 var authController = require(libs + 'auth/auth');
 var db = require(libs + 'db/mongoose');
 
+var config = require(libs + 'config');
+var stripe = require("stripe")(config.get("stripe:key"));
 
 router.get('/logout', function(req, res) {
 		req.logout();
@@ -63,22 +66,35 @@ router.post('/register', function(req, res) {
 		return res.send(errors);
 	} else {
 		if (req.body.password == req.body.repassword) {
-			var user = new User({
-					fullname: req.body.fullname,
-					username: req.body.username,
-					email: req.body.email,
-					password: req.body.password
+			var newid = mongoose.Types.ObjectId();
+
+			stripe.customers.create({
+				email: req.body.email,
+				metadata: {'userID' : newid.toString(), 'fullname' : req.body.fullname }
+			}, function(err, customer) {
+				if (err)
+					return res.json({ error: '404', message :  err });
+
+				var user = new User({
+						_id: newid,
+						fullname: req.body.fullname,
+						username: req.body.username,
+						email: req.body.email,
+						password: req.body.password,
+						stripeID: customer.id
+				});
+				user.save(function(err, user) {
+						if(!err) {
+								log.info("New user - %s:%s", user.username, user.password);
+								passport.authenticate('local')(req, res, function () {
+									return res.send({'status': 'OK', 'statusCode' : '200'});
+								});
+						} else {
+							return res.json({ error: '404', message : err });
+						}
+				});
 			});
-			user.save(function(err, user) {
-					if(!err) {
-							log.info("New user - %s:%s", user.username, user.password);
-							passport.authenticate('local')(req, res, function () {
-								return res.send({'status': 'OK', 'statusCode' : '200'});
-							});
-					}else {
-							return log.error(err);
-					}
-			});
+
 		} else {
 			return res.send({'error': 'p404', 'message' : 'Passwords do not match'});
 		}

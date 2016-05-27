@@ -14,6 +14,7 @@ block content
 						li(data-tab="security") Security
 					.block-divider
 					.block-right
+						p= customer.id
 						.tab-selection.tab-selection_account.tab-selection-active
 							h2 Account settings
 							p Change your basic account settings
@@ -39,6 +40,32 @@ block content
 						.tab-selection.tab-selection_billing
 							h2 Billing
 							p Manage your account billing
+							.section
+								.section-head
+									h3 Payment methods
+									p Add a card to upgrade your account, or just to save it for later use
+								form#add_method.section-body
+									.payment-errors
+									.field
+										input(type="text", size="20", placeholder="Credit card number", data-stripe="number")
+									.field.input-2
+										.input-2_contain
+											input(type="text", data-stripe="exp_month", placeholder="Expiry month (eg. 08)")
+										.input-2_contain
+											input(type="text", data-stripe="exp_year", placeholder="Expiry year (eg. 2017)")
+									.field.input-2
+										.input-2_contain
+											input(type="text", data-stripe="cvc", placeholder="CVC")
+										.input-2_contain
+											input(type="text", data-stripe="address_zip", placeholder="Address postcode/zip")
+									.field.has-btn
+										.btn.btn-block.save_method Save card
+							.section
+								.section-head
+									h3 Added cards
+									p Current cards on your account							
+									for card in cards
+										p= JSON.stringify(card)
 						.tab-selection.tab-selection_integrations
 							h2 Integrations
 							p Add & manage 3rd party integrations
@@ -49,5 +76,45 @@ block content
 							h2 Security
 							p Monitor the activity of your account
 										
+block footer
+	script(src='https://js.stripe.com/v2/')
+	
+	script.
+		Stripe.setPublishableKey('pk_test_flylE3mEHPlGB03ZuZW8O5XP');
+	
+	script.
+		$(function() {
+			$('.save_method').bind('click', function(e) {
+				e.preventDefault();
+				$('#add_method').submit();
+			});
+			
+			var $form = $('#add_method');
+			$form.submit(function(event) {
+				$form.find('.save_method').prop('disabled', true);
 
-	script(src='http://code.jquery.com/jquery.js')
+				Stripe.card.createToken($form, stripeResponseHandler);
+
+				return false;
+			});
+		});
+		function stripeResponseHandler(status, response) {
+			var $form = $('#add_method');
+
+			if (response.error) { // Problem!
+				console.log(response)
+				$form.find('.payment-errors').text(response.error.message).slideDown('fast').delay(9000).slideUp('fast');
+				
+				if (response.error.param) {
+					$('[data-stripe="'+response.error.param+'"]').addClass('input_err');
+				}
+				$form.find('.save_method').prop('disabled', false); // Re-enable submission
+
+			} else { // Token was created!
+				var token = response.id;
+				$.post('/payments/token', 'token=' + token, function(data) {
+					console.log(data)
+				});
+				
+			}
+		};

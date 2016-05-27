@@ -63,10 +63,11 @@ a
 	margin-top 30px
 
 .field
-	width 100%
+	span(1/1)
 	& + .field
 		margin-top 15px
-
+	&.has-btn
+		margin-top 22px
 label
 	font-size 1rem
 	color #444
@@ -87,7 +88,7 @@ input[type="text"], input[type="password"], .ce-input, .select-dropdown
 	padding 0 1rem 0 1rem
 	height 3rem
 	border 0
-	border 1px solid #E1E5ED
+	border 1px solid bordergrey
 	border-radius 2px
 	font-size 1rem
 	width 100%
@@ -101,7 +102,7 @@ input[type="text"], input[type="password"], .ce-input, .select-dropdown
 	& + .btn
 		margin-left 8px
 	&:hover
-		border-color darken(#E1E5ED, 7%)
+		border-color darken(bordergrey, 7%)
 	&:focus
 		border-color cprimary
 .is--disabled
@@ -113,6 +114,9 @@ input[type="text"], input[type="password"], .ce-input, .select-dropdown
 	height 2.4rem
 	font-size 0.88rem
 	line-height 20px
+
+.input_err
+	border-color cred !important
 
 .select-dropdown
 	.selected_item
@@ -239,7 +243,7 @@ input[type="text"], input[type="password"], .ce-input, .select-dropdown
 	border 1px solid lightgrey
 	text-align center
 	padding 60px 20px
-	margin-top 32px
+	margin-top 12px
 	h2
 		font-weight 300
 
@@ -249,6 +253,25 @@ input[type="text"], input[type="password"], .ce-input, .select-dropdown
 		font-size 1.7rem
 		margin 0
 
+.section
+	border 1px bordergrey solid
+	border-radius 3px
+	margin-top 20px
+	span(1/1)
+	padding 25px 30px
+	&-head
+		span(1/1)
+		margin-bottom 23px
+	h3
+		font-size 1.4rem
+		margin 3px 0 0 0
 
+.input-2
+	span(1/1)
+	&_contain
+		col(1/2, cycle: 2)
+		input
+			width 100%
+			display block
 .group-2
 	col(1/2, cycle: 2)

@@ -26,6 +26,10 @@ var	User = new Schema({
 			type: String,
 			required: true
 		},
+		stripeID: {
+			type: String,
+			required: true
+		},
 		created: {
 			type: Date,
 			default: Date.now

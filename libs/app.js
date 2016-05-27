@@ -1,16 +1,23 @@
 var libs = process.cwd() + '/libs/';
-
+var fs = require('fs');
+var https = require('https');
 var express = require('express');
 var app = express();
-var http = require('http').Server(app);
-var socketio = require('socket.io').listen(http);
+var options = {
+	 key  : fs.readFileSync('server.key'),
+	 cert : fs.readFileSync('server.crt')
+};
+
+var server = https.Server(options, app).listen(3000, function () {
+	 console.log('Started!');
+});
+var socketio = require('socket.io').listen(server);
 global.socketIO = socketio;
+
 var socketjs = require(libs + 'sockets/socket.js');
 var path = require('path');
 var passport = require('passport');
 var reload = require('reload');
-var EventEmitter = require('events').EventEmitter;
-var emitter= new EventEmitter();
 var helmet = require('helmet');
 
 var cookieParser = require('cookie-parser');
@@ -32,14 +39,9 @@ var debug = require('debug')('restapi');
 var authcontroller = require(libs + 'auth/auth');
 var oauth2 = require('./auth/oauth2');
 
+app.set('port', process.env.PORT || config.get('port') || 80);
 
-app.set('port', process.env.PORT || config.get('port') || 3000);
-
-var server = http.listen(app.get('port'), function() {
-	debug('Taskful server listening on port ' + app.get('port'));
-	log.info('Taskful server listening on port ' + app.get('port'));
-});
-
+// http.createServer(app).listen(3001);
 reload(server, app, 300, true)
 
 app.locals.moment = require('moment');
@@ -99,6 +101,8 @@ var tasks = require('./routes/tasks');
 var teams = require('./routes/teams');
 var projects = require('./routes/projects');
 var people = require('./routes/people');
+var payments = require('./routes/payments');
+var profile = require('./routes/profile');
 var apiTasks = require('./routes/api_tasks');
 var apiTeams = require('./routes/api_teams');
 var apiProjects = require('./routes/api_projects');
@@ -106,18 +110,17 @@ var apiProjects = require('./routes/api_projects');
 
 app.use('/', users);
 
-app.get('/profile', authcontroller.isAuthenticatedLocal, function(req, res) {
-	res.render('profile', { user : req.user });
-});
 
 app.post('/login', passport.authenticate('local'), function(req, res) {
 	return res.json({status:"OK"})
 });
 
 app.use('/api/users', users);
+app.use('/profile', authcontroller.isAuthenticatedLocal, profile);
 app.use('/teams', authcontroller.isAuthenticatedLocal, teams);
 app.use('/projects', authcontroller.isAuthenticatedLocal, projects);
 app.use('/people', authcontroller.isAuthenticatedLocal, people);
+app.use('/payments', authcontroller.isAuthenticatedLocal, payments);
 app.use('/tasks', authcontroller.isAuthenticatedLocal, tasks);
 app.use('/api/teams', authcontroller.isOauthAuthenticated, apiTeams);
 app.use('/api/tasks', authcontroller.isOauthAuthenticated, apiTasks);

@@ -15,7 +15,7 @@ var RefreshToken = require(libs + 'model/refreshToken');
 
 passport.use('local', new LocalStategy(
 		function(username, password, done) {
-			User.findOne({'username': username}, function(err, user) {
+			User.findOne({'username': new RegExp('^'+username+'$', "i")}, function(err, user) {
 					if (err) {
 						return done(err);
 					}

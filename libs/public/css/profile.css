@@ -1,0 +1,11 @@
+.payment-errors {
+  display: none;
+  text-align: center;
+  padding: 5px 20px;
+  background-color: cred;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 0.83rem;
+  font-weight: 600;
+}
