@@ -10,3 +10,39 @@
 	font-size 0.83rem
 	font-weight 600
 	border 1px solid darken(cred, 9%)
+
+.card-item
+	span(1/1)
+	padding 10px 0
+	&_brand
+		display inline-block
+		vertical-align top
+		padding 8px 0
+		margin-right 22px
+		margin-top 5px
+		img
+			max-width 40px
+			pointer-events none
+	&_details
+		display inline-block
+		vertical-align top
+		h4
+			margin 4px 0 0 0
+			color cgrey
+		p
+			display inline-block
+			vertical-align top
+			& + p
+				margin-left 30px
+			span + span
+				margin-left 10px
+	&_options
+		display inline-block
+		vertical-align top
+		float right
+		margin-top 12px
+		i
+			color lighten(cgr, 13%)
+			font-size 1.3rem
+	& + .card-item
+		border-top 1px solid bordergrey

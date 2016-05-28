@@ -14,7 +14,6 @@ block content
 						li(data-tab="security") Security
 					.block-divider
 					.block-right
-						p= customer.id
 						.tab-selection.tab-selection_account.tab-selection-active
 							h2 Account settings
 							p Change your basic account settings
@@ -63,9 +62,23 @@ block content
 							.section
 								.section-head
 									h3 Added cards
-									p Current cards on your account							
+									p Current cards on your account
+								.section-body
 									for card in cards
-										p= JSON.stringify(card)
+										a.card-item
+											.card-item_brand
+												img(src='../images/cards/#{card.brand}.png')
+											.card-item_details
+												h4 #{user.fullname}
+												p.card-num
+													span &bull;&bull;&bull;&bull;
+													span &bull;&bull;&bull;&bull;
+													span &bull;&bull;&bull;&bull;
+													span= card.last4
+												p.card-exp Expiry: #{card.exp_month}/#{card.exp_year}
+											.card-item_options
+												i.ion-arrow-right-b
+												
 						.tab-selection.tab-selection_integrations
 							h2 Integrations
 							p Add & manage 3rd party integrations
