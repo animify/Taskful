@@ -75,14 +75,15 @@ router.post('/register', function(req, res) {
 				if (err)
 					return res.json({ error: '404', message :  err });
 
-				var user = new User({
-						_id: newid,
-						fullname: req.body.fullname,
-						username: req.body.username,
-						email: req.body.email,
-						password: req.body.password,
-						stripeID: customer.id
-				});
+
+				var user = new User();
+				user._id = newid;
+				user.fullname = req.body.fullname;
+				user.username = req.body.username;
+				user.email = req.body.email;
+				user.password = req.body.password;
+				user.plan.customer = customer.id;
+
 				user.save(function(err, user) {
 						if(!err) {
 								log.info("New user - %s:%s", user.username, user.password);

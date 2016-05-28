@@ -430,6 +430,37 @@ input[type="password"]:focus,
 .section:after {
   clear: both;
 }
+.section-split {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 48.5%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+.section-split:before,
+.section-split:after {
+  content: '';
+  display: table;
+}
+.section-split:after {
+  clear: both;
+}
+.section-split:nth-child(2n) {
+  margin-right: 0%;
+  float: right;
+}
+.section-split:nth-child(2n+1) {
+  clear: both;
+}
+.section-split h3 {
+  display: inline-block;
+  vertical-align: top;
+}
+.section-split h3 + h3 {
+  float: right;
+}
 .section-head {
   *zoom: 1;
   float: left;

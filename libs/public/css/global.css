@@ -430,6 +430,37 @@ input[type="password"]:focus,
 .section:after {
   clear: both;
 }
+.section-split {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 48.5%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+.section-split:before,
+.section-split:after {
+  content: '';
+  display: table;
+}
+.section-split:after {
+  clear: both;
+}
+.section-split:nth-child(2n) {
+  margin-right: 0%;
+  float: right;
+}
+.section-split:nth-child(2n+1) {
+  clear: both;
+}
+.section-split h3 {
+  display: inline-block;
+  vertical-align: top;
+}
+.section-split h3 + h3 {
+  float: right;
+}
 .section-head {
   *zoom: 1;
   float: left;
@@ -955,9 +986,7 @@ nav {
   top: -5px;
 }
 .block ul.block-left {
-  position: absolute;
-  left: 0;
-  top: 0;
+  position: fixed;
   padding: 12px 0 0 0;
   margin: 0;
   font-size: 0;
@@ -1946,6 +1975,7 @@ nav {
   margin-left: 0%;
   margin-right: 0%;
   padding: 10px 0;
+  cursor: pointer;
 }
 .card-item:before,
 .card-item:after {
@@ -1996,6 +2026,9 @@ nav {
 }
 .card-item + .card-item {
   border-top: 1px solid #e1e5ed;
+}
+.card-item:hover .card-item_options i {
+  color: #2ab3f7;
 }
 .stories {
   padding: 17px 0 10px 40px;

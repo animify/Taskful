@@ -16,7 +16,7 @@ var stripe = require("stripe")(config.get("stripe:key"));
 router.get('/', function(req, res) {
 	var getStripeDetails = function(req, res) {
 		return new Promise((resolve, reject) => {
-			stripe.customers.retrieve(req.user.stripeID, function(err, customer) {
+			stripe.customers.retrieve(req.user.plan.customer, function(err, customer) {
 				if (err)
 					return reject(err);
 
@@ -31,7 +31,6 @@ router.get('/', function(req, res) {
 		var cards = customer.sources.data;
 		JSON.stringify(customer);
 		JSON.stringify(cards);
-		console.log(customer.sources.data)
 
 		res.render('profile', { user : req.user, customer : customer, cards : cards });
 	})

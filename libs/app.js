@@ -102,6 +102,7 @@ var teams = require('./routes/teams');
 var projects = require('./routes/projects');
 var people = require('./routes/people');
 var payments = require('./routes/payments');
+var stripehook = require('./routes/stripehook');
 var profile = require('./routes/profile');
 var apiTasks = require('./routes/api_tasks');
 var apiTeams = require('./routes/api_teams');
@@ -115,6 +116,7 @@ app.post('/login', passport.authenticate('local'), function(req, res) {
 	return res.json({status:"OK"})
 });
 
+
 app.use('/api/users', users);
 app.use('/profile', authcontroller.isAuthenticatedLocal, profile);
 app.use('/teams', authcontroller.isAuthenticatedLocal, teams);
@@ -126,8 +128,8 @@ app.use('/api/teams', authcontroller.isOauthAuthenticated, apiTeams);
 app.use('/api/tasks', authcontroller.isOauthAuthenticated, apiTasks);
 app.use('/api/projects', authcontroller.isOauthAuthenticated, apiProjects);
 app.use('/api/oauth/token', oauth2.token);
+app.use('/webhooks/stripe', stripehook);
 
-// catch 404 and forward to error handler
 app.use(function(req, res, next){
 		res.status(404);
 		log.debug('%s %d %s', req.method, res.statusCode, req.url);
@@ -137,7 +139,6 @@ app.use(function(req, res, next){
 		return;
 });
 
-// error handlers
 app.use(function(err, req, res, next){
 		res.status(err.status || 500);
 		log.error('%s %d %s', req.method, res.statusCode, err.message);

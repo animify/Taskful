@@ -260,12 +260,21 @@ input[type="text"], input[type="password"], .ce-input, .select-dropdown
 	word-break break-all
 	span(1/1)
 	padding 25px 30px
+	&-split
+		col(1/2, cycle: 2)
+		h3
+			display inline-block
+			vertical-align top
+			& + h3
+				float right
+
 	&-head
 		span(1/1)
 		margin-bottom 23px
 	h3
 		font-size 1.4rem
 		margin 3px 0 0 0
+
 
 .input-2
 	span(1/1)

@@ -34,7 +34,7 @@ router.post('/token', function(req, res) {
 			});
 		},
 		function(found, callback){
-			stripe.customers.createSource(found.stripeID, {
+			stripe.customers.createSource(found.plan.customer, {
 				source : stripeToken
 			}, function(err, customer) {
 				if (err)
@@ -46,21 +46,12 @@ router.post('/token', function(req, res) {
 		}
 	], function (err, result) {
 		if (!err) {
-			console.log(result)
 			return res.send('Card has been added')
 		} else {
 			return res.send({ error: '404', message: result });
 		}
 	});
 
-	// stripe.customers.create({
-	// 	email: req.user.email,
-	// 	metadata: {'userID' : req.user._id.toString() },
-	// 	source: stripeToken
-	// }, function(err, customer) {
-	// 	console.log(err)
-	// 	console.log(customer)
-	// });
 });
 
 module.exports = router;

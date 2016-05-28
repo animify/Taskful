@@ -26,9 +26,25 @@ var	User = new Schema({
 			type: String,
 			required: true
 		},
-		stripeID: {
-			type: String,
-			required: true
+		plan: {
+			customer: {
+				type: String,
+				required: true
+			},
+			current: {
+				type: String,
+				default: 0
+			},
+			charges: [{
+				eventID: {
+					type: String,
+					required: true
+				},
+				created_at: {
+					type: Date,
+					default: Date.now
+				}
+			}]
 		},
 		created: {
 			type: Date,

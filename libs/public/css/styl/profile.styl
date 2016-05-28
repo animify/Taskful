@@ -14,6 +14,7 @@
 .card-item
 	span(1/1)
 	padding 10px 0
+	cursor pointer
 	&_brand
 		display inline-block
 		vertical-align top
@@ -46,3 +47,7 @@
 			font-size 1.3rem
 	& + .card-item
 		border-top 1px solid bordergrey
+	&:hover
+		.card-item_options
+			i
+				color cprimary

@@ -38,11 +38,21 @@ block content
 							p Edit or add authentication methods to your account
 						.tab-selection.tab-selection_billing
 							h2 Billing
-							p Manage your account billing
+							p Manage your account billing and payment methods
+							.section.section-split
+								.section-head
+									h3 Your credit
+									h3 &pound;0.00
+								.btn.btn-block Add credit
+							.section.section-split
+								.section-head
+									h3 Plan
+									h3 FREE
+								.btn.btn-block Upgrade account
 							.section
 								.section-head
 									h3 Payment methods
-									p Add a card to upgrade your account, or just to save it for later use
+									p Add a card to upgrade your account, or just save it for later use
 								form#add_method.section-body
 									.payment-errors
 									.field
@@ -64,20 +74,23 @@ block content
 									h3 Added cards
 									p Current cards on your account
 								.section-body
-									for card in cards
-										a.card-item
-											.card-item_brand
-												img(src='../images/cards/#{card.brand}.png')
-											.card-item_details
-												h4 #{user.fullname}
-												p.card-num
-													span &bull;&bull;&bull;&bull;
-													span &bull;&bull;&bull;&bull;
-													span &bull;&bull;&bull;&bull;
-													span= card.last4
-												p.card-exp Expiry: #{card.exp_month}/#{card.exp_year}
-											.card-item_options
-												i.ion-arrow-right-b
+									if (cards.length)
+										for card in cards
+											a.card-item
+												.card-item_brand
+													img(src='../images/cards/#{card.brand}.png')
+												.card-item_details
+													h4 #{user.fullname}
+													p.card-num
+														span &bull;&bull;&bull;&bull;
+														span &bull;&bull;&bull;&bull;
+														span &bull;&bull;&bull;&bull;
+														span= card.last4
+													p.card-exp Expiry: #{card.exp_month}/#{card.exp_year}
+												.card-item_options
+													i.ion-arrow-right-b
+									else
+										h4 No cards in your account just yet
 												
 						.tab-selection.tab-selection_integrations
 							h2 Integrations
