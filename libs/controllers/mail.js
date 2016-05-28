@@ -59,5 +59,27 @@ module.exports = {
 					console.log('Password changed sent');
 			}
 		});
+	},
+	addedcard: function(req, res,	options) {
+
+		var sendCardAdded = transporter.templateSender(new EmailTemplate(libs + 'templates/card_added'), {
+			from: '"Taskful" <admin@taskful.io>',
+		});
+
+		sendCardAdded({
+			to: options.email,
+			subject: 'New payment method added'
+		}, {
+			fullname: options.fullname,
+			email: options.email,
+			card: options.card,
+			host: options.host
+		}, function(err, info){
+			if(err){
+				 console.log(err);
+			} else{
+					console.log('Card added sent');
+			}
+		});
 	}
 };

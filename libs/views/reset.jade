@@ -30,15 +30,10 @@ script.
 	$('.btn-submit').click(function() {
 		var data = {};
 		data.password = $('.form-password-o').val();
-		$.ajax({
-			url: window.location.href,
-			type: "POST",
-			contentType: 'application/json',
-			data: JSON.stringify(data),
-			success: function(data) {
-				JSON.stringify(data);
-				if (data.status == "OK")
-					window.location.replace("/profile");
-			}
-		})
+		$.post(window.location.href, 'password=' + data.password, function(data) {
+			JSON.stringify(data);
+			if (data.status == "ok")
+				window.location.replace("/profile");
+		});
+		
 	});

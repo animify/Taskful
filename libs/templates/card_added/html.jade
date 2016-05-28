@@ -1,0 +1,25 @@
+doctype html
+html(lang="en") 
+	body
+		| <style >
+		include ../modules/style.css
+		| </style>
+		.email-outer
+			include ../modules/header.jade
+			.email-inner
+				h2 New payment method
+				p You have added a card to your account. It can now be used with your subscriptions & charges.
+				.card-item.push-top
+					.card-item_brand
+						img(src='http://taskful.io/images/cards/#{card.brand.toLowerCase()}.png')
+					.card-item_details
+						h4 #{fullname}
+						p.card-num
+							span &bull;&bull;&bull;&bull;
+							span &bull;&bull;&bull;&bull;
+							span &bull;&bull;&bull;&bull;
+							span= card.last4
+						p.card-exp Expiry: #{card.exp_month}/#{card.exp_year}
+				
+				a.cta-link(href="https://#{host}/profile") View account
+			small &copy; 2016 #[a(href="https://#{host}") #{host}]

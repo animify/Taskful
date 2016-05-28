@@ -28,16 +28,9 @@ script.
 	$('.btn-submit').click(function() {
 		var data = {};
 		data.email = $('.form-email').val();
-		$.ajax({
-			url: "/forgot",
-			type: "POST",
-			contentType: 'application/json',
-			data: JSON.stringify(data),
-			success: function(data) {
-				JSON.stringify(data);
-				console.log(data);
-				//- if (data.status == "OK")
-				//- 	window.location.replace("/profile");
-			}
-		})
+		$.post("/forgot", 'email=' + data.email, function(data) {
+			JSON.stringify(data);
+			console.log(data)
+		});
+
 	});

@@ -16,6 +16,7 @@ var peopleController = require(libs + 'controllers/people');
 var validate = require(libs + 'controllers/validate');
 
 var stripe = require("stripe")(config.get("stripe:key"));
+var mailer = require('../controllers/mail');
 
 router.post('/token', function(req, res) {
 	var stripeToken = req.body.token;
@@ -46,6 +47,12 @@ router.post('/token', function(req, res) {
 		}
 	], function (err, result) {
 		if (!err) {
+			var options = {};
+			options['fullname'] = req.user.fullname;
+			options['email'] = req.user.email;
+			options['host'] = req.headers.host;
+			options['card'] = result;
+			mailer.addedcard(req, res, options);
 			return res.send('Card has been added')
 		} else {
 			return res.send({ error: '404', message: result });

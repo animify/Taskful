@@ -156,7 +156,7 @@ router.post('/forgot', function(req, res, next) {
 		}
 	], function(err) {
 	 if (err) return next(err);
-	 res.redirect('/forgot');
+
 	});
 });
 
@@ -184,18 +184,22 @@ router.post('/reset/:token', function(req, res) {
 
 				user.save(function(err) {
 					req.logIn(user, function(err) {
-						var options = {};
-						options['email'] = user.email;
-						options['host'] = req.headers.host;
-						mailer.passwordchanged(req, res, options, function(err) {
-							done(err);
-						});
+						done(null, user);
 					});
 				});
 			});
+		},
+		function(user, done) {
+			var options = {};
+			options['email'] = user.email;
+			options['host'] = req.headers.host;
+			mailer.passwordchanged(req, res, options);
+			done(null, 'true');
 		}
 	], function(err) {
-		return res.sendStatus(200);
+		if (err) return next(err);
+		res.json({status: 'ok', message: 'Password changed'});
+
 	});
 });
 

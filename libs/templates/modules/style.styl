@@ -50,3 +50,49 @@ small
 	text-decoration none
 	background-color cprimary
 	white-space nowrap
+
+.push-top
+	margin 20px 0
+
+.card-item
+	span(1/1)
+	padding 4px 0
+	cursor pointer
+	&_brand
+		display inline-block
+		vertical-align top
+		padding 8px 0
+		margin-right 22px
+		margin-top 3px
+		img
+			max-width 45px
+			pointer-events none
+	&_details
+		display inline-block
+		vertical-align top
+		h4
+			margin 4px 0 -13px 0
+			color cgrey
+			text-align left
+			font-size 18px
+		p
+			display inline-block
+			vertical-align top
+			& + p
+				margin-left 30px
+			span + span
+				margin-left 10px
+	&_options
+		display inline-block
+		vertical-align top
+		float right
+		margin-top 12px
+		i
+			color lighten(cgr, 13%)
+			font-size 1.3rem
+	& + .card-item
+		border-top 1px solid bordergrey
+	&:hover
+		.card-item_options
+			i
+				color cprimary

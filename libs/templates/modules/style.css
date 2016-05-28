@@ -54,3 +54,72 @@ small a {
   background-color: #2ab3f7;
   white-space: nowrap;
 }
+.push-top {
+  margin: 20px 0;
+}
+.card-item {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 4px 0;
+  cursor: pointer;
+}
+.card-item:before,
+.card-item:after {
+  content: '';
+  display: table;
+}
+.card-item:after {
+  clear: both;
+}
+.card-item_brand {
+  display: inline-block;
+  vertical-align: top;
+  padding: 8px 0;
+  margin-right: 22px;
+  margin-top: 3px;
+}
+.card-item_brand img {
+  max-width: 45px;
+  pointer-events: none;
+}
+.card-item_details {
+  display: inline-block;
+  vertical-align: top;
+}
+.card-item_details h4 {
+  margin: 4px 0 -13px 0;
+  color: #414d5d;
+  text-align: left;
+  font-size: 18px;
+}
+.card-item_details p {
+  display: inline-block;
+  vertical-align: top;
+}
+.card-item_details p + p {
+  margin-left: 30px;
+}
+.card-item_details p span + span {
+  margin-left: 10px;
+}
+.card-item_options {
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+  margin-top: 12px;
+}
+.card-item_options i {
+  color: #94a0b2;
+  font-size: 1.3rem;
+}
+.card-item + .card-item {
+  border-top: 1px solid #e1e5ed;
+}
+.card-item:hover .card-item_options i {
+  color: #2ab3f7;
+}
