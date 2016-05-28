@@ -148,10 +148,11 @@ router.post('/forgot', function(req, res, next) {
 		function(token, user, done) {
 			var options = {};
 			options['token'] = token;
-			options['fullname'] = user.fullname;
 			options['email'] = user.email;
 			options['host'] = req.headers.host;
-			mailer.passwordreset(req, res, options);
+			mailer.passwordreset(req, res, options, function(err) {
+				done(err, 'done');
+			});
 		}
 	], function(err) {
 	 if (err) return next(err);
@@ -183,16 +184,18 @@ router.post('/reset/:token', function(req, res) {
 
 				user.save(function(err) {
 					req.logIn(user, function(err) {
-						done(err, user);
+						var options = {};
+						options['email'] = user.email;
+						options['host'] = req.headers.host;
+						mailer.passwordchanged(req, res, options, function(err) {
+							done(err);
+						});
 					});
 				});
 			});
-		},
-		function(user, done) {
-
 		}
 	], function(err) {
-		return res.json({error: '404', message: 'Password token is invalid or has expired'});
+		return res.sendStatus(200);
 	});
 });
 

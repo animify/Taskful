@@ -25,18 +25,38 @@ module.exports = {
 		});
 
 		sendPasswordReset({
-			to: 'st.mansson@icloud.com',
-			subject: 'Password Reset'
+			to: options.email,
+			subject: 'Forgot your password?'
 		}, {
-			name: options.fullname.split(' ')[0],
 			email: options.email,
 			token: options.token,
 			host: options.host
 		}, function(err, info){
 			if(err){
 				 console.log(err);
-			}else{
-					console.log('Password reminder sent');
+			} else{
+					console.log('Password forgot sent');
+			}
+		});
+	},
+	passwordchanged: function(req, res,	options) {
+
+		var sendPasswordChanged = transporter.templateSender(new EmailTemplate(libs + 'templates/password_changed'), {
+			from: '"Taskful" <admin@taskful.io>',
+		});
+
+		sendPasswordChanged({
+			to: options.email,
+			subject: 'Your password has changed'
+		}, {
+			email: options.email,
+			token: options.token,
+			host: options.host
+		}, function(err, info){
+			if(err){
+				 console.log(err);
+			} else{
+					console.log('Password changed sent');
 			}
 		});
 	}

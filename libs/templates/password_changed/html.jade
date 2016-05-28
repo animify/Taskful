@@ -1,0 +1,14 @@
+doctype html
+html(lang="en") 
+	body
+		| <style >
+		include ../modules/style.css
+		| </style>
+		.email-outer
+			include ../modules/header.jade
+			.email-inner
+				h2 Your password has changed
+				p We're just letting you know that your password has changed. If you had nothing to do with it, please change contact us immediately.
+				
+				a.cta-link(href="https://#{host}/support") Get support
+			small &copy; 2016 #[a(href="https://#{host}") #{host}]

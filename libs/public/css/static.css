@@ -257,7 +257,7 @@ input[type="password"]:focus,
 .select-dropdown ul li p {
   margin: 0 0 0 11px;
   font-size: 1rem;
-  color: #616d7e;
+  color: #61747e;
   display: block;
 }
 .select-dropdown ul li > * {
@@ -714,7 +714,7 @@ input[type="password"]:focus,
   margin: 0 0 3px 0;
 }
 .view-left_inner p {
-  color: #616d7e;
+  color: #61747e;
   font-size: 1.1rem;
   margin-bottom: 26px;
 }

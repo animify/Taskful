@@ -257,7 +257,7 @@ input[type="password"]:focus,
 .select-dropdown ul li p {
   margin: 0 0 0 11px;
   font-size: 1rem;
-  color: #616d7e;
+  color: #61747e;
   display: block;
 }
 .select-dropdown ul li > * {
@@ -707,7 +707,7 @@ nav {
   vertical-align: top;
 }
 .nav-inner .nav-links a {
-  color: #616d7e;
+  color: #61747e;
   font-size: 1rem;
   cursor: pointer;
   font-weight: 400;
@@ -1080,7 +1080,7 @@ nav {
   vertical-align: top;
 }
 .task-item p {
-  color: #616d7e;
+  color: #61747e;
   margin: 0 11px 0 0;
   font-size: 0.9rem;
 }
@@ -1358,7 +1358,7 @@ nav {
   color: #2ab3f7;
 }
 .list-right .list-options p {
-  color: #616d7e;
+  color: #61747e;
   margin-top: 7px;
   margin-right: 12px;
 }
@@ -1367,7 +1367,7 @@ nav {
   margin-right: 12px;
 }
 .list .list-actions a {
-  color: #616d7e;
+  color: #61747e;
   cursor: pointer;
 }
 .list .list-actions a + a {
@@ -1590,7 +1590,7 @@ nav {
 }
 .taskBody-view_options_right a {
   font-size: 0.96rem;
-  color: #616d7e;
+  color: #61747e;
 }
 .taskBody-view_options_inner {
   padding: 12px 20px;
@@ -2098,12 +2098,12 @@ nav {
 }
 .story p {
   font-size: 0.83rem;
-  color: #616d7e;
+  color: #61747e;
 }
 .story p span {
   margin-left: 4px;
   font-size: 0.76rem;
-  color: #949ead;
+  color: #94a4ad;
 }
 .story_comment {
   *zoom: 1;
@@ -2141,7 +2141,7 @@ nav {
   font-size: 1rem;
 }
 .story_comment p {
-  color: #616d7e;
+  color: #61747e;
   font-size: 0.93rem;
   white-space: pre-wrap;
 }
@@ -2346,7 +2346,7 @@ nav {
   margin: 0 0 8px 0;
 }
 .modal-header p {
-  color: #616d7e;
+  color: #61747e;
   font-size: 1.1rem;
   margin: 4px 0 26px 0;
   display: block;
@@ -2483,7 +2483,7 @@ nav {
 }
 .modal-list_details span {
   font-size: 0.9rem;
-  color: #616d7e;
+  color: #61747e;
 }
 .modal-med {
   max-width: 650px;
@@ -2544,7 +2544,7 @@ nav {
   -ms-transition: all 0.2s ease;
   transition: all 0.2s ease;
   cursor: pointer;
-  color: #616d7e;
+  color: #61747e;
 }
 .task-category:before,
 .task-category:after {
