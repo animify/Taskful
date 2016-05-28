@@ -128,7 +128,7 @@ app.use('/api/teams', authcontroller.isOauthAuthenticated, apiTeams);
 app.use('/api/tasks', authcontroller.isOauthAuthenticated, apiTasks);
 app.use('/api/projects', authcontroller.isOauthAuthenticated, apiProjects);
 app.use('/api/oauth/token', oauth2.token);
-app.use('/webhooks/stripe', stripehook);
+app.use('/webhooks', stripehook);
 
 app.use(function(req, res, next){
 		res.status(404);

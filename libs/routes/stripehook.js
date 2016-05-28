@@ -10,33 +10,43 @@ var User = require('../model/user');
 
 var stripe = require("stripe")(config.get("stripe:key"));
 
-router.post('/', function(req, res, next) {
+router.post('/stripe', function(req, res) {
 
-	if(req.body.object!=='event') {
-		return res.send(400);
-	}
+	async.waterfall([
+		function (callback) {
+			if(req.body.object!=='event') {
+				return res.sendStatus(400);
+			}
 
-	stripe.events.retrieve(req.body.id, function(err, event){
+			stripe.events.retrieve(req.body.id, function(err, event){
+				console.log(req.body.id)
+				console.log(event)
+				if(err || !event) {
+					console.log(err)
+					return res.sendStatus(401);
+				}
 
-		if(err || !event) {
-			return res.send(401);
+				callback(event);
+			});
+		}, function(stripeEvent, callback){
+			var o, event = stripeEvent;
+			console.log(event.type)
+			if(event.type==='charge.succeeded') {
+				o = event.data.object;
+			}
+			else {
+				console.log("unhandled stripe event", event.type);
+			}
+			callback(null, event);
 		}
-
-		req.modeled.stripeEvent = event;
-		next();
+	], function (err, result) {
+		if (!err) {
+			res.sendStatus(200);
+		} else {
+			res.sendStatus(403);
+		}
 	});
-}, function(req, res) {
-	var o, event = req.modeled.stripeEvent;
 
-	if(event.type==='charge.succeeded') {
-		o = event.data.object;
-
-		console.log(event.type)
-	}
-	else {
-		console.log("unhandled stripe event", event.type);
-	}
-	res.send(200);
 });
 
 module.exports = router;
