@@ -1,0 +1,14 @@
+doctype html
+html(lang="en") 
+	body
+		| <style >
+		include ../modules/style.css
+		| </style>
+		.email-outer
+			include ../modules/header.jade
+			p Hi #{fullname},
+			p You are recieving this because you (or someone else), has requested for your password to be changed for your account on Taskful.
+			p Click the following link
+				a(href="https://localhost/reset/#{token}") https://localhost/reset/#{token}
+				| to get it sorted.
+			

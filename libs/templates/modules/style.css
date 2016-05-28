@@ -1,0 +1,11 @@
+body {
+  background-color: #f9fafc;
+}
+.email-outer {
+  background-color: #fff;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  display: block;
+  margin: 50px auto;
+}

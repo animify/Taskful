@@ -11,9 +11,8 @@ var User = require('../model/user');
 var mailer = require('../controllers/mail');
 
 var stripe = require("stripe")(config.get("stripe:key"));
-mailer.passwordreset();
-router.post('/stripe', function(req, res) {
 
+router.post('/stripe', function(req, res) {
 	async.waterfall([
 		function (callback) {
 			if(req.body.object!=='event') {

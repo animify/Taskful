@@ -4,6 +4,8 @@ var router = express.Router();
 var User = require('../model/user');
 var mongoose = require('mongoose');
 
+var	crypto = require('crypto');
+
 var libs = process.cwd() + '/libs/';
 var log = require(libs + 'log')(module);
 
@@ -12,6 +14,9 @@ var db = require(libs + 'db/mongoose');
 
 var config = require(libs + 'config');
 var stripe = require("stripe")(config.get("stripe:key"));
+var async = require("async");
+var mailer = require('../controllers/mail');
+
 
 router.get('/logout', function(req, res) {
 		req.logout();
@@ -113,5 +118,44 @@ router.get('/info', passport.authenticate('bearer', { session: false }),
 				});
 		}
 );
+
+router.get('/forgot', function(req, res) {
+	res.render('forgot');
+});
+
+router.post('/forgot', function(req, res, next) {
+	async.waterfall([
+		function(done) {
+			crypto.randomBytes(20, function(err, buf) {
+				var token = buf.toString('hex');
+				done(err, token);
+			});
+		},
+		function(token, done) {
+			User.findOne({ email: req.body.email }, function(err, user) {
+				if (!user) {
+					return res.json({error: '404', message: 'Email could not be found'});
+				}
+
+				user.resetPasswordToken = token;
+				user.resetPasswordExpires = Date.now() + 3600000;
+
+				user.save(function(err) {
+					done(err, token, user);
+				});
+			});
+		},
+		function(token, user, done) {
+			var options = {};
+			options['token'] = token;
+			options['fullname'] = user.fullname;
+			options['email'] = user.email;
+			mailer.passwordreset(req, res, options);
+		}
+	], function(err) {
+	 if (err) return next(err);
+	 res.redirect('/forgot');
+	});
+});
 
 module.exports = router;

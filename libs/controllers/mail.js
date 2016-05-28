@@ -2,34 +2,41 @@ var libs = process.cwd() + '/libs/';
 var log = require(libs + 'log')(module);
 var config = require(libs + 'config');
 
+var EmailTemplate = require('email-templates').EmailTemplate;
 var nodemailer = require('nodemailer');
 
 var smtpConfig = {
 		host: 'mail.privateemail.com',
 		port: 465,
-		secure: true, // use SSL
+		secure: true,
 		auth: {
 				user: 'admin@taskful.io',
 				pass: 'activ8r00'
 		}
 };
+
 var transporter = nodemailer.createTransport(smtpConfig);
 
 module.exports = {
-	passwordreset: function() {
-		var mailOptions = {
-				from: '"Taskful" <admin@taskful.io>',
-				to: 'st.mansson@icloud.com',
-				subject: 'Password reset',
-				text: 'Hello world',
-				html: '<b>Hello world</b>'
-		};
+	passwordreset: function(req, res,	options) {
 
-		transporter.sendMail(mailOptions, function(error, info){
-				if(error){
-						return console.log(error);
-				}
-				console.log('Message sent: ' + info.response);
+		var sendPasswordReset = transporter.templateSender(new EmailTemplate(libs + 'templates/password_reset'), {
+			from: '"Taskful" <admin@taskful.io>',
+		});
+
+		sendPasswordReset({
+			to: 'st.mansson@icloud.com',
+			subject: 'Password reset'
+		}, {
+			fullname: options.fullname,
+			email: options.email,
+			token: options.token
+		}, function(err, info){
+			if(err){
+				 console.log(err);
+			}else{
+					console.log('Password reminder sent');
+			}
 		});
 	}
 };
