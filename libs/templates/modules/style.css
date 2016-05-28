@@ -3,9 +3,27 @@ body {
 }
 .email-outer {
   background-color: #fff;
+  -webkit-border-radius: 8px;
   border-radius: 8px;
   max-width: 600px;
   width: 100%;
   display: block;
   margin: 50px auto;
+  font-family: helveticaneue-light, helvetica, sans-serif;
+}
+.email-inner {
+  padding: 0px 40px 20px 40px;
+}
+.email-header {
+  padding: 40px 40px 15px 40px;
+}
+.email-header img {
+  max-height: 25px;
+}
+.reset-link {
+  text-align: center;
+  padding: 10px 0;
+  color: #2ab3f7;
+  display: block;
+  margin: 0 auto;
 }

@@ -150,11 +150,49 @@ router.post('/forgot', function(req, res, next) {
 			options['token'] = token;
 			options['fullname'] = user.fullname;
 			options['email'] = user.email;
+			options['host'] = req.headers.host;
 			mailer.passwordreset(req, res, options);
 		}
 	], function(err) {
 	 if (err) return next(err);
 	 res.redirect('/forgot');
+	});
+});
+
+router.get('/reset/:token', function(req, res) {
+	User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+		if (!user) {
+			return res.redirect('/');
+
+		}
+		res.render('reset', {user: req.user});
+	});
+});
+
+router.post('/reset/:token', function(req, res) {
+	async.waterfall([
+		function(done) {
+			User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+				if (!user) {
+					return res.json({error: '404', message: 'Password token is invalid or has expired'});
+				}
+
+				user.password = req.body.password;
+				user.resetPasswordToken = undefined;
+				user.resetPasswordExpires = undefined;
+
+				user.save(function(err) {
+					req.logIn(user, function(err) {
+						done(err, user);
+					});
+				});
+			});
+		},
+		function(user, done) {
+
+		}
+	], function(err) {
+		return res.json({error: '404', message: 'Password token is invalid or has expired'});
 	});
 });
 

@@ -744,6 +744,14 @@ input[type="password"]:focus,
 .view-right:last-child {
   margin-right: 0%;
 }
+.fixed-logo {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+}
+.fixed-logo img {
+  max-height: 25px;
+}
 .no-account {
   position: absolute;
   top: 25px;

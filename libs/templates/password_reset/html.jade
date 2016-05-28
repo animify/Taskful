@@ -6,9 +6,13 @@ html(lang="en")
 		| </style>
 		.email-outer
 			include ../modules/header.jade
-			p Hi #{fullname},
-			p You are recieving this because you (or someone else), has requested for your password to be changed for your account on Taskful.
-			p Click the following link
-				a(href="https://localhost/reset/#{token}") https://localhost/reset/#{token}
-				| to get it sorted.
-			
+			.email-inner
+				p Hi #{name},
+				p You are recieving this because, hopefully you, have requested for your password to be changed for your Taskful account.
+				p Please click on the following link or paste it into your browser to reset your password.
+				
+				a.reset-link(href="https://#{host}/reset/#{token}") https://#{host}/reset/#{token}
+				
+				p If you did not request for your password to be changed, please disregard this email. 
+				
+				p Kind regards, #[br] Team Taskful

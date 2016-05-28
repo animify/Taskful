@@ -12,13 +12,15 @@ html(lang="en")
 				.fixed-logo
 					img(src="/images/taskful.png", alt="")
 				.view-left_inner
-					h3 Forgot password?
-					p Type in your email below to reset your password
+					h3 Reset password
+					p The final step... enter a new password below
 					.field
-						input.form-email(type='text', name="email", placeholder="Email address")
+						input.form-password-o(type='password', name="password-o", placeholder="Password (min. 6 characters)")
+					.field
+						input.form-password-t(type='password', name="password-t", placeholder="Re-type password")
 
 					.field.submit-login
-						a.btn.btn-submit Let's find it
+						a.btn.btn-submit Ready. Set. Go!
 			.view-right
 				.no-account
 					p Don't have an account? #[a(href="/register") Sign up for Taskful]
@@ -27,17 +29,16 @@ html(lang="en")
 script.
 	$('.btn-submit').click(function() {
 		var data = {};
-		data.email = $('.form-email').val();
+		data.password = $('.form-password-o').val();
 		$.ajax({
-			url: "/forgot",
+			url: window.location.href,
 			type: "POST",
 			contentType: 'application/json',
 			data: JSON.stringify(data),
 			success: function(data) {
 				JSON.stringify(data);
-				console.log(data);
-				//- if (data.status == "OK")
-				//- 	window.location.replace("/profile");
+				if (data.status == "OK")
+					window.location.replace("/profile");
 			}
 		})
 	});

@@ -26,11 +26,12 @@ module.exports = {
 
 		sendPasswordReset({
 			to: 'st.mansson@icloud.com',
-			subject: 'Password reset'
+			subject: 'Password Reset'
 		}, {
-			fullname: options.fullname,
+			name: options.fullname.split(' ')[0],
 			email: options.email,
-			token: options.token
+			token: options.token,
+			host: options.host
 		}, function(err, info){
 			if(err){
 				 console.log(err);
