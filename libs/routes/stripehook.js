@@ -8,8 +8,10 @@ var async = require('async');
 var config = require(libs + 'config');
 var User = require('../model/user');
 
-var stripe = require("stripe")(config.get("stripe:key"));
+var mailer = require('../controllers/mail');
 
+var stripe = require("stripe")(config.get("stripe:key"));
+mailer.passwordreset();
 router.post('/stripe', function(req, res) {
 
 	async.waterfall([
