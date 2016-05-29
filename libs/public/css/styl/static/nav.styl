@@ -1,0 +1,59 @@
+.nav-navbar
+	span(1/1)
+	padding 26px 0
+	.dropdown
+		position fixed
+		left auto
+		right auto
+		margin-left -108px
+		margin-top 10px
+
+.nav
+	&-left, &-right, &-logo, &-links
+		display inline-block
+		vertical-align top
+	&-logo
+		margin-right 22px
+		img
+			max-height 22px
+	&-links
+		a
+			color cgrey
+			opacity 0.7
+			transition all 0.14s ease
+			&.active
+				opacity 1
+			&:hover
+				opacity 1
+			& + a
+				margin-left 28px
+	&-right
+		float right
+.inverse
+	.nav-links
+		a
+			color #fff
+	.user-i
+		a
+			color #fff
+
+.user-i
+	cursor pointer
+	a
+		color cgrey
+
+.user-preview
+	border-radius 3px
+	width 24px
+	height 24px
+	display inline-block
+	text-align center
+	margin 0 11px 0 0
+	background-color #0adeab
+	a
+		margin 0
+		padding 0
+		color #fff
+		font-weight 700
+		font-size 0.8rem
+		line-height 24px

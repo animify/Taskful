@@ -23,10 +23,11 @@ passport.use('local', new LocalStategy(
 					if (!user) {
 						return done(null, false, { message: 'Unknown user' });
 					}
-					console.log(':dd');
 
 					if (!user.checkPassword(password))
 								return done(null, false, { message: 'Wrong pass' });
+
+
 
 					return done(null, user);
 					});
@@ -115,6 +116,8 @@ passport.use(new BearerStrategy(
 
 exports.isAuthenticatedLocal = function(req, res, callback) {
 	if (req.isAuthenticated()) {
+		// if (req.user.username != 'lolo')
+		// 	return res.redirect('/plans')
 		callback(null, true);
 	} else {
 		console.log('false');

@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+	head
+		title Swash | Forgot password
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		script(src='https://code.jquery.com/jquery-2.2.2.min.js')
+		link(rel="stylesheet", type="text/css", href="../css/static.css")
+		link(rel="stylesheet", type="text/css", href="../fonts/font.css")
+	body
+		.view
+			.view-left
+				.fixed-logo
+					img(src="/images/taskful.png", alt="")
+				.view-left_inner
+					h3 Reset password
+					p The final step... enter a new password below
+					.field
+						input.form-password-o(type='password', name="password-o", placeholder="Password (min. 6 characters)")
+					.field
+						input.form-password-t(type='password', name="password-t", placeholder="Re-type password")
+
+					.field.submit-login
+						a.btn.btn-submit Ready. Set. Go!
+			.view-right
+				.no-account
+					p Don't have an account? #[a(href="/register") Sign up for Taskful]
+				small.tc-text By logging in to Taskful and using the platform, you are agreeing to our #[a Terms of Service] and #[a Privacy Policy].
+
+script.
+	$('.btn-submit').click(function() {
+		var data = {};
+		data.password = $('.form-password-o').val();
+		$.post(window.location.href, 'password=' + data.password, function(data) {
+			JSON.stringify(data);
+			if (data.status == "ok")
+				window.location.replace("/profile");
+		});
+		
+	});

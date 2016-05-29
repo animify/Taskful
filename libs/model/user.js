@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var	crypto = require('crypto');
 var passportLocalMongoose = require('passport-local-mongoose');
-var bcrypt   = require('bcrypt-nodejs');
+var bcrypt = require('bcrypt-nodejs');
 var	Schema = mongoose.Schema;
 
 var	User = new Schema({
@@ -49,7 +49,9 @@ var	User = new Schema({
 		created: {
 			type: Date,
 			default: Date.now
-		}
+		},
+		resetPasswordToken: String,
+		resetPasswordExpires: Date
 	});
 User.plugin(passportLocalMongoose);
 

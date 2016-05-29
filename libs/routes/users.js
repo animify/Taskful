@@ -4,6 +4,8 @@ var router = express.Router();
 var User = require('../model/user');
 var mongoose = require('mongoose');
 
+var	crypto = require('crypto');
+
 var libs = process.cwd() + '/libs/';
 var log = require(libs + 'log')(module);
 
@@ -12,10 +14,17 @@ var db = require(libs + 'db/mongoose');
 
 var config = require(libs + 'config');
 var stripe = require("stripe")(config.get("stripe:key"));
+var async = require("async");
+var mailer = require('../controllers/mail');
+
 
 router.get('/logout', function(req, res) {
 		req.logout();
 		res.redirect('/');
+});
+
+router.get('/plans', function(req, res) {
+	res.render('plans', {user: req.user});
 });
 
 router.get('/login', function(req, res) {
@@ -113,5 +122,89 @@ router.get('/info', passport.authenticate('bearer', { session: false }),
 				});
 		}
 );
+
+router.get('/forgot', function(req, res) {
+	res.render('forgot');
+});
+
+router.post('/forgot', function(req, res, next) {
+	async.waterfall([
+		function(done) {
+			crypto.randomBytes(20, function(err, buf) {
+				var token = buf.toString('hex');
+				done(err, token);
+			});
+		},
+		function(token, done) {
+			User.findOne({ email: req.body.email }, function(err, user) {
+				if (!user) {
+					return res.json({error: '404', message: 'Email could not be found'});
+				}
+
+				user.resetPasswordToken = token;
+				user.resetPasswordExpires = Date.now() + 3600000;
+
+				user.save(function(err) {
+					done(err, token, user);
+				});
+			});
+		},
+		function(token, user, done) {
+			var options = {};
+			options['token'] = token;
+			options['email'] = user.email;
+			options['host'] = req.headers.host;
+			mailer.passwordreset(req, res, options, function(err) {
+				done(err, 'done');
+			});
+		}
+	], function(err) {
+	 if (err) return next(err);
+
+	});
+});
+
+router.get('/reset/:token', function(req, res) {
+	User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+		if (!user) {
+			return res.redirect('/');
+
+		}
+		res.render('reset', {user: req.user});
+	});
+});
+
+router.post('/reset/:token', function(req, res) {
+	async.waterfall([
+		function(done) {
+			User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+				if (!user) {
+					return res.json({error: '404', message: 'Password token is invalid or has expired'});
+				}
+
+				user.password = req.body.password;
+				user.resetPasswordToken = undefined;
+				user.resetPasswordExpires = undefined;
+
+				user.save(function(err) {
+					req.logIn(user, function(err) {
+						done(null, user);
+					});
+				});
+			});
+		},
+		function(user, done) {
+			var options = {};
+			options['email'] = user.email;
+			options['host'] = req.headers.host;
+			mailer.passwordchanged(req, res, options);
+			done(null, 'true');
+		}
+	], function(err) {
+		if (err) return next(err);
+		res.json({status: 'ok', message: 'Password changed'});
+
+	});
+});
 
 module.exports = router;

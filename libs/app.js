@@ -103,7 +103,7 @@ var projects = require('./routes/projects');
 var people = require('./routes/people');
 var payments = require('./routes/payments');
 var stripehook = require('./routes/stripehook');
-var profile = require('./routes/profile');
+var account = require('./routes/account');
 var apiTasks = require('./routes/api_tasks');
 var apiTeams = require('./routes/api_teams');
 var apiProjects = require('./routes/api_projects');
@@ -118,7 +118,7 @@ app.post('/login', passport.authenticate('local'), function(req, res) {
 
 
 app.use('/api/users', users);
-app.use('/profile', authcontroller.isAuthenticatedLocal, profile);
+app.use('/account', authcontroller.isAuthenticatedLocal, account);
 app.use('/teams', authcontroller.isAuthenticatedLocal, teams);
 app.use('/projects', authcontroller.isAuthenticatedLocal, projects);
 app.use('/people', authcontroller.isAuthenticatedLocal, people);
@@ -128,7 +128,7 @@ app.use('/api/teams', authcontroller.isOauthAuthenticated, apiTeams);
 app.use('/api/tasks', authcontroller.isOauthAuthenticated, apiTasks);
 app.use('/api/projects', authcontroller.isOauthAuthenticated, apiProjects);
 app.use('/api/oauth/token', oauth2.token);
-app.use('/webhooks/stripe', stripehook);
+app.use('/webhooks', stripehook);
 
 app.use(function(req, res, next){
 		res.status(404);

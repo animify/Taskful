@@ -4,6 +4,11 @@
 @import 'variables.styl'
 @import 'ui.styl'
 @import 'buttons.styl'
+@import 'dropdown.styl'
+@import 'static/nav.styl'
+
+.container
+	center(1100px, 30px)
 
 .view
 	span(1/1)
@@ -32,6 +37,120 @@
 		position relative
 		background-color cprimary
 
+.fixed-logo
+	fixed top 25px left 25px
+	img
+		max-height 25px
+
+.module-head
+	span(1/1)
+	&_center
+		text-align center
+	&_title
+		padding 44px 0 98px 0
+		span(1/1)
+		h3
+			font-size 2.7rem
+			margin 0
+		p
+			opacity 0.8
+
+.module-plans
+	span(1/1)
+	margin-top -50px
+	padding-bottom 50px
+
+.module-includes
+	background-color #F9FAFC
+
+.module-sub
+	margin-top 10px
+	padding 84px 0
+	span(1/1)
+	h3
+		text-align center
+		font-size 1.6rem
+		color cgrey
+		margin 0 0 20px 0
+	h4
+		color cgrey
+		font-size 1.2rem
+		line-height 1.2rem
+		margin 0
+	p
+		color cgr
+		margin 10px 0 0 0
+		font-size 1rem
+		line-height 1.7rem
+
+.plan
+	span(1/3)
+	border 1px solid bordergrey
+	border-left 0
+	border-right 0
+	background-color #fff
+	display block
+	border-radius 0 0 0 6px
+	text-align center
+	& + .plan
+		border-left 1px solid bordergrey
+	&:first-of-type
+		border-radius 6px 0 0 6px
+		border-left 1px solid bordergrey
+	&:last-of-type
+		border-radius 0 6px 6px 6px
+		border-right 1px solid bordergrey
+	&_type
+		padding 42px 0 20px 0
+		h6
+			margin 0
+			font-size 1.8rem
+		p
+			color cgr
+	&_price
+		position relative
+		padding-bottom 50px
+		h2
+			font-size 6rem
+			line-height 6rem
+			margin 0
+			font-weight 300
+			position relative
+			display inline-block
+			&:before
+				content '$'
+				color cgr
+				font-size 2rem
+				absolute top 0px left -23px
+		small
+			color cgr
+			display block
+	&_features
+		ul
+			margin 0
+			padding 0
+			font-size 0
+			list-style none
+			span(1/1)
+			li
+				text-align center
+				font-size 1rem
+				border-top 1px solid bordergrey
+				padding 18px 15px
+				color pbluelight
+				i
+					margin-left 5px
+					color lighten(pbluelight, 40%)
+					cursor pointer
+					&:hover
+						color cprimary
+	&-action
+		span(1/3)
+		padding 10px 10px
+	&-actions
+		margin-top 20px
+
+
 .no-account
 	absolute top 25px right 25px
 	border-radius 3px
@@ -49,6 +168,20 @@
 				absolute top 23px left
 				border-bottom 2px dotted #fff
 
+.includes
+	span(1/1)
+	.include
+		col(1/3, cycle: 3, gutter: 7)
+		margin-top 64px
+
+.faqs
+	col(1/2, cycle: 2, gutter: 7)
+	&-list
+		span(1/1)
+
+.faq
+	margin-top 64px
+
 .submit-login
 	margin-top 19px !important
 	span(1/1)
@@ -62,6 +195,37 @@
 	color lighten(cprimary, 80%)
 	a
 		color #fff !important
+
+#plans
+	.module-head
+		background linear-gradient(left top, #7A8CFF, #48A5F1)
+		h3
+			color #fff
+			font-weight 100
+		p
+			color #fff
+
+.sub-footer
+	border-top 1px solid bordergrey
+	span(1/1)
+	font-size 0.83rem
+	color lighten(cgr, 25%)
+	text-align center
+	&-contain
+		span(1/1)
+		padding 22px 0
+		& > *
+			display inline-block
+			vertical-align top
+	&_left
+		float left
+	&_right
+		float right
+		a
+			color cgr
+			cursor pointer
+			&:hover
+				color cprimary
 
 @media screen and (max-width: 1200px)
 	.view-left

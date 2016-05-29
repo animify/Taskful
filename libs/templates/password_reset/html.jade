@@ -1,0 +1,14 @@
+doctype html
+html(lang="en") 
+	body
+		| <style >
+		include ../modules/style.css
+		| </style>
+		.email-outer
+			include ../modules/header.jade
+			.email-inner
+				h2 Oh snap! Forgot your password?
+				p To reset your password, just click the button below. If it wasn't you, just ignore this email, someone probably messed up.
+				
+				a.cta-link(href="https://#{host}/reset/#{token}") Reset password
+			small &copy; 2016 #[a(href="https://#{host}") #{host}]
