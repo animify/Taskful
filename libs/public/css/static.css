@@ -651,6 +651,24 @@ input[type="password"]:focus,
 .btn + .btn {
   margin-left: 20px;
 }
+.disabled-default {
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 1.6rem;
+  overflow: hidden;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  outline: 0;
+  background-color: #eff0f2;
+  color: #676767;
+  vertical-align: top;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-align: center;
+  font-size: 1rem;
+}
 .dropdown {
   min-width: 220px;
   max-width: 400px;
@@ -719,6 +737,34 @@ input[type="password"]:focus,
 }
 .dropdown ul li.li-red a:hover {
   color: #ff004c;
+}
+.drop-element {
+  background-color: #fff;
+  padding: 20px;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  -ms-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #e1e5ed;
+}
+.drop-element.drop-open-transitionend {
+  display: block;
+}
+.drop-element.drop-after-open {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.dropPro,
+.dropTurbo {
+  width: 280px;
+  margin-left: -6px;
 }
 .info_name a {
   padding: 5px 18px 0 18px !important;
@@ -801,19 +847,6 @@ input[type="password"]:focus,
 }
 .user-i {
   cursor: pointer;
-  opacity: 0.68;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=68)";
-  filter: alpha(opacity=68);
-  -webkit-transition: all 0.14s ease;
-  -moz-transition: all 0.14s ease;
-  -o-transition: all 0.14s ease;
-  -ms-transition: all 0.14s ease;
-  transition: all 0.14s ease;
-}
-.user-i:hover {
-  opacity: 1;
-  -ms-filter: none;
-  filter: none;
 }
 .user-i a {
   color: #414d5d;
@@ -1033,8 +1066,9 @@ input[type="password"]:focus,
   border-left: 0;
   border-right: 0;
   background-color: #fff;
-  padding: 10px;
   display: block;
+  -webkit-border-radius: 0 0 0 6px;
+  border-radius: 0 0 0 6px;
   text-align: center;
 }
 .plan:before,
@@ -1054,12 +1088,12 @@ input[type="password"]:focus,
   border-left: 1px solid #e1e5ed;
 }
 .plan:last-of-type {
-  -webkit-border-radius: 0 6px 6px 0;
-  border-radius: 0 6px 6px 0;
+  -webkit-border-radius: 0 6px 6px 6px;
+  border-radius: 0 6px 6px 6px;
   border-right: 1px solid #e1e5ed;
 }
 .plan_type {
-  padding: 32px 0 20px 0;
+  padding: 42px 0 20px 0;
 }
 .plan_type h6 {
   margin: 0;
@@ -1067,6 +1101,87 @@ input[type="password"]:focus,
 }
 .plan_type p {
   color: #8492a6;
+}
+.plan_price {
+  position: relative;
+  padding-bottom: 50px;
+}
+.plan_price h2 {
+  font-size: 6rem;
+  line-height: 6rem;
+  margin: 0;
+  font-weight: 300;
+  position: relative;
+  display: inline-block;
+}
+.plan_price h2:before {
+  content: '$';
+  color: #8492a6;
+  font-size: 2rem;
+  position: absolute;
+  top: 0px;
+  left: -23px;
+}
+.plan_price small {
+  color: #8492a6;
+  display: block;
+}
+.plan_features ul {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  list-style: none;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.plan_features ul:before,
+.plan_features ul:after {
+  content: '';
+  display: table;
+}
+.plan_features ul:after {
+  clear: both;
+}
+.plan_features ul li {
+  text-align: center;
+  font-size: 1rem;
+  border-top: 1px solid #e1e5ed;
+  padding: 18px 15px;
+  color: #61747e;
+}
+.plan_features ul li i {
+  margin-left: 5px;
+  color: #9eacb4;
+  cursor: pointer;
+}
+.plan_features ul li i:hover {
+  color: #2ab3f7;
+}
+.plan-action {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 33.33333333333333%;
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 10px 10px;
+}
+.plan-action:before,
+.plan-action:after {
+  content: '';
+  display: table;
+}
+.plan-action:after {
+  clear: both;
+}
+.plan-actions {
+  margin-top: 20px;
 }
 .no-account {
   position: absolute;
@@ -1133,7 +1248,7 @@ input[type="password"]:focus,
   font-weight: 100;
 }
 #plans .module-head p {
-  color: #fff;
+  color: #bfc7d4;
 }
 @media screen and (max-width: 1200px) {
   .view-left {

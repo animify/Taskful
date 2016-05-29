@@ -49,6 +49,25 @@
 .dropdown ul li.li-red a:hover {
   color: cred;
 }
+.drop-element {
+  background-color: #fff;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 3px;
+  border: 1px solid bordergrey;
+}
+.drop-element.drop-open-transitionend {
+  display: block;
+}
+.drop-element.drop-after-open {
+  opacity: 1;
+}
+.dropPro,
+.dropTurbo {
+  width: 280px;
+  margin-left: -6px;
+}
 .info_name a {
   padding: 5px 18px 0 18px !important;
 }

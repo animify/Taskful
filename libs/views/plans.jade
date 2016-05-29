@@ -4,8 +4,12 @@ html(lang="en")
 		title Swash | Login
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		script(src='https://code.jquery.com/jquery-2.2.2.min.js')
+		script(src='../js/tether.min.js')
+		script(src='../js/drop.min.js')
 		link(rel="stylesheet", type="text/css", href="../css/static.css")
+		link(rel="stylesheet", type="text/css", href="../css/drop-theme-arrows.css")
 		link(rel="stylesheet", type="text/css", href="../fonts/font.css")
+		link(rel="stylesheet", type="text/css", href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css")
 	body#plans
 		.module-head
 			.container
@@ -19,29 +23,91 @@ html(lang="en")
 			.container
 				.plan
 					.plan_type
-						h6 Free
+						h6 Hobby
 						p Always will be free!
 					.plan_price
-						sup $
 						h2 0
 						small per month
+					.plan_features
+						ul
+							li Up to 2 teams
+							li Up to 6 organisation members
+							li Up to 5 projects
+							li Unlimited tasks
+							li Unlimited posts
+							li Up to 3GB of storage
 				.plan
+					.plan_type
+						h6.color-green Pro
+						p Power up
+					.plan_price
+						h2 14
+						small per month
+					.plan_features
+						ul
+							li Unlimited teams
+							li Up to 10 organisation members #[i.ion-help-circled.feature-drop_pro]
+							li Unlimited projects
+							li Unlimited tasks
+							li Unlimited posts
+							li Up to 10GB of storage
+							li Add reviewers & clients
+							li Password protect projects
 				.plan
+					.plan_type
+						h6.color-yellow Turbo
+						p No limits
+					.plan_price
+						h2 32
+						small per month
+					.plan_features
+						ul
+							li Unlimited teams
+							li Up to 16 organisation members #[i.ion-help-circled.feature-drop_turbo]
+							li Unlimited projects
+							li Unlimited tasks
+							li Unlimited posts
+							li Up to 40GB of storage
+							li Add reviewers & clients
+							li Password protect projects
+							li User roles
+							li Client proposals
+			.container.plan-actions
+				.plan-action.current-plan
+					a.disabled-default.btn-block Current Plan
+				.plan-action.upgrade
+					a.btn.btn-green.btn-block Upgrade
+				.plan-action.upgrade
+					a.btn.btn-green.btn-block Upgrade
 
 script.
 	$('html, .dropdown li').bind("click", function(){
 		$('.dropdown').hide();
-		animateCommentClose();
 	});
-
 	$('.dropdown, .dropdown-toggle').bind("click", function(e){
 		e.stopPropagation();
 	});
-
 	$('.dropdown-toggle').bind("click", function(e){
 		if ($('.dropdown').length) {
 			$('.dropdown').hide();
 		}
 		$(this).siblings('.dropdown').toggle();
-
+	});
+	
+	var dropPro;
+	dropPro = new Drop({
+		target: document.querySelector('.feature-drop_pro'),
+		content: 'From within the Pro plan, you can add additional members to your organisation for $1.4/user per month. This will also add 2GB per user to your storage allowance.',
+		classes: 'dropPro',
+		position: 'left top',
+		openOn: 'hover'
+	});
+	
+	var dropTurbo;
+	dropTurbo = new Drop({
+		target: document.querySelector('.feature-drop_turbo'),
+		content: 'From within the Turbo plan, you can add additional members to your organisation for $2/user per month. This will also add 3GB per user to your storage allowance.',
+		classes: 'dropPro',
+		position: 'left top',
+		openOn: 'hover'
 	});
