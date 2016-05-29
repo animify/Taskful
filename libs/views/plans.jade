@@ -52,7 +52,8 @@ html(lang="en")
 							li Unlimited posts
 							li Up to 10GB of storage
 							li Add reviewers & clients
-							li Password protect projects
+							li Private projects
+							li Password protected projects
 				.plan
 					.plan_type
 						h6.color-yellow Turbo
@@ -69,8 +70,9 @@ html(lang="en")
 							li Unlimited posts
 							li Up to 40GB of storage
 							li Add reviewers & clients
-							li Password protect projects
-							li User roles
+							li Private projects
+							li Password protected projects
+							li Team user roles
 							li Client proposals
 			.container.plan-actions
 				.plan-action.current-plan
@@ -79,7 +81,59 @@ html(lang="en")
 					a.btn.btn-green.btn-block Upgrade
 				.plan-action.upgrade
 					a.btn.btn-green.btn-block Upgrade
-
+		.module-sub.module-includes
+			.container
+				h3 What does every plan include?
+				.includes
+					.include
+						h4 Team support
+						p Invite members and collaborate efficiently with your team.
+					.include
+						h4 A single organisation
+						p Once you sign up with Taskful, you can create an organisation to invite members.
+					.include
+						h4 Secure storage
+						p Security is key when it comes to personal files, and you get 3GB of it for free.
+					.include
+						h4 Unlimited posts
+						p All plans come with unlimited posts & snippets, so that you can easily share info with your team.
+					.include
+						h4 Unlimited tasks
+						p Easily create, assign and complete as many tasks as you like with your team to get your project on course.
+					.include
+						h4 Help
+						p Get assistance whilst getting set up with Taskful. Hit us up with a #[a message].
+						
+		.module-sub
+			.container
+				h3 Frequently asked questions
+				.faqs-list
+					.faqs
+						.faq
+							h4 How can I upgrade my plan?
+							p You can easily upgrade your plan above, simply by hitting 'Upgrade' below the plan on choice. Once you've done that, you'll be redirected to checkout where you can add more users if needed, then finally pay with your preferred payment method.
+						.faq
+							h4 What forms of payment do you accept?
+							p We accept Visa, MasterCard, American Express, and Discover cards. More methods are to come soon.
+						.faq
+							h4 Is my payment information secure?
+							p All payments are securely processed by industry leader, Stripe. Your card information never even lands on our servers.
+						.faq
+							h4 When can I upgrade or downgrade?
+							p You can upgrade or downgrade at any time. If you upgrade, your previous subscription, if not a Hobby plan, will be prorated onto your next renewal. If you downgrade at any time, you will recieve credit on your next renewal.
+					.faqs
+						.faq
+							h4 What kind of support is included in each plan?
+							p We offer account-level email support for each user to help out with getting settled in, billing or service quality issues.
+						.faq
+							h4 When will I be billed?
+							p You will be invoiced every subseqent month from the day you upgraded your account. For example, if you upgraded on the 16th of February, you'll be billed again on the 16th of March.
+						.faq
+							h4 What happens if I miss my payment?
+							p You'll be reminded 7 days after your invoice date if you haven't paid. If you still haven't paid 20 days after the invoice date, you will be downgraded to the Hobby plan. Note that some of your data may be deleted if this is the case.
+						.faq
+							h4 Do you offer academic pricing?
+							p We're happy to work with student groups using Taskful. #[a Lets talk!]
 script.
 	$('html, .dropdown li').bind("click", function(){
 		$('.dropdown').hide();
