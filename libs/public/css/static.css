@@ -651,6 +651,210 @@ input[type="password"]:focus,
 .btn + .btn {
   margin-left: 20px;
 }
+.dropdown {
+  min-width: 220px;
+  max-width: 400px;
+  display: none;
+  position: absolute;
+  left: 0;
+  margin-top: 2px;
+  background-color: #fff;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #eaedf5;
+  padding: 10px 0;
+  z-index: 900;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(41,55,69,0.1);
+  box-shadow: 0 1px 2px 0 rgba(41,55,69,0.1);
+}
+.dropdown-longer {
+  max-width: 260px;
+  width: 100%;
+}
+.dropdown-project {
+  left: auto;
+  margin-left: -208px;
+}
+.dropdown-right {
+  right: 25px;
+  left: auto;
+}
+.dropdown ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: block;
+}
+.dropdown ul li.split {
+  height: 1px;
+  margin: 9px 0 12px 0;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  background-color: #f1f1f1;
+}
+.dropdown ul li.split:before,
+.dropdown ul li.split:after {
+  content: '';
+  display: table;
+}
+.dropdown ul li.split:after {
+  clear: both;
+}
+.dropdown ul li a {
+  display: block;
+  padding: 5px 18px;
+  color: #3b4350;
+  cursor: pointer;
+}
+.dropdown ul li a:hover {
+  color: #2ab3f7;
+}
+.dropdown ul li.li-yellow a:hover {
+  color: #f8b700;
+}
+.dropdown ul li.li-red a:hover {
+  color: #ff004c;
+}
+.info_name a {
+  padding: 5px 18px 0 18px !important;
+}
+.info_email {
+  color: #8492a6;
+  font-size: 0.83rem;
+  padding: 0 18px 3px 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.nav-navbar {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 26px 0;
+}
+.nav-navbar:before,
+.nav-navbar:after {
+  content: '';
+  display: table;
+}
+.nav-navbar:after {
+  clear: both;
+}
+.nav-navbar .dropdown {
+  position: fixed;
+  left: auto;
+  right: auto;
+  margin-left: -108px;
+  margin-top: 10px;
+}
+.nav-left,
+.nav-right,
+.nav-logo,
+.nav-links {
+  display: inline-block;
+  vertical-align: top;
+}
+.nav-logo {
+  margin-right: 22px;
+}
+.nav-logo img {
+  max-height: 22px;
+}
+.nav-links a {
+  color: #414d5d;
+  opacity: 0.68;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=68)";
+  filter: alpha(opacity=68);
+  -webkit-transition: all 0.14s ease;
+  -moz-transition: all 0.14s ease;
+  -o-transition: all 0.14s ease;
+  -ms-transition: all 0.14s ease;
+  transition: all 0.14s ease;
+}
+.nav-links a:hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.nav-links a + a {
+  margin-left: 28px;
+}
+.nav-right {
+  float: right;
+}
+.inverse .nav-links a {
+  color: #fff;
+}
+.inverse .user-i a {
+  color: #fff;
+}
+.user-i {
+  cursor: pointer;
+  opacity: 0.68;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=68)";
+  filter: alpha(opacity=68);
+  -webkit-transition: all 0.14s ease;
+  -moz-transition: all 0.14s ease;
+  -o-transition: all 0.14s ease;
+  -ms-transition: all 0.14s ease;
+  transition: all 0.14s ease;
+}
+.user-i:hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.user-i a {
+  color: #414d5d;
+}
+.user-preview {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 11px 0 0;
+  background-color: #0adeab;
+}
+.user-preview a {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 24px;
+}
+.container {
+  *zoom: 1;
+  width: auto;
+  max-width: 1100px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.container:before,
+.container:after {
+  content: '';
+  display: table;
+}
+.container:after {
+  clear: both;
+}
 .view {
   *zoom: 1;
   float: left;
@@ -752,6 +956,118 @@ input[type="password"]:focus,
 .fixed-logo img {
   max-height: 25px;
 }
+.module-head {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.module-head:before,
+.module-head:after {
+  content: '';
+  display: table;
+}
+.module-head:after {
+  clear: both;
+}
+.module-head_center {
+  text-align: center;
+}
+.module-head_title {
+  padding: 44px 0 98px 0;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.module-head_title:before,
+.module-head_title:after {
+  content: '';
+  display: table;
+}
+.module-head_title:after {
+  clear: both;
+}
+.module-head_title h3 {
+  font-size: 2.7rem;
+  margin: 0;
+}
+.module-head_title p {
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+}
+.module-plans {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  margin-top: -50px;
+}
+.module-plans:before,
+.module-plans:after {
+  content: '';
+  display: table;
+}
+.module-plans:after {
+  clear: both;
+}
+.plan {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 33.33333333333333%;
+  margin-left: 0%;
+  margin-right: 0%;
+  border: 1px solid #e1e5ed;
+  border-left: 0;
+  border-right: 0;
+  background-color: #fff;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+.plan:before,
+.plan:after {
+  content: '';
+  display: table;
+}
+.plan:after {
+  clear: both;
+}
+.plan + .plan {
+  border-left: 1px solid #e1e5ed;
+}
+.plan:first-of-type {
+  -webkit-border-radius: 6px 0 0 6px;
+  border-radius: 6px 0 0 6px;
+  border-left: 1px solid #e1e5ed;
+}
+.plan:last-of-type {
+  -webkit-border-radius: 0 6px 6px 0;
+  border-radius: 0 6px 6px 0;
+  border-right: 1px solid #e1e5ed;
+}
+.plan_type {
+  padding: 32px 0 20px 0;
+}
+.plan_type h6 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.plan_type p {
+  color: #8492a6;
+}
 .no-account {
   position: absolute;
   top: 25px;
@@ -808,6 +1124,16 @@ input[type="password"]:focus,
 }
 .tc-text a {
   color: #fff !important;
+}
+#plans .module-head {
+  background-color: #272e3a;
+}
+#plans .module-head h3 {
+  color: #fff;
+  font-weight: 100;
+}
+#plans .module-head p {
+  color: #fff;
 }
 @media screen and (max-width: 1200px) {
   .view-left {

@@ -1,0 +1,28 @@
+.nav-inner
+	.nav-left
+		.nav-logo
+			img(src="/images/taskful.png", alt="")
+		.nav-links
+			a(href="/projects") Features
+			a(href="/teams") Pricing
+			a(href="/tasks") Docs
+	.nav-right
+		.nav-user
+			if (user)
+				.user-i.dropdown-toggle 
+					.user-preview
+						a #{user.username.substr(0,2)}
+					a #{user.fullname}
+				.dropdown.dropdown-right.dropdown-longer
+					ul
+						li.info_name #[a(href="/profile") #{user.fullname}]
+						li.info_email #{user.email}
+						li.split
+						li #[a(href="/people") People]
+						li #[a Invites]
+						li #[a(href="/profile") My account]
+						li.split
+						li.li-red #[a(href="/logout") Sign out]
+			if (!user)
+				a(href="/login") Login
+				a(href="/register") Register

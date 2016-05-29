@@ -62,7 +62,9 @@ module.exports = {
 	},
 	addedcard: function(req, res,	options) {
 
-		var sendCardAdded = transporter.templateSender(new EmailTemplate(libs + 'templates/card_added'), {
+		var sendCardAdded = transporter.templateSender(new EmailTemplate(libs + 'templates/card_added', {juiceOptions: {
+			preserveImportant: true
+		}}), {
 			from: '"Taskful" <admin@taskful.io>',
 		});
 

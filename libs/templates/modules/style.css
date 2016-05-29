@@ -123,3 +123,22 @@ small a {
 .card-item:hover .card-item_options i {
   color: #2ab3f7;
 }
+@media screen and (max-width: 600px) {
+  .email h2 {
+    font-size: 30px;
+  }
+  .card-item_brand {
+    margin-right: 0;
+  }
+  .card-item_brand img {
+    max-width: 42px !important;
+  }
+  .card-item p + p {
+    margin-left: 15px;
+  }
+  .card-item h4 {
+    display: block;
+    text-align: center;
+    padding: 5px 0;
+  }
+}

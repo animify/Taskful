@@ -23,6 +23,10 @@ router.get('/logout', function(req, res) {
 		res.redirect('/');
 });
 
+router.get('/plans', function(req, res) {
+	res.render('plans', {user: req.user});
+});
+
 router.get('/login', function(req, res) {
 	res.render('login');
 });

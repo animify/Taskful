@@ -4,6 +4,11 @@
 @import 'variables.styl'
 @import 'ui.styl'
 @import 'buttons.styl'
+@import 'dropdown.styl'
+@import 'static/nav.styl'
+
+.container
+	center(1100px, 30px)
 
 .view
 	span(1/1)
@@ -37,6 +42,50 @@
 	img
 		max-height 25px
 
+.module-head
+	span(1/1)
+	&_center
+		text-align center
+	&_title
+		padding 44px 0 98px 0
+		span(1/1)
+		h3
+			font-size 2.7rem
+			margin 0
+		p
+			opacity 0.8
+
+.module-plans
+	span(1/1)
+	margin-top -50px
+
+.plan
+	span(1/3)
+	border 1px solid bordergrey
+	border-left 0
+	border-right 0
+	background-color #fff
+	padding 10px
+	display block
+	text-align center
+	& + .plan
+		border-left 1px solid bordergrey
+	&:first-of-type
+		border-radius 6px 0 0 6px
+		border-left 1px solid bordergrey
+	&:last-of-type
+		border-radius 0 6px 6px 0
+		border-right 1px solid bordergrey
+	&_type
+		padding 32px 0 20px 0
+		h6
+			margin 0
+			font-size 1.8rem
+		p
+			color cgr
+	&_price
+		h2
+
 .no-account
 	absolute top 25px right 25px
 	border-radius 3px
@@ -67,6 +116,16 @@
 	color lighten(cprimary, 80%)
 	a
 		color #fff !important
+
+#plans
+	.module-head
+		background-color #272E3A
+		h3
+			color #fff
+			font-weight 100
+		p
+			color #fff
+
 
 @media screen and (max-width: 1200px)
 	.view-left

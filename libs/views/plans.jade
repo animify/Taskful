@@ -1,0 +1,47 @@
+doctype html
+html(lang="en")
+	head
+		title Swash | Login
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		script(src='https://code.jquery.com/jquery-2.2.2.min.js')
+		link(rel="stylesheet", type="text/css", href="../css/static.css")
+		link(rel="stylesheet", type="text/css", href="../fonts/font.css")
+	body#plans
+		.module-head
+			.container
+				nav.nav-navbar.inverse
+					include static/header.jade
+				.module-head_title
+					.module-head_center
+						h3 Pricing plans
+						p Flexible plans for you & your team. No contracts.
+		.module-plans
+			.container
+				.plan
+					.plan_type
+						h6 Free
+						p Always will be free!
+					.plan_price
+						sup $
+						h2 0
+						small per month
+				.plan
+				.plan
+
+script.
+	$('html, .dropdown li').bind("click", function(){
+		$('.dropdown').hide();
+		animateCommentClose();
+	});
+
+	$('.dropdown, .dropdown-toggle').bind("click", function(e){
+		e.stopPropagation();
+	});
+
+	$('.dropdown-toggle').bind("click", function(e){
+		if ($('.dropdown').length) {
+			$('.dropdown').hide();
+		}
+		$(this).siblings('.dropdown').toggle();
+
+	});
