@@ -104,10 +104,7 @@ var people = require('./routes/people');
 var payments = require('./routes/payments');
 var stripehook = require('./routes/stripehook');
 var account = require('./routes/account');
-<<<<<<< HEAD
 var upload = require('./routes/upload');
-=======
->>>>>>> 47a638092d0aacf371890615bbf1816284b51564
 var apiTasks = require('./routes/api_tasks');
 var apiTeams = require('./routes/api_teams');
 var apiProjects = require('./routes/api_projects');
@@ -122,10 +119,7 @@ app.post('/login', passport.authenticate('local'), function(req, res) {
 
 
 app.use('/api/users', users);
-<<<<<<< HEAD
 app.use('/files', authcontroller.isAuthenticatedLocal, upload);
-=======
->>>>>>> 47a638092d0aacf371890615bbf1816284b51564
 app.use('/account', authcontroller.isAuthenticatedLocal, account);
 app.use('/teams', authcontroller.isAuthenticatedLocal, teams);
 app.use('/projects', authcontroller.isAuthenticatedLocal, projects);

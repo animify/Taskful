@@ -834,17 +834,13 @@ input[type="password"]:focus,
   -o-transition: all 0.14s ease;
   -ms-transition: all 0.14s ease;
   transition: all 0.14s ease;
-<<<<<<< HEAD
   position: relative;
-=======
->>>>>>> 47a638092d0aacf371890615bbf1816284b51564
 }
 .nav-links a.active {
   opacity: 1;
   -ms-filter: none;
   filter: none;
 }
-<<<<<<< HEAD
 .nav-links a.active:after {
   position: absolute;
   bottom: -7px;
@@ -853,8 +849,6 @@ input[type="password"]:focus,
   border-bottom: 2px solid #fff;
   content: ' ';
 }
-=======
->>>>>>> 47a638092d0aacf371890615bbf1816284b51564
 .nav-links a:hover {
   opacity: 1;
   -ms-filter: none;
@@ -872,7 +866,6 @@ input[type="password"]:focus,
 .inverse .user-i a {
   color: #fff;
 }
-<<<<<<< HEAD
 .enter_links a {
   color: #fff;
   -webkit-transition: 0.14s ease opacity;
@@ -897,8 +890,6 @@ input[type="password"]:focus,
   border-radius: 3px;
   margin-left: 28px;
 }
-=======
->>>>>>> 47a638092d0aacf371890615bbf1816284b51564
 .user-i {
   cursor: pointer;
 }
@@ -923,7 +914,6 @@ input[type="password"]:focus,
   font-size: 0.8rem;
   line-height: 24px;
 }
-<<<<<<< HEAD
 .sub-footer {
   border-top: 1px solid #e1e5ed;
   *zoom: 1;
@@ -1090,8 +1080,6 @@ input[type="password"]:focus,
 .main-footer_subscribe .btn-join:hover {
   color: #2ab3f7;
 }
-=======
->>>>>>> 47a638092d0aacf371890615bbf1816284b51564
 .container {
   *zoom: 1;
   width: auto;
