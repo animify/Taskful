@@ -133,6 +133,7 @@ html(lang="en")
 							p You'll be reminded 7 days after your invoice date if you haven't paid. If you still haven't paid 20 days after the invoice date, you will be downgraded to the Hobby plan. Note that some of your data may be deleted if this is the case.
 						.faq
 							h4 Do you offer academic pricing?
+<<<<<<< HEAD
 							p We're happy to work with student groups using Taskful. Send us a #[a message] for a chat!
 														
 		footer.main-footer
@@ -165,6 +166,11 @@ html(lang="en")
 						a.btn-join Join
 							p We're happy to work with student groups using Taskful. #[a Lets talk!]
 							
+=======
+							p We're happy to work with student groups using Taskful. #[a Lets talk!]
+							
+		footer.main-footer
+>>>>>>> 47a638092d0aacf371890615bbf1816284b51564
 		footer.sub-footer
 			.container
 				.sub-footer-contain
@@ -174,6 +180,7 @@ html(lang="en")
 						span taskful.io
 					.sub-footer_right
 						span #[a Privacy] & #[a Terms]
+<<<<<<< HEAD
 		script.
 			$('html, .dropdown li').bind("click", function(){
 				$('.dropdown').hide();
@@ -205,3 +212,36 @@ html(lang="en")
 				position: 'left top',
 				openOn: 'hover'
 			});
+=======
+script.
+	$('html, .dropdown li').bind("click", function(){
+		$('.dropdown').hide();
+	});
+	$('.dropdown, .dropdown-toggle').bind("click", function(e){
+		e.stopPropagation();
+	});
+	$('.dropdown-toggle').bind("click", function(e){
+		if ($('.dropdown').length) {
+			$('.dropdown').hide();
+		}
+		$(this).siblings('.dropdown').toggle();
+	});
+	
+	var dropPro;
+	dropPro = new Drop({
+		target: document.querySelector('.feature-drop_pro'),
+		content: 'From within the Pro plan, you can add additional members to your organisation for $1.4/user per month. This will also add 2GB per user to your storage allowance.',
+		classes: 'dropPro',
+		position: 'left top',
+		openOn: 'hover'
+	});
+	
+	var dropTurbo;
+	dropTurbo = new Drop({
+		target: document.querySelector('.feature-drop_turbo'),
+		content: 'From within the Turbo plan, you can add additional members to your organisation for $2/user per month. This will also add 3GB per user to your storage allowance.',
+		classes: 'dropPro',
+		position: 'left top',
+		openOn: 'hover'
+	});
+>>>>>>> 47a638092d0aacf371890615bbf1816284b51564
