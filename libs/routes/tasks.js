@@ -57,6 +57,15 @@ router.get('/:id', function(req, res) {
 
 router.post('/:id/:action', function(req, res) {
 	switch(req.params.action) {
+		case 'stories':
+			storyController.create('comment', req, res, function(err, story) {
+				if (err) {
+					res.statusCode = err;
+					return res.json({ error: err, message: story });
+				}
+				res.json({ status: 'OK', story : story });
+			});
+		break;
 		case 'archive':
 			taskController.archive(req, res, function(err, task) {
 				if (err) {
@@ -89,16 +98,6 @@ router.post('/:id/:action', function(req, res) {
 	}
 
 
-});
-
-router.post('/:id/stories', function(req, res) {
-	storyController.create('comment', req, res, function(err, story) {
-		if (err) {
-			res.statusCode = err;
-			return res.json({ error: err, message: story });
-		}
-		res.json({ status: 'OK', story : story });
-	});
 });
 
 router.put('/:id', passport.authenticate('bearer', { session: false }), function (req, res){

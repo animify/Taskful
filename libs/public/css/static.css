@@ -1051,6 +1051,27 @@ input[type="password"]:focus,
 }
 .main-footer_subscribe .disabled-default {
   margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.83rem;
+  float: right;
+}
+.main-footer_subscribe .field {
+  position: relative;
+}
+.main-footer_subscribe .field input {
+  padding: 0 4rem 0 1rem;
+}
+.main-footer_subscribe .btn-join {
+  position: absolute;
+  right: 20px;
+  top: 12px;
+  font-size: 0.93rem;
+  cursor: pointer;
+  color: #9da8b8;
+}
+.main-footer_subscribe .btn-join:hover {
+  color: #2ab3f7;
 }
 .container {
   *zoom: 1;

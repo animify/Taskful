@@ -8,7 +8,6 @@ block content
 					ul.tabs-selection.block-left
 						li.active(data-tab="account") Account
 						li(data-tab="billing") Billing
-						li(data-tab="plans") Plans
 						li(data-tab="integrations") Integrations
 						li(data-tab="security") Security
 					.block-divider
@@ -39,12 +38,12 @@ block content
 								.section-head
 									h3 Your credit
 									h3 $0.00
-								.btn.btn-block Add credit
+								a.btn.btn-block Add credit
 							.section.section-split
 								.section-head
 									h3 Plan
 									h3 FREE
-								.btn.btn-block Upgrade account
+								a.btn.btn-block(href="/plans") Upgrade account
 							.section
 								.section-head
 									h3 Payment methods
@@ -87,9 +86,6 @@ block content
 													i.ion-arrow-right-b
 									else
 										h4 No cards in your account just yet
-						.tab-selection.tab-selection_plans
-							h2 Plans
-							p Upgrade or downgrade at any time
 						.tab-selection.tab-selection_integrations
 							h2 Integrations
 							p Add & manage 3rd party integrations

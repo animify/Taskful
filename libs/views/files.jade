@@ -1,0 +1,32 @@
+extends layout
+
+block head
+	link(rel="stylesheet", type="text/css", href="../css/code.css")
+	script(src='//codemirror.net/lib/codemirror.js')
+	script(src='//codemirror.net/addon/display/placeholder.js')
+
+block content
+	.wrapper
+		.contents.center
+			.content
+				form#your_form
+					input(type="file", name="files" multiple)
+				a#n.btn Save
+				
+block footer
+	script.
+		$('#n').bind('click', function(e) {
+				var formData = new FormData($('#your_form')[0]);
+				console.log('formdata', formData)
+				$.ajax({
+						url : '/files/upload',
+						type: 'POST',
+						contentType: 'multipart/form-data',
+						data: formData,
+						success: function (msg) {
+							 console.log(msg);
+						},
+						contentType: false,
+						processData: false
+				});
+		});

@@ -165,9 +165,7 @@ block footer
 			
 			$.post('/tasks/' + _getid + '/' + _action, function(data) {
 				if (!$('#tasks').hasClass('status_archived')) { 
-					$('[data-task=' + _getid + ']').slideUp('fast', function() {
-						$(this).remove();
-					});
+					$('[data-task=' + _getid + ']').slideUp('fast');
 				}
 			});
 			$(this).toggleClass('selected');
@@ -188,13 +186,11 @@ block footer
 			
 			$.post('/tasks/' + _getid + '/' + _action, function(data) {
 				if (!$('#tasks').hasClass('status_archived')) { 
-					$('[data-task=' + _getid + ']').slideUp('fast', function() {	
-						$(this).remove();
-					});
+					$('[data-task=' + _getid + ']').slideUp('fast');
 					if (_action == 'open') {
-						$('.status_open .tasks-list').append(taskElement);
+						$('.status_open .tasks-list').find('[data-task=' + _getid + ']').slideDown('fast');
 					} else if (_action == 'complete') {
-						$('.status_completed .tasks-list').append(taskElement);
+						$('.status_completed .tasks-list').find('[data-task=' + _getid + ']').slideDown('fast');
 					}
 				}
 			});
