@@ -552,6 +552,13 @@ input[type="password"]:focus,
 .group-2:nth-child(2n+1) {
   clear: both;
 }
+#dropzone {
+  background-color: #000;
+  height: 300px;
+}
+#dropzone.hover {
+  background-color: #f00;
+}
 nav {
   min-width: 1220px;
   background-color: #fff;

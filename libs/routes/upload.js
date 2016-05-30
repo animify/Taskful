@@ -48,8 +48,8 @@ router.post('/upload', function(req, res) {
 	var form = new multiparty.Form();
 
 	form.parse(req, function(err, fields, files) {
-
-		async.forEachOf(files['files'], function (file, key, callback) {
+		async.forEachOf(files['null'], function (file, key, callback) {
+			console.log(file)
 			var params = {
 				localFile: file.path,
 				s3Params: {

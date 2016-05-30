@@ -172,34 +172,34 @@ html(lang="en")
 						span taskful.io
 					.sub-footer_right
 						span #[a Privacy] & #[a Terms]
-script.
-	$('html, .dropdown li').bind("click", function(){
-		$('.dropdown').hide();
-	});
-	$('.dropdown, .dropdown-toggle').bind("click", function(e){
-		e.stopPropagation();
-	});
-	$('.dropdown-toggle').bind("click", function(e){
-		if ($('.dropdown').length) {
-			$('.dropdown').hide();
-		}
-		$(this).siblings('.dropdown').toggle();
-	});
-	
-	var dropPro;
-	dropPro = new Drop({
-		target: document.querySelector('.feature-drop_pro'),
-		content: 'From within the Pro plan, you can add additional members to your organisation for $1.4/user per month. This will also add 2GB per user to your storage allowance.',
-		classes: 'dropPro',
-		position: 'left top',
-		openOn: 'hover'
-	});
-	
-	var dropTurbo;
-	dropTurbo = new Drop({
-		target: document.querySelector('.feature-drop_turbo'),
-		content: 'From within the Turbo plan, you can add additional members to your organisation for $2/user per month. This will also add 3GB per user to your storage allowance.',
-		classes: 'dropPro',
-		position: 'left top',
-		openOn: 'hover'
-	});
+		script.
+			$('html, .dropdown li').bind("click", function(){
+				$('.dropdown').hide();
+			});
+			$('.dropdown, .dropdown-toggle').bind("click", function(e){
+				e.stopPropagation();
+			});
+			$('.dropdown-toggle').bind("click", function(e){
+				if ($('.dropdown').length) {
+					$('.dropdown').hide();
+				}
+				$(this).siblings('.dropdown').toggle();
+			});
+			
+			var dropPro;
+			dropPro = new Drop({
+				target: document.querySelector('.feature-drop_pro'),
+				content: 'From within the Pro plan, you can add additional members to your organisation for $1.4/user per month. This will also add 2GB per user to your storage allowance.',
+				classes: 'dropPro',
+				position: 'left top',
+				openOn: 'hover'
+			});
+			
+			var dropTurbo;
+			dropTurbo = new Drop({
+				target: document.querySelector('.feature-drop_turbo'),
+				content: 'From within the Turbo plan, you can add additional members to your organisation for $2/user per month. This will also add 3GB per user to your storage allowance.',
+				classes: 'dropPro',
+				position: 'left top',
+				openOn: 'hover'
+			});

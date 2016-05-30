@@ -10,10 +10,12 @@ block content
 		.contents.center
 			.content
 				form#your_form
-					input(type="file", name="files" multiple)
+					#dropzone
+						input(type="file", multiple="multiple", name="files")
 				a#n.btn Save
 				
 block footer
+	script(src='../js/uploader.js')
 	script.
 		$('#n').bind('click', function(e) {
 				var formData = new FormData($('#your_form')[0]);
