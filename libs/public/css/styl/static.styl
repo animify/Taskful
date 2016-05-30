@@ -205,6 +205,28 @@
 		p
 			color #fff
 
+.sub-footer
+	border-top 1px solid bordergrey
+	span(1/1)
+	font-size 0.83rem
+	color lighten(cgr, 25%)
+	text-align center
+	&-contain
+		span(1/1)
+		padding 22px 0
+		& > *
+			display inline-block
+			vertical-align top
+	&_left
+		float left
+	&_right
+		float right
+		a
+			color cgr
+			cursor pointer
+			&:hover
+				color cprimary
+
 @media screen and (max-width: 1200px)
 	.view-left
 		col(1/2)
