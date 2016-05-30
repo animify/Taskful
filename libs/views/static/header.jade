@@ -24,5 +24,7 @@
 						li.split
 						li.li-red #[a(href="/logout") Sign out]
 			if (!user)
-				a(href="/login") Login
-				a(href="/register") Register
+				.enter_links
+					a.link-register(href="/register") Sign up
+					a.link-login(href="/login") Login
+					

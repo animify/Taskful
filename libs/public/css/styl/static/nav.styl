@@ -21,8 +21,14 @@
 			color cgrey
 			opacity 0.7
 			transition all 0.14s ease
+			position relative
 			&.active
 				opacity 1
+				&:after
+					absolute bottom -7px left
+					width 100%
+					border-bottom 2px solid #fff
+					content ' '
 			&:hover
 				opacity 1
 			& + a
@@ -36,6 +42,20 @@
 	.user-i
 		a
 			color #fff
+
+.enter_links
+	a
+		color #fff
+		transition 0.14s ease opacity
+		opacity 0.9
+		&:hover
+			opacity 1
+	.link-login
+		padding 8px 16px
+		background-color #fff
+		color cgrey
+		border-radius 3px
+		margin-left 28px
 
 .user-i
 	cursor pointer
@@ -57,3 +77,57 @@
 		font-weight 700
 		font-size 0.8rem
 		line-height 24px
+
+.sub-footer
+	border-top 1px solid bordergrey
+	span(1/1)
+	font-size 0.83rem
+	color lighten(cgr, 25%)
+	text-align center
+	&-contain
+		span(1/1)
+		padding 22px 0
+		& > *
+			display inline-block
+			vertical-align top
+	&_left
+		float left
+	&_right
+		float right
+		a
+			color cgr
+			cursor pointer
+			&:hover
+				color cprimary
+
+.main-footer
+	span(1/1)
+	padding 20px 0
+	margin-bottom 52px
+	&_list
+		col(4/7)
+		&-col
+			list-style none
+			padding 0
+			margin 0
+			font-size 0
+			display inline-block
+			vertical-align top
+			& + .main-footer_list-col
+				margin-left 10%
+			li
+				font-size 1rem
+				padding 4px 0
+				a
+					color lighten(cgr, 20%)
+					cursor pointer
+					&:hover
+						color cprimary
+				&.footer-header
+					color cgrey
+					font-weight 600
+					font-size 1.1rem
+	&_subscribe
+		col(3/7)
+		.disabled-default
+			margin-bottom 20px
