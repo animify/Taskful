@@ -1592,6 +1592,62 @@ input[type="password"]:focus,
 #plans .module-head p {
   color: #fff;
 }
+.sub-footer {
+  border-top: 1px solid #e1e5ed;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  font-size: 0.83rem;
+  color: #a3adbc;
+  text-align: center;
+}
+.sub-footer:before,
+.sub-footer:after {
+  content: '';
+  display: table;
+}
+.sub-footer:after {
+  clear: both;
+}
+.sub-footer-contain {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 22px 0;
+}
+.sub-footer-contain:before,
+.sub-footer-contain:after {
+  content: '';
+  display: table;
+}
+.sub-footer-contain:after {
+  clear: both;
+}
+.sub-footer-contain > * {
+  display: inline-block;
+  vertical-align: top;
+}
+.sub-footer_left {
+  float: left;
+}
+.sub-footer_right {
+  float: right;
+}
+.sub-footer_right a {
+  color: #8492a6;
+  cursor: pointer;
+}
+.sub-footer_right a:hover {
+  color: #2ab3f7;
+}
 @media screen and (max-width: 1200px) {
   .view-left {
     *zoom: 1;
