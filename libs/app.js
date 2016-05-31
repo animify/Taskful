@@ -3,13 +3,24 @@ var fs = require('fs');
 var https = require('https');
 var express = require('express');
 var app = express();
-var options = {
-	 key  : fs.readFileSync('server.key'),
-	 cert : fs.readFileSync('server.crt')
-};
 
-var server = https.Server(options, app).listen(3000, function () {
-	 console.log('Started!');
+var db = require(libs + 'db/mongoose');
+
+var config = require('./config');
+var log = require('./log')(module);
+var debug = require('debug')('restapi');
+
+var options = {
+	 key  : fs.readFileSync('cert/taskful_io.key'),
+	 cert : fs.readFileSync('cert/taskful_io.crt'),
+	 ciphers: 'ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES256-SHA384',
+		honorCipherOrder: true,
+	 secureProtocol: 'TLSv1_2_method'
+};
+app.set('port', process.env.PORT || config.get('port') || 80);
+
+var server = https.Server(options, app).listen(app.get('port'), function () {
+	 console.log('Taskful started on', app.get('port'));
 });
 var socketio = require('socket.io').listen(server);
 global.socketIO = socketio;
@@ -30,18 +41,10 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var validator = require('express-validator');
 
-var db = require(libs + 'db/mongoose');
-
-var config = require('./config');
-var log = require('./log')(module);
-var debug = require('debug')('restapi');
-
 var authcontroller = require(libs + 'auth/auth');
 var oauth2 = require('./auth/oauth2');
 
-app.set('port', process.env.PORT || config.get('port') || 80);
 
-// http.createServer(app).listen(3001);
 reload(server, app, 300, true)
 
 app.locals.moment = require('moment');
