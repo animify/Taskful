@@ -6,7 +6,9 @@
   display: block;
   overflow: hidden;
   relative: top 15px left;
+  border: 2px solid #fff;
 }
 .status_green {
   background-color: cgreen;
+  box-shadow: 0 0 0 2px cgreen;
 }

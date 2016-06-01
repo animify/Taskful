@@ -49,7 +49,6 @@ router.get('/:id', function(req, res) {
 		Story.find({'target': task._id})
 		.populate('stories.creator', '_id username fullname')
 		.exec(function (err, stories) {
-			console.log(stories)
 			res.json({ status: 'OK', task : task, stories : stories });
 		});
 	});

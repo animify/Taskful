@@ -559,6 +559,64 @@ input[type="password"]:focus,
 #dropzone.hover {
   background-color: #f00;
 }
+.dropzone {
+  height: 100%;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+  background-color: #fff;
+  background-color: rgba(255,255,255,0.9);
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 3px dashed #e1e5ed;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.dropzone:before,
+.dropzone:after {
+  content: '';
+  display: table;
+}
+.dropzone:after {
+  clear: both;
+}
+.dropzone.hover {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  -ms-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+.dropzone h6 {
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin: 0;
+  color: #414d5d;
+  font-size: 2rem;
+}
 nav {
   min-width: 1220px;
   background-color: #fff;
@@ -2200,9 +2258,12 @@ nav {
   position: relative;
   top: 15px;
   left: 0;
+  border: 2px solid #fff;
 }
 .status_green {
   background-color: #0bcf4e;
+  -webkit-box-shadow: 0 0 0 2px #0bcf4e;
+  box-shadow: 0 0 0 2px #0bcf4e;
 }
 .tab-selection {
   display: none;

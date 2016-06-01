@@ -1,10 +1,11 @@
-if ($('#dropzone').length) {
-		var dropTarget = $('#dropzone'),
-				droparea = $('#dropzone'),
+if ($('.dropzone').length) {
+		var dropTarget = $('.dropzone'),
+				droparea = $('.dropzone'),
 				showDrag = false,
 				timeout = -1;
 
 		dropTarget.on('drop', function(e) {
+				var _getid = $('.tasks-preview-inner').data('selectedid')
 				if (e.originalEvent.dataTransfer) {
 						if (e.originalEvent.dataTransfer.files.length) {
 								e.preventDefault();
@@ -17,14 +18,13 @@ if ($('#dropzone').length) {
 										fd.append(null, file_data[i]);
 								}
 								$.ajax({
-										url: '/files/upload',
+										url: '/files/upload/' + _getid,
 										data: fd,
 										contentType: false,
 										processData: false,
 										type: 'POST',
 										success: function(data) {
 												console.log(data);
-
 										}
 								});
 
