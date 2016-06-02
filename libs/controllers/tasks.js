@@ -75,7 +75,7 @@ exports.createNew = function(req, res, hasProject, callback) {
 
 			task.save((err) => {
 				if (!err) {
-					log.info('New task created with id: %s in project', _id, hasProject);
+
 					task.populate('creator', 'username fullname', function(err) {
 						if (!err) {
 							var story = new Story({

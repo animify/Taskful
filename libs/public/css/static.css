@@ -580,6 +580,7 @@ input[type="password"]:focus,
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
+  display: none;
 }
 .dropzone:before,
 .dropzone:after {
@@ -598,6 +599,7 @@ input[type="password"]:focus,
   -o-transition: opacity 0.2s ease;
   -ms-transition: opacity 0.2s ease;
   transition: opacity 0.2s ease;
+  display: block;
 }
 .dropzone h6 {
   position: absolute;

@@ -1,6 +1,6 @@
 if ($('.dropzone').length) {
 		var dropTarget = $('.dropzone'),
-				droparea = $('.dropzone'),
+				droparea = $('.taskBody-view_task'),
 				showDrag = false,
 				timeout = -1;
 

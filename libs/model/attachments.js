@@ -13,24 +13,6 @@ var Attachments = new Schema({
 			type: String,
 			ref: 'Tasks'
 		},
-		stories: [{
-			text: {
-				type: String,
-				required: true
-			},
-			type: {
-				type: String,
-				required: true
-			},
-			creator: {
-				type: String,
-				ref: 'User'
-			},
-			created_at: {
-				type: Date,
-				default: Date.now
-			}
-		}],
 		created_at: {
 			type: Date,
 			default: Date.now

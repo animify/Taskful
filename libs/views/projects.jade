@@ -26,7 +26,7 @@ block content
 											p.list-contents #{result.team.name} 
 										else 
 											p.list-contents.color-yellow Not assigned to a team
-										p.created_at Created #{moment(result.created_at).fromNow()}
+										p.created_at Last modified #{moment(result.modified_at).fromNow()}
 									.list-right
 										.list-options
 											span.ion-android-more-vertical.dropdown-toggle

@@ -55,6 +55,7 @@ router.post('/new', function(req, res) {
 		workspace.save(function(err, space) {
 			user.workspace = space._id;
 			user.save();
+			res.json({status:'ok'});
 		});
 	});
 
