@@ -7,7 +7,7 @@ var Projects = require('./projects');
 var Task = new Schema({
 		_id: {
 			type: String,
-			trim: true
+			'default': shortid.generate
 		},
 		project: {
 			type: String,

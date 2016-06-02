@@ -66,9 +66,7 @@ exports.createNew = function(req, res, hasProject, callback) {
 
 	function pushTask(req) {
 		return new Promise((resolve, reject) => {
-			const _id = mongoose.Types.ObjectId();
 			const task = new Task({
-				_id,
 				name: req.body.name,
 				project: req.body.project,
 				content: req.body.content,
@@ -80,9 +78,7 @@ exports.createNew = function(req, res, hasProject, callback) {
 					log.info('New task created with id: %s in project', _id, hasProject);
 					task.populate('creator', 'username fullname', function(err) {
 						if (!err) {
-							var newid = mongoose.Types.ObjectId();
 							var story = new Story({
-								_id: newid,
 								target: task._id,
 								stories : {
 									text: 'created this task',

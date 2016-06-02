@@ -81,7 +81,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(methodOverride());
-app.use(validator());
+app.use(validator({
+	customValidators: {
+		isArray: function(value) {
+				return Array.isArray(value);
+		},
+		onlyLetters: function(str) {
+				return /^\w+$/.test(str);
+		}
+ }
+}));
 
 app.use(validator({
 	errorFormatter: function(param, msg, value) {
@@ -108,7 +117,7 @@ var payments = require('./routes/payments');
 var stripehook = require('./routes/stripehook');
 var account = require('./routes/account');
 var upload = require('./routes/upload');
-var workspace = require('./routes/workspace');
+var workspaces = require('./routes/workspace');
 var apiTasks = require('./routes/api_tasks');
 var apiTeams = require('./routes/api_teams');
 var apiProjects = require('./routes/api_projects');
@@ -130,7 +139,7 @@ app.use('/projects', authcontroller.isAuthenticatedLocal, projects);
 app.use('/people', authcontroller.isAuthenticatedLocal, people);
 app.use('/payments', authcontroller.isAuthenticatedLocal, payments);
 app.use('/tasks', authcontroller.isAuthenticatedLocal, tasks);
-app.use('/workspaces', authcontroller.isAuthenticatedLocal, workspace);
+app.use('/workspaces', authcontroller.isAuthenticatedLocal, workspaces);
 app.use('/api/teams', authcontroller.isOauthAuthenticated, apiTeams);
 app.use('/api/tasks', authcontroller.isOauthAuthenticated, apiTasks);
 app.use('/api/projects', authcontroller.isOauthAuthenticated, apiProjects);

@@ -8,7 +8,7 @@ var Attachments = require('./attachments');
 var Story = new Schema({
 		_id: {
 			type: String,
-			trim: true
+			'default': shortid.generate
 		},
 		target: {
 			type: String,

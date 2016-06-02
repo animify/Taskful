@@ -34,4 +34,11 @@ html(lang="en")
 						.avatar-create
 							p Add a photo
 				.center-form_continue
-					a.btn.btn-block Continue
+					a.btn.btn-block.btn-continue Continue
+		script.
+			$('.btn-continue').bind('click', function(e) {
+				$.post(window.location.pathname, 'organisation=' + $('#i-organisation_name').val() + '&workemail=' + $('#i-organisation_domain').val(), function(data) {
+					console.log(data)
+				});
+			});
+		

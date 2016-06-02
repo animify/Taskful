@@ -7,7 +7,7 @@ var Tasks = require('./tasks');
 var Attachments = new Schema({
 		_id: {
 			type: String,
-			trim: true
+			'default': shortid.generate
 		},
 		target: {
 			type: String,

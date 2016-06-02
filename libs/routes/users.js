@@ -95,7 +95,6 @@ router.post('/register', function(req, res) {
 
 				user.save(function(err, user) {
 						if(!err) {
-								log.info("New user - %s:%s", user.username, user.password);
 								passport.authenticate('local')(req, res, function () {
 									return res.send({'status': 'OK', 'statusCode' : '200'});
 								});
@@ -106,7 +105,7 @@ router.post('/register', function(req, res) {
 			});
 
 		} else {
-			return res.send({'error': 'p404', 'message' : 'Passwords do not match'});
+			return res.json({error: '404', message : 'Passwords do not match'});
 		}
 	}
 

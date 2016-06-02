@@ -116,12 +116,10 @@ passport.use(new BearerStrategy(
 
 exports.isAuthenticatedLocal = function(req, res, callback) {
 	if (req.isAuthenticated()) {
-		console.log(req.originalUrl)
-		if (!req.user.workspace && req.originalUrl != '/workspaces/create')
-			return res.redirect('/workspaces/create')
+		if (!req.user.workspace && req.originalUrl != '/workspaces/new')
+			return res.redirect('/workspaces/new')
 		callback(null, true);
 	} else {
-		console.log('false');
 		res.redirect('/login');
 	}
 };

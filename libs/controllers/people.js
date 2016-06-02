@@ -30,10 +30,8 @@ exports.invite = function(req, res, callback) {
 				} else {
 					People.findOne({$or:[{ inviter: req.user._id, invitee: found._id }, { inviter: found._id, invitee: req.user._id } ]}, function (err, relation) {
 						if (!relation) {
-							var newid = mongoose.Types.ObjectId();
 
 							var people = new People ({
-								_id: newid,
 								inviter: req.user._id,
 								invitee: found._id
 							});

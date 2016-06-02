@@ -7,7 +7,7 @@ var Tasks = require('./tasks');
 var People = new Schema({
 		_id: {
 			type: String,
-			trim: true
+			'default': shortid.generate
 		},
 		inviter: {
 			type: String,

@@ -5,7 +5,8 @@ var User = require('./user');
 
 var Team = new Schema({
 		_id: {
-			type: String
+			type: String,
+			'default': shortid.generate
 		},
 		color: {
 			type: String

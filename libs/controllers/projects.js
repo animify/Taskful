@@ -36,9 +36,8 @@ exports.createNew = function(req, res, callback) {
 	var io = global.socketIO;
 	var saveProject = function(err, result) {
 		if (err) return callback(err, result);
-		var newid = mongoose.Types.ObjectId();
+
 		var project = new Project({
-			_id: newid,
 			name: req.body.name,
 			team: req.body.team,
 			owner: req.user.userId

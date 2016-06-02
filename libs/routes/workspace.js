@@ -7,24 +7,25 @@ var log = require(libs + 'log')(module);
 var async = require('async');
 var config = require(libs + 'config');
 var User = require('../model/user');
-var Project = require('../model/projects');
-var Tasks = require('../model/tasks');
+var Workspace = require('../model/workspace');
+var mongoose = require('mongoose');
 
 var mailer = require('../controllers/mail');
 
 
-router.get('/create', function(req, res) {
+router.get('/new', function(req, res) {
+	if (req.user.workspace)
+		return res.redirect('/account')
 	res.render('createworkspace', {user: req.user});
 });
 
-router.post('/create', function(req, res) {
+router.post('/new', function(req, res) {
 	req.sanitizeBody();
 	req.checkBody({
 		'organisation' :{
 			notEmpty: true,
-			isLength: {
-				options: [{ max: 30 }],
-				errorMessage: 'Project name can only be up to 30 characters long'
+			onlyLetters: {
+				errorMessage: 'Organisation name has illegal characters'
 			}
 		},
 		'workemail' :{
@@ -34,6 +35,29 @@ router.post('/create', function(req, res) {
 			}
 		}
 	});
+	var errors = req.validationErrors();
+	if (errors) {
+		return res.send(errors);
+	}
+
+	User.findOne({ _id: req.user._id }, function(err, user) {
+		if (!user) {
+			return res.json({error: '404', message: 'User could not be found'});
+		}
+
+		var workspace = new Workspace();
+		workspace._id = mongoose.Types.ObjectId();
+		workspace.name = req.body.organisation;
+		workspace.domain = req.body.workemail.replace(/.*@/, "");
+		workspace.creator = req.user._id;
+		workspace.members.push(req.user._id);
+
+		workspace.save(function(err, space) {
+			user.workspace = space._id;
+			user.save();
+		});
+	});
+
 });
 
 module.exports = router;

@@ -23,9 +23,7 @@ exports.createNew = function(req, res, callback) {
 		return callback('500', errors);
 	}
 
-	var newid = mongoose.Types.ObjectId();
 	var team = new Team({
-		_id: newid,
 		name: req.body.name,
 		color: randomColor(),
 		creator: req.user.userId

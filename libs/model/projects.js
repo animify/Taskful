@@ -6,7 +6,8 @@ var Team = require('./teams');
 
 var Projects = new Schema({
 		_id: {
-			type: String
+			type: String,
+			'default': shortid.generate
 		},
 		name: {
 			type: String,

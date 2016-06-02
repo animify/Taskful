@@ -6,7 +6,7 @@ var User = require('./user');
 var Workspace = new Schema({
 		_id: {
 			type: String
-		}
+		},
 		name: {
 			type: String,
 			required: true,
