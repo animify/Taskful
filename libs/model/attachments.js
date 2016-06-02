@@ -3,9 +3,8 @@ var Schema = mongoose.Schema;
 var shortid = require('shortid');
 var User = require('./user');
 var Tasks = require('./tasks');
-var Attachments = require('./attachments');
 
-var Story = new Schema({
+var Attachments = new Schema({
 		_id: {
 			type: String,
 			trim: true
@@ -27,10 +26,6 @@ var Story = new Schema({
 				type: String,
 				ref: 'User'
 			},
-			attachment: {
-				type: String,
-				ref: 'Attachments'
-			},
 			created_at: {
 				type: Date,
 				default: Date.now
@@ -42,4 +37,4 @@ var Story = new Schema({
 		}
 });
 
-module.exports = mongoose.model('Story', Story);
+module.exports = mongoose.model('Attachments', Attachments);

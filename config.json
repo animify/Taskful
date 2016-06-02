@@ -10,10 +10,6 @@
 				"api": {
 						"version" : "v1"
 				},
-				"user": {
-						"username": "a",
-						"password": "b"
-				},
 				"client": {
 						"name": "Client V1",
 						"clientId": "Client Test",

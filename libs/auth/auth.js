@@ -116,8 +116,9 @@ passport.use(new BearerStrategy(
 
 exports.isAuthenticatedLocal = function(req, res, callback) {
 	if (req.isAuthenticated()) {
-		// if (req.user.username != 'lolo')
-		// 	return res.redirect('/plans')
+		console.log(req.originalUrl)
+		if (!req.user.workspace && req.originalUrl != '/workspaces/create')
+			return res.redirect('/workspaces/create')
 		callback(null, true);
 	} else {
 		console.log('false');

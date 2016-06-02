@@ -16,6 +16,7 @@ var	User = new Schema({
 		},
 		email: {
 			type: String,
+			unique: true,
 			required: true
 		},
 		hashedPassword: {
@@ -25,6 +26,9 @@ var	User = new Schema({
 		salt: {
 			type: String,
 			required: true
+		},
+		workspace: {
+			type: String
 		},
 		plan: {
 			customer: {

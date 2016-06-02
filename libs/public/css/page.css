@@ -1,0 +1,52 @@
+.center-form {
+  height: 100%;
+  background-color: #fff;
+  text-align: center;
+}
+.center-form_continue {
+  margin-top: 25px;
+}
+.center-form_inner {
+  padding: 95px 20px;
+}
+.center-form h1 {
+  font-size: 2.4rem;
+  margin: 0 0 10px 0;
+  color: cgrey;
+}
+.center-form p {
+  color: cgr;
+}
+.logo-fixed {
+  fixed: top 22px left 30px;
+}
+.logo-fixed img {
+  max-height: 22px;
+}
+.complete {
+  margin-top: 45px;
+}
+.complete .field {
+  text-align: left;
+}
+.avatar-create {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  border: 2px dashed bordergrey;
+  float: right;
+  line-height: 180px;
+  cursor: pointer;
+  transition: all 0.14s ease;
+}
+.avatar-create:hover {
+  border: 2px solid cprimary;
+}
+.avatar-create:hover p {
+  color: cprimary;
+}
+.avatar-create p {
+  margin: 0;
+  font-size: 1rem;
+  color: cgr;
+}
