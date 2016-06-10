@@ -1281,7 +1281,7 @@ input[type="password"]:focus,
   text-align: center;
 }
 .module-head_title {
-  padding: 44px 0 98px 0;
+  padding: 44px 0 120px 0;
   *zoom: 1;
   float: left;
   clear: none;
@@ -1315,7 +1315,7 @@ input[type="password"]:focus,
   width: 100%;
   margin-left: 0%;
   margin-right: 0%;
-  margin-top: -50px;
+  margin-top: -70px;
   padding-bottom: 50px;
 }
 .module-plans:before,
@@ -1639,11 +1639,11 @@ input[type="password"]:focus,
   color: #fff !important;
 }
 #plans .module-head {
-  background: -webkit-linear-gradient(left top, #7a8cff, #48a5f1);
-  background: -moz-linear-gradient(left top, #7a8cff, #48a5f1);
-  background: -o-linear-gradient(left top, #7a8cff, #48a5f1);
-  background: -ms-linear-gradient(left top, #7a8cff, #48a5f1);
-  background: linear-gradient(to right bottom, #7a8cff, #48a5f1);
+  background: -webkit-linear-gradient(left bottom, #9a8bf7, #854feb);
+  background: -moz-linear-gradient(left bottom, #9a8bf7, #854feb);
+  background: -o-linear-gradient(left bottom, #9a8bf7, #854feb);
+  background: -ms-linear-gradient(left bottom, #9a8bf7, #854feb);
+  background: linear-gradient(to right top, #9a8bf7, #854feb);
 }
 #plans .module-head h3 {
   color: #fff;

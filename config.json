@@ -18,5 +18,10 @@
 		},
 		"stripe": {
 			"key" : "sk_test_VnCZnrr4HdZjjhuH1aT3gJdh"
+		},
+		"aws": {
+			"key" : "AKIAJBDTRSGJAG5TCMLQ",
+			"secret" : "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",
+			"bucket" : "taskful"
 		}
 }

@@ -40,7 +40,7 @@ html(lang="en")
 				$.post(window.location.pathname, 'organisation=' + $('#i-organisation_name').val() + '&workemail=' + $('#i-organisation_domain').val(), function(data) {
 					JSON.stringify(data);
 					console.log(data);
-					if (data.status == "OK")
+					if (data.status == "okx`")
 						window.location.replace("/account");
 				});
 			});

@@ -9,9 +9,20 @@ var Attachments = new Schema({
 			type: String,
 			'default': shortid.generate
 		},
-		target: {
+		owner: {
 			type: String,
-			ref: 'Tasks'
+			ref: 'User'
+		},
+		key: {
+			type: String
+		},
+		target: {
+			where: {
+				type: String
+			},
+			id: {
+				type: String
+			}
 		},
 		created_at: {
 			type: Date,
