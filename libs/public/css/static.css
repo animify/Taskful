@@ -356,7 +356,7 @@ input[type="password"]:focus,
 }
 .wrapper {
   padding: 84px 0 40px 0;
-  min-width: 1220px;
+  min-width: 1080px;
 }
 .invite_accept:hover {
   color: #0bcf4e !important;

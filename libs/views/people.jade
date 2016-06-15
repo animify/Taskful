@@ -116,8 +116,8 @@ block footer
 		$('.exp_newinvite').click(function() {
 			$.post('/people/invite', 'email=' + $('#person_email').val(), function(data) {
 				JSON.stringify(data);
-				if (data) {
-					console.log(data);
+				if (data.status == '201') {
+					closeModalOverlay();
 				}
 			}).error(function(data) {
 				console.log(data);

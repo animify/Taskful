@@ -38,7 +38,7 @@ exports.invite = function(req, res, callback) {
 
 							people.save(function(err) {
 								if (!err) {
-									return callback(null, 'Invite sent!');
+									return callback(null, '201');
 								} else {
 									return callback('400', 'Validation error');
 								}

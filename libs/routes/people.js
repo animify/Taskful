@@ -43,7 +43,7 @@ router.post('/invite', function(req, res) {
 		if (err) {
 			return res.status(err).send({ error: err, message: ret });
 		}
-		res.send(ret);
+		res.json({'status': ret});
 	});
 });
 router.post('/:id/accept', function(req, res) {

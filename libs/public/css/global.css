@@ -356,7 +356,7 @@ input[type="password"]:focus,
 }
 .wrapper {
   padding: 84px 0 40px 0;
-  min-width: 1220px;
+  min-width: 1080px;
 }
 .invite_accept:hover {
   color: #0bcf4e !important;
@@ -620,7 +620,7 @@ input[type="password"]:focus,
   font-size: 2rem;
 }
 nav {
-  min-width: 1220px;
+  min-width: 1080px;
   background-color: #fff;
   border-bottom: 1px solid #eaedf5;
   position: relative;
@@ -1548,7 +1548,7 @@ nav {
   margin-right: 0%;
   height: calc(100% - 110px);
   margin-top: 120px;
-  min-width: 1220px;
+  min-width: 1080px;
   max-width: 1600px;
   *zoom: 1;
   width: auto;
@@ -1701,8 +1701,12 @@ nav {
 .taskBody-view_tasks:after {
   clear: both;
 }
-.taskBody-view_tasks:last-child {
+.taskBody-view_tasks:nth-child(2n) {
   margin-right: 0%;
+  float: right;
+}
+.taskBody-view_tasks:nth-child(2n+1) {
+  clear: both;
 }
 .taskBody-view_task {
   *zoom: 1;
@@ -1721,8 +1725,12 @@ nav {
 .taskBody-view_task:after {
   clear: both;
 }
-.taskBody-view_task:last-child {
+.taskBody-view_task:nth-child(2n) {
   margin-right: 0%;
+  float: right;
+}
+.taskBody-view_task:nth-child(2n+1) {
+  clear: both;
 }
 .CodeMirror {
   *zoom: 1;
@@ -2420,22 +2428,22 @@ nav {
   height: 2px;
 }
 .project-status {
-  width: 11px;
-  height: 11px;
+  width: 13px;
+  height: 13px;
   -webkit-border-radius: 100%;
   border-radius: 100%;
   content: "";
   display: block;
   overflow: hidden;
   position: relative;
-  top: 15px;
+  top: 13px;
   left: 0;
   border: 2px solid #fff;
 }
 .status_green {
   background-color: #0bcf4e;
-  -webkit-box-shadow: 0 0 0 2px #0bcf4e;
-  box-shadow: 0 0 0 2px #0bcf4e;
+  -webkit-box-shadow: 0 0 0 1px #0bcf4e;
+  box-shadow: 0 0 0 1px #0bcf4e;
 }
 .tab-selection {
   display: none;
