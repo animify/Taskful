@@ -9,6 +9,7 @@ var User = require('../model/user');
 var People = require('../model/people');
 var Tasks = require('../model/tasks');
 var Attachment = require('../model/attachments');
+var storyController = require(libs + 'controllers/stories');
 
 var s3 = require('s3');
 var multiparty = require('multiparty');
@@ -60,6 +61,13 @@ exports.upload = function(req, res, form, callback) {
 											console.log(err)
 
 										fileURLs[key] = output.key;
+										storyController.create('file', req, res, function(err, story) {
+											if (err) {
+												res.statusCode = err;
+												return res.json({ error: err, message: story });
+											}
+											res.json({ status: 'OK', story : story });
+										});
 										callback()
 									})
 								});
