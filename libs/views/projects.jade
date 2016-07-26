@@ -13,6 +13,8 @@ block content
 					li.active Public
 					li Private
 					li Archived
+				h3.list-split Active
+					span.ion-arrow-down-b
 				.list
 					if (projects.length)
 						for project in projects
@@ -41,7 +43,12 @@ block content
 					else
 						.empty_content
 							h2 You have no projects
-
+				h3.list-split.collapsed Pending
+					span.ion-arrow-right-b
+				h3.list-split.collapsed Needs approval
+					span.ion-arrow-right-b
+				h3.list-split.collapsed Completed
+					span.ion-arrow-right-b
 block footer
 	.modal-overlay
 		.modal-overlay-inner

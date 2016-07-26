@@ -294,6 +294,27 @@ input[type="password"],
 	&.hover
 		background-color red
 
+.list-split
+	margin 1em 0 0 0
+	display block
+	span(1/1)
+	cursor pointer
+	&.collapsed
+		margin 0
+		padding 1em 0
+		color cgr
+	& + .list-split
+		border-top 1px solid bordergrey
+	span
+		margin-left .6em
+		relative top 1px
+		color cgr
+		opacity .4
+	&:hover
+		span
+			color cprimary
+			opacity 1
+
 .dropzone
 	height 100%
 	span(1/1)

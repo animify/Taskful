@@ -559,6 +559,49 @@ input[type="password"]:focus,
 #dropzone.hover {
   background-color: #f00;
 }
+.list-split {
+  margin: 1em 0 0 0;
+  display: block;
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 100%;
+  margin-left: 0%;
+  margin-right: 0%;
+  cursor: pointer;
+}
+.list-split:before,
+.list-split:after {
+  content: '';
+  display: table;
+}
+.list-split:after {
+  clear: both;
+}
+.list-split.collapsed {
+  margin: 0;
+  padding: 1em 0;
+  color: #8492a6;
+}
+.list-split + .list-split {
+  border-top: 1px solid #e1e5ed;
+}
+.list-split span {
+  margin-left: 0.6em;
+  position: relative;
+  top: 1px;
+  color: #8492a6;
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
+}
+.list-split:hover span {
+  color: #2ab3f7;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
 .dropzone {
   height: 100%;
   *zoom: 1;
