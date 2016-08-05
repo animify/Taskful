@@ -2159,12 +2159,18 @@ nav {
 .card-item_options i {
   color: #94a0b2;
   font-size: 1.3rem;
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
 }
 .card-item + .card-item {
   border-top: 1px solid #e1e5ed;
 }
 .card-item:hover .card-item_options i {
   color: #2ab3f7;
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
 }
 .stories {
   padding: 17px 0 10px 40px;

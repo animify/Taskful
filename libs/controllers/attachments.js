@@ -32,6 +32,8 @@ exports.upload = function(req, res, form, callback) {
 				var taskFileName = req.params.task;
 				var projectFileName = req.session.viewingProject;
 				var fileOwner = req.user._id;
+
+				req.params.id = req.params.task
 				form.parse(req, function(err, fields, files) {
 					var fileURLs = {};
 					if (files) {
@@ -39,7 +41,8 @@ exports.upload = function(req, res, form, callback) {
 						var uploadKey = projectFileName + '/' + taskFileName + '/' + file.originalFilename;
 						var stream = fs.createReadStream(file.path)
 						var mimetype = mime.lookup(file.path);
-
+						req.params.filename = file.originalFilename
+						_req = req
 						if (mimetype.localeCompare('image/jpeg')
 							|| mimetype.localeCompare('image/pjpeg')
 							|| mimetype.localeCompare('image/png')
@@ -61,7 +64,7 @@ exports.upload = function(req, res, form, callback) {
 											console.log(err)
 
 										fileURLs[key] = output.key;
-										storyController.create('file', req, res, function(err, story) {
+										storyController.create('file', _req, res, function(err, story) {
 											if (err) {
 												res.statusCode = err;
 												return res.json({ error: err, message: story });

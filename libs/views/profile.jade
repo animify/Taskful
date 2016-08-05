@@ -7,6 +7,7 @@ block content
 				.block
 					ul.tabs-selection.block-left
 						li.active(data-tab="account") Account
+						li(data-tab="workspace") Workspace
 						li(data-tab="billing") Billing
 						li(data-tab="integrations") Integrations
 						li(data-tab="security") Security
@@ -31,6 +32,15 @@ block content
 										input#i-email(type="text", value="#{user.email}")
 									.field
 										.btn Save preferences
+						.tab-selection.tab-selection_workspace
+							h2 Workspace
+							p Manage your workspace and organisation
+							if (user.workspace)
+								.section
+									.section-head
+										h3 Your credit
+										h3 $0.00
+									a.btn.btn-block Add credit
 						.tab-selection.tab-selection_billing
 							h2 Billing
 							p Manage your account billing and payment methods

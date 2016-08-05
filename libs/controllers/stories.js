@@ -10,17 +10,11 @@ var log = require(libs + 'log')(module);
 var io = global.socketIO;
 
 exports.create = function(type, req, res, callback) {
-	req.sanitizeBody();
-	req.checkBody({
-		'text' :{
-			notEmpty: true
-		}
-	});
 
-	var errors = req.validationErrors();
-	if (errors) {
-		return callback('500', errors);
-	}
+	// var errors = req.validationErrors();
+	// if (errors) {
+	// 	return callback('500', errors);
+	// }
 
 	function pushStory(type, text, task, creator, project) {
 		Story.findOneAndUpdate({
@@ -55,15 +49,22 @@ exports.create = function(type, req, res, callback) {
 			return callback('404', 'Task not found');
 		}
 
+		console.log('im here')
+
+		if (req.body.text == undefined)
+			var pushtext = req.params.filename
+		else
+			var pushtext = req.body.text
+
 		if (!err) {
 			if (req.user._id.toString().trim() == task.creator._id.toString().trim()) {
-				pushStory(type, req.body.text, req.params.id, req.user._id, task.project._id);
+				pushStory(type, pushtext, req.params.id, req.user._id, task.project._id);
 			} else {
 				validate.isMember(task.project.team, req.user._id, function (err, done) {
 					if (err) {
 						return callback('500', 'Validation error');
 					} else {
-						pushStory(type, req.body.text, req.params.id, req.user._id, task.project._id);
+						pushStory(type, pushtext, req.params.id, req.user._id, task.project._id);
 					}
 				});
 			}
